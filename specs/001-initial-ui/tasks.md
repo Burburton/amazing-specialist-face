@@ -18,7 +18,7 @@
 | T-001 | 目录结构与类型定义 | Phase 1 | ✅ completed | developer | - |
 | T-002 | 数据文件准备 | Phase 1 | ✅ completed | developer | T-001 |
 | T-003 | 路由配置 | Phase 1 | ✅ completed | developer | T-001 |
-| T-004 | Header 组件 | Phase 2 | pending | developer | T-001 |
+| T-004 | Header 组件 | Phase 2 | ✅ completed | developer | T-001 |
 | T-005 | Layout 组件 | Phase 2 | pending | developer | T-004 |
 | T-006 | 全局样式 | Phase 2 | pending | developer | - |
 | T-007 | HomePage 实现 | Phase 3 | pending | developer | T-002, T-005, T-006 |
@@ -187,9 +187,13 @@ interface StatsData {
 ### T-004: Header 组件
 
 **Phase**: Phase 2  
-**Status**: pending  
+**Status**: ✅ completed  
 **Priority**: high  
 **Dependencies**: T-001
+**Completed**: 2026-03-30
+
+**PR**: #15 (https://github.com/Burburton/amazing-specialist-face/pull/15)
+**Issue**: #6 (https://github.com/Burburton/amazing-specialist-face/issues/6)
 
 **Goal**: 创建导航栏组件
 
@@ -203,9 +207,9 @@ interface StatsData {
 - `src/components/common/Header.module.css`
 
 **Acceptance Criteria**:
-- [ ] 导航链接正确
-- [ ] 移动端适配
-- [ ] 当前页面高亮
+- [x] 导航链接正确
+- [x] 移动端适配
+- [x] 当前页面高亮
 
 **Estimated Effort**: 1 hour
 
