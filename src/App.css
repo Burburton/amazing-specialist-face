@@ -1,3 +1,11 @@
+.loading {
+  display: flex;
+  place-content: center;
+  place-items: center;
+  flex-grow: 1;
+  min-height: 200px;
+}
+
 .counter {
   font-size: 16px;
   padding: 5px 10px;
