@@ -15,9 +15,9 @@
 
 | Task ID | Task Name | Phase | Status | Assignee | Dependencies |
 |---------|-----------|-------|--------|----------|--------------|
-| T-001 | 目录结构与类型定义 | Phase 1 | pending | developer | - |
-| T-002 | 数据文件准备 | Phase 1 | pending | developer | T-001 |
-| T-003 | 路由配置 | Phase 1 | pending | developer | T-001 |
+| T-001 | 目录结构与类型定义 | Phase 1 | ✅ completed | developer | - |
+| T-002 | 数据文件准备 | Phase 1 | ✅ completed | developer | T-001 |
+| T-003 | 路由配置 | Phase 1 | ✅ completed | developer | T-001 |
 | T-004 | Header 组件 | Phase 2 | pending | developer | T-001 |
 | T-005 | Layout 组件 | Phase 2 | pending | developer | T-004 |
 | T-006 | 全局样式 | Phase 2 | pending | developer | - |
@@ -35,8 +35,9 @@
 ### T-001: 目录结构与类型定义
 
 **Phase**: Phase 1  
-**Status**: pending  
+**Status**: ✅ completed  
 **Priority**: high  
+**Completed**: 2026-03-30  
 
 **Goal**: 建立项目目录结构和 TypeScript 类型定义
 
@@ -62,9 +63,9 @@
   - `src/types/index.ts`
 
 **Acceptance Criteria**:
-- [ ] 目录结构创建完成
-- [ ] TypeScript 类型定义完整
-- [ ] 无 TypeScript 编译错误
+- [x] 目录结构创建完成
+- [x] TypeScript 类型定义完整
+- [x] 无 TypeScript 编译错误
 
 **Estimated Effort**: 1 hour
 
@@ -73,9 +74,10 @@
 ### T-002: 数据文件准备
 
 **Phase**: Phase 1  
-**Status**: pending  
+**Status**: ✅ completed  
 **Priority**: high  
 **Dependencies**: T-001
+**Completed**: 2026-03-30
 
 **Goal**: 从专家包 repo 提取数据，创建 JSON 数据文件
 
@@ -139,9 +141,9 @@ interface StatsData {
 ```
 
 **Acceptance Criteria**:
-- [ ] 所有数据文件创建完成
-- [ ] 数据与专家包内容一致
-- [ ] JSON 格式正确
+- [x] 所有数据文件创建完成
+- [x] 数据与专家包内容一致
+- [x] JSON 格式正确
 
 **Estimated Effort**: 2 hours
 
@@ -150,9 +152,13 @@ interface StatsData {
 ### T-003: 路由配置
 
 **Phase**: Phase 1  
-**Status**: pending  
+**Status**: ✅ completed  
 **Priority**: high  
 **Dependencies**: T-001
+**Completed**: 2026-03-30
+
+**PR**: #13 (https://github.com/Burburton/amazing-specialist-face/pull/13)
+**Issue**: #3 (https://github.com/Burburton/amazing-specialist-face/issues/3)
 
 **Goal**: 配置 React Router 路由
 
@@ -170,9 +176,9 @@ interface StatsData {
 - `src/main.tsx` - 应用入口
 
 **Acceptance Criteria**:
-- [ ] 路由配置完成
-- [ ] 所有路由可访问
-- [ ] 404 页面处理
+- [x] 路由配置完成
+- [x] 所有路由可访问
+- [x] 404 页面处理
 
 **Estimated Effort**: 0.5 hours
 
