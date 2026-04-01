@@ -1,4 +1,4 @@
-# Tasks: Initial UI - 文档展示型界面
+﻿# Tasks: Initial UI - 文档展示型界面
 
 ## Feature Reference
 `specs/001-initial-ui/spec.md` | `specs/001-initial-ui/plan.md`
@@ -19,7 +19,7 @@
 | T-002 | 数据文件准备 | Phase 1 | ✅ completed | developer | T-001 |
 | T-003 | 路由配置 | Phase 1 | ✅ completed | developer | T-001 |
 | T-004 | Header 组件 | Phase 2 | ✅ completed | developer | T-001 |
-| T-005 | Layout 组件 | Phase 2 | pending | developer | T-004 |
+| T-005 | Layout 组件 | Phase 2 | ✅ completed | developer | T-004 |
 | T-006 | 全局样式 | Phase 2 | pending | developer | - |
 | T-007 | HomePage 实现 | Phase 3 | pending | developer | T-002, T-005, T-006 |
 | T-008 | SkillsPage 实现 | Phase 3 | pending | developer | T-002, T-005, T-006 |
@@ -218,7 +218,7 @@ interface StatsData {
 ### T-005: Layout 组件
 
 **Phase**: Phase 2  
-**Status**: ? completed  
+**Status**: ✅ completed  
 **Priority**: high  
 **Dependencies**: T-004
 
@@ -234,9 +234,9 @@ interface StatsData {
 - `src/components/common/Layout.module.css`
 
 **Acceptance Criteria**:
-- [ ] 布局正确
-- [ ] Header 显示
-- [ ] 页面内容正常渲染
+- [x] 布局正确
+- [x] Header 显示
+- [x] 页面内容正常渲染
 
 **Estimated Effort**: 0.5 hours
 
@@ -245,7 +245,7 @@ interface StatsData {
 ### T-006: 全局样式
 
 **Phase**: Phase 2  
-**Status**: ? completed  
+**Status**: ✅ completed  
 **Priority**: medium
 
 **Goal**: 建立全局样式系统
@@ -271,7 +271,7 @@ interface StatsData {
 ### T-007: HomePage 实现
 
 **Phase**: Phase 3  
-**Status**: ? completed  
+**Status**: ✅ completed  
 **Priority**: high  
 **Dependencies**: T-002, T-005, T-006
 
@@ -299,7 +299,7 @@ interface StatsData {
 ### T-008: SkillsPage 实现
 
 **Phase**: Phase 3  
-**Status**: ? completed  
+**Status**: ✅ completed  
 **Priority**: high  
 **Dependencies**: T-002, T-005, T-006
 
@@ -329,7 +329,7 @@ interface StatsData {
 ### T-009: RolesPage 实现
 
 **Phase**: Phase 3  
-**Status**: ? completed  
+**Status**: ✅ completed  
 **Priority**: high  
 **Dependencies**: T-002, T-005, T-006
 
@@ -358,7 +358,7 @@ interface StatsData {
 ### T-010: ContractsPage 实现
 
 **Phase**: Phase 4  
-**Status**: ? completed  
+**Status**: ✅ completed  
 **Priority**: medium  
 **Dependencies**: T-002, T-005, T-006
 
@@ -385,7 +385,7 @@ interface StatsData {
 ### T-011: CommandsPage 实现
 
 **Phase**: Phase 4  
-**Status**: ? completed  
+**Status**: ✅ completed  
 **Priority**: medium  
 **Dependencies**: T-002, T-005, T-006
 
@@ -411,7 +411,7 @@ interface StatsData {
 ### T-012: 优化与构建验证
 
 **Phase**: Phase 4  
-**Status**: ? completed  
+**Status**: ✅ completed  
 **Priority**: high  
 **Dependencies**: T-007~T-011
 
