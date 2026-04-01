@@ -8,6 +8,7 @@ import {
   CommandsPage,
   NotFoundPage
 } from './pages';
+import Layout from './components/common/Layout';
 import './App.css';
 
 function LoadingFallback() {
@@ -23,11 +24,13 @@ function App() {
     <BrowserRouter>
       <Suspense fallback={<LoadingFallback />}>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/skills" element={<SkillsPage />} />
-          <Route path="/roles" element={<RolesPage />} />
-          <Route path="/contracts" element={<ContractsPage />} />
-          <Route path="/commands" element={<CommandsPage />} />
+          <Route element={<Layout />}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/skills" element={<SkillsPage />} />
+            <Route path="/roles" element={<RolesPage />} />
+            <Route path="/contracts" element={<ContractsPage />} />
+            <Route path="/commands" element={<CommandsPage />} />
+          </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>

@@ -218,7 +218,7 @@ interface StatsData {
 ### T-005: Layout 组件
 
 **Phase**: Phase 2  
-**Status**: pending  
+**Status**: ? completed  
 **Priority**: high  
 **Dependencies**: T-004
 
@@ -245,7 +245,7 @@ interface StatsData {
 ### T-006: 全局样式
 
 **Phase**: Phase 2  
-**Status**: pending  
+**Status**: ? completed  
 **Priority**: medium
 
 **Goal**: 建立全局样式系统
@@ -271,7 +271,7 @@ interface StatsData {
 ### T-007: HomePage 实现
 
 **Phase**: Phase 3  
-**Status**: pending  
+**Status**: ? completed  
 **Priority**: high  
 **Dependencies**: T-002, T-005, T-006
 
@@ -299,7 +299,7 @@ interface StatsData {
 ### T-008: SkillsPage 实现
 
 **Phase**: Phase 3  
-**Status**: pending  
+**Status**: ? completed  
 **Priority**: high  
 **Dependencies**: T-002, T-005, T-006
 
@@ -329,7 +329,7 @@ interface StatsData {
 ### T-009: RolesPage 实现
 
 **Phase**: Phase 3  
-**Status**: pending  
+**Status**: ? completed  
 **Priority**: high  
 **Dependencies**: T-002, T-005, T-006
 
@@ -358,7 +358,7 @@ interface StatsData {
 ### T-010: ContractsPage 实现
 
 **Phase**: Phase 4  
-**Status**: pending  
+**Status**: ? completed  
 **Priority**: medium  
 **Dependencies**: T-002, T-005, T-006
 
@@ -385,7 +385,7 @@ interface StatsData {
 ### T-011: CommandsPage 实现
 
 **Phase**: Phase 4  
-**Status**: pending  
+**Status**: ? completed  
 **Priority**: medium  
 **Dependencies**: T-002, T-005, T-006
 
@@ -411,7 +411,7 @@ interface StatsData {
 ### T-012: 优化与构建验证
 
 **Phase**: Phase 4  
-**Status**: pending  
+**Status**: ? completed  
 **Priority**: high  
 **Dependencies**: T-007~T-011
 
@@ -458,3 +458,5 @@ interface StatsData {
 - 每个任务完成后需要更新 status
 - 如果发现需求变更，需要同步更新 spec.md 和 plan.md
 - 构建验证应该在所有功能完成后进行
+
+
