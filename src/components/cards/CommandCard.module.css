@@ -1,0 +1,95 @@
+.commandCard {
+  background: var(--color-bg-primary);
+  border: 2px solid;
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  transition: box-shadow var(--transition-normal);
+}
+
+.commandCard:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.commandHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.commandNumber {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-inverse);
+  flex-shrink: 0;
+}
+
+.commandName {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin: 0;
+  font-family: monospace;
+}
+
+.commandDescription {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--space-md);
+}
+
+.commandMeta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.metaSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.metaLabel {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metaList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.metaItem {
+  display: inline-flex;
+}
+
+.code {
+  font-size: var(--font-size-sm);
+  background: var(--color-bg-tertiary);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-primary);
+  font-family: monospace;
+}
+
+@media (max-width: 480px) {
+  .commandHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

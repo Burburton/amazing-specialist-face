@@ -1,0 +1,124 @@
+.commandsPage {
+  min-height: 100vh;
+  padding: var(--space-2xl) var(--space-lg);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+}
+
+.workflow {
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.sectionTitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-md);
+}
+
+.sectionDesc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-lg);
+}
+
+.workflowSteps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.workflowStep {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.stepNumber {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--font-weight-bold);
+  flex-shrink: 0;
+}
+
+.stepContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stepCommand {
+  font-size: var(--font-size-sm);
+  color: var(--color-primary);
+  font-family: monospace;
+}
+
+.stepLabel {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+}
+
+.stepArrow {
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-lg);
+  margin: 0 var(--space-xs);
+}
+
+.commandsList {
+  margin-bottom: var(--space-xl);
+}
+
+.commandsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: var(--space-md);
+}
+
+@media (max-width: 768px) {
+  .workflowSteps {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .workflowStep {
+    width: 100%;
+  }
+  
+  .stepArrow {
+    transform: rotate(90deg);
+    align-self: center;
+    margin: var(--space-xs) 0;
+  }
+  
+  .commandsGrid {
+    grid-template-columns: 1fr;
+  }
+}
