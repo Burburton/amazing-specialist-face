@@ -1,0 +1,264 @@
+/* Design Tokens - Design System Refactor */
+/* Based on frontend-design-system plugin guidance */
+/* Style: Developer Tool / Technical Documentation */
+
+:root {
+  /* ========================================
+   * Colors
+   * ======================================== */
+  
+  /* Brand Colors - Violet (非 Blue/Indigo AI 默认) */
+  --color-primary: #8b5cf6;
+  --color-primary-hover: #7c3aed;
+  --color-primary-pressed: #6d28d9;
+  --color-primary-subtle: rgba(139, 92, 246, 0.1);
+  
+  /* Accent Colors - Emerald (活力点缀) */
+  --color-accent: #10b981;
+  --color-accent-hover: #059669;
+  --color-accent-subtle: rgba(16, 185, 129, 0.1);
+  
+  /* Semantic Colors */
+  --color-success: #22c55e;
+  --color-success-subtle: rgba(34, 197, 94, 0.1);
+  --color-warning: #f59e0b;
+  --color-warning-subtle: rgba(245, 158, 11, 0.1);
+  --color-error: #ef4444;
+  --color-error-subtle: rgba(239, 68, 68, 0.1);
+  --color-info: #06b6d4;
+  --color-info-subtle: rgba(6, 182, 212, 0.1);
+  
+  /* Surface Colors - Dark Mode First */
+  --color-background: #09090b;
+  --color-surface: #18181b;
+  --color-surface-elevated: #27272a;
+  --color-surface-muted: #3f3f46;
+  
+  /* Text Colors - WCAG AA compliant */
+  --color-text-primary: #fafafa;
+  --color-text-secondary: #a1a1aa;
+  --color-text-muted: #71717a;
+  --color-text-inverse: #09090b;
+  
+  /* Border Colors */
+  --color-border: #27272a;
+  --color-border-subtle: #3f3f46;
+  --color-border-focus: #8b5cf6;
+  
+  /* Role Colors (6-role 系统) */
+  --color-role-architect: #8b5cf6;
+  --color-role-developer: #3b82f6;
+  --color-role-tester: #22c55e;
+  --color-role-reviewer: #f59e0b;
+  --color-role-docs: #06b6d4;
+  --color-role-security: #ef4444;
+  
+  /* ========================================
+   * Spacing (8pt Grid)
+   * ======================================== */
+  
+  --space-0: 0;
+  --space-px: 1px;
+  --space-0-5: 4px;
+  --space-1: 8px;
+  --space-1-5: 12px;
+  --space-2: 16px;
+  --space-2-5: 20px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 48px;
+  --space-8: 64px;
+  --space-10: 80px;
+  --space-12: 96px;
+  --space-16: 128px;
+  
+  /* Semantic Spacing */
+  --padding-xs: var(--space-1);
+  --padding-sm: var(--space-2);
+  --padding-md: var(--space-3);
+  --padding-lg: var(--space-4);
+  --padding-xl: var(--space-6);
+  
+  --gap-xs: var(--space-1);
+  --gap-sm: var(--space-2);
+  --gap-md: var(--space-3);
+  --gap-lg: var(--space-4);
+  
+  --section-gap: var(--space-8);
+  --page-padding: var(--space-4);
+  
+  /* ========================================
+   * Typography
+   * ======================================== */
+  
+  /* Font Families - 字体配对 */
+  --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", "SF Mono", Consolas, monospace;
+  
+  /* Font Sizes - 层级化 */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+  
+  /* Line Heights - 标题紧凑，正文宽松 */
+  --leading-none: 1;
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+  
+  /* Font Weights */
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  
+  /* Letter Spacing */
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  
+  /* ========================================
+   * Shadows
+   * ======================================== */
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -2px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+  
+  /* Glow Effects */
+  --glow-primary: 0 0 20px rgba(139, 92, 246, 0.3);
+  --glow-accent: 0 0 20px rgba(16, 185, 129, 0.3);
+  
+  /* Focus Ring */
+  --ring-focus: 0 0 0 2px var(--color-background), 0 0 0 4px var(--color-primary);
+  --ring-focus-offset: 0 0 0 2px var(--color-primary);
+  
+  /* ========================================
+   * Border Radius
+   * ======================================== */
+  
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
+  
+  /* ========================================
+   * Transitions (语义化)
+   * ======================================== */
+  
+  --duration-instant: 100ms;
+  --duration-fast: 150ms;
+  --duration-normal: 200ms;
+  --duration-slow: 300ms;
+  --duration-slower: 500ms;
+  
+  --ease-default: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.12, 0.4, 0.29, 1.46);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  /* ========================================
+   * Z-Index
+   * ======================================== */
+  
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-modal: 300;
+  --z-popover: 400;
+  --z-tooltip: 500;
+  
+  /* ========================================
+   * Layout
+   * ======================================== */
+  
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1536px;
+  
+  --header-height: 64px;
+  --sidebar-width: 280px;
+}
+
+/* ========================================
+ * Light Mode (可选)
+ * ======================================== */
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-background: #fafafa;
+    --color-surface: #ffffff;
+    --color-surface-elevated: #f4f4f5;
+    --color-surface-muted: #e4e4e7;
+    
+    --color-text-primary: #18181b;
+    --color-text-secondary: #52525b;
+    --color-text-muted: #a1a1aa;
+    --color-text-inverse: #fafafa;
+    
+    --color-border: #e4e4e7;
+    --color-border-subtle: #d4d4d8;
+    
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* ========================================
+ * Reduced Motion
+ * ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ========================================
+ * Typography Utilities
+ * ======================================== */
+
+.text-display {
+  font-family: var(--font-display);
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+.text-mono {
+  font-family: var(--font-mono);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

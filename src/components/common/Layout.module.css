@@ -2,17 +2,20 @@
   display: flex;
   flex-direction: column;
   min-height: 100svh;
+  background-color: var(--color-background);
 }
 
 .main {
   flex: 1;
-  padding: 24px 32px;
+  padding: var(--space-4);
   width: 100%;
   box-sizing: border-box;
+  max-width: var(--container-xl);
+  margin: 0 auto;
 }
 
 @media (max-width: 768px) {
   .main {
-    padding: 16px 20px;
+    padding: var(--space-3);
   }
 }

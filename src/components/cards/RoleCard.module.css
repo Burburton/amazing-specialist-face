@@ -1,33 +1,44 @@
 .roleCard {
-  background: var(--color-bg-primary);
-  border: 2px solid;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  transition: box-shadow var(--transition-normal);
+  transition: transform var(--duration-normal) var(--ease-spring),
+              box-shadow var(--duration-normal) var(--ease-default);
 }
 
 .roleCard:hover {
-  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.roleCard:focus-within {
+  box-shadow: var(--ring-focus);
 }
 
 .roleHeader {
   display: flex;
   align-items: center;
-  gap: var(--space-md);
-  padding: var(--space-md);
+  gap: var(--space-3);
+  padding: var(--space-4);
   cursor: pointer;
-  background: var(--color-bg-secondary);
+  background: var(--color-surface-elevated);
+  transition: background-color var(--duration-fast) var(--ease-default);
+}
+
+.roleHeader:hover {
+  background: var(--color-surface-muted);
 }
 
 .roleIcon {
   width: 48px;
   height: 48px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-lg);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-bold);
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
   color: var(--color-text-inverse);
   flex-shrink: 0;
 }
@@ -37,44 +48,47 @@
 }
 
 .roleName {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-semibold);
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
   color: var(--color-text-primary);
   margin: 0;
 }
 
 .roleId {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-tertiary);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
 }
 
 .skillCount {
-  font-size: var(--font-size-sm);
+  font-size: var(--text-sm);
   color: var(--color-text-secondary);
-  background: var(--color-bg-tertiary);
-  padding: var(--space-xs) var(--space-sm);
+  background: var(--color-primary-subtle);
+  color: var(--color-primary);
+  padding: var(--space-1) var(--space-2);
   border-radius: var(--radius-sm);
 }
 
 .expandIcon {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-tertiary);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
 }
 
 .roleMission {
-  padding: var(--space-md);
-  font-size: var(--font-size-sm);
+  padding: var(--space-4);
+  font-size: var(--text-sm);
   color: var(--color-text-secondary);
-  line-height: var(--line-height-relaxed);
-  border-bottom: 1px solid var(--color-border-light);
+  line-height: var(--leading-relaxed);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .roleDetails {
-  padding: var(--space-md);
+  padding: var(--space-4);
 }
 
 .detailSection {
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-4);
 }
 
 .detailSection:last-child {
@@ -82,10 +96,10 @@
 }
 
 .detailTitle {
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
   color: var(--color-text-primary);
-  margin: 0 0 var(--space-sm) 0;
+  margin: 0 0 var(--space-2) 0;
 }
 
 .detailList {
@@ -95,10 +109,10 @@
 }
 
 .detailList li {
-  font-size: var(--font-size-sm);
+  font-size: var(--text-sm);
   color: var(--color-text-secondary);
-  padding: var(--space-xs) 0;
-  padding-left: var(--space-md);
+  padding: var(--space-1) 0;
+  padding-left: var(--space-4);
   position: relative;
 }
 
@@ -110,7 +124,7 @@
   transform: translateY(-50%);
   width: 6px;
   height: 6px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
 }
 
 .inScopeItem::before {
@@ -128,14 +142,14 @@
 .skillsList {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-xs);
+  gap: var(--space-1);
 }
 
 .skillTag {
-  font-size: var(--font-size-xs);
+  font-size: var(--text-xs);
   color: var(--color-text-secondary);
-  background: var(--color-bg-tertiary);
-  padding: 2px 8px;
+  background: var(--color-surface-elevated);
+  padding: 2px var(--space-2);
   border-radius: var(--radius-sm);
-  border: 1px solid;
+  border: 1px solid var(--color-border);
 }
