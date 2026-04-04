@@ -1,0 +1,46 @@
+{
+  "id": "ui-ux-designer",
+  "name": "UI/UX Designer",
+  "version": "1.0.0",
+  "description": "UI/UX design expert skills for creating professional interface designs. Analyzes requirements, outputs design specifications, wireframes, and component designs before implementation.",
+  "author": "amazing-specialist-face",
+  "compatibility": {
+    "core_version": ">=1.7.0"
+  },
+  "skills": [
+    "design-consultant",
+    "wireframe-design",
+    "component-design"
+  ],
+  "templates": [
+    "design-spec-template.md",
+    "wireframe-template.md",
+    "component-spec-template.md"
+  ],
+  "tags": [
+    "ui",
+    "ux",
+    "design",
+    "wireframe",
+    "component",
+    "frontend",
+    "interface"
+  ],
+  "platform_mapping": {
+    "opencode": {
+      "developer": {
+        "additional_skills": [
+          "design-consultant",
+          "wireframe-design",
+          "component-design"
+        ]
+      },
+      "architect": {
+        "additional_skills": [
+          "design-consultant",
+          "wireframe-design"
+        ]
+      }
+    }
+  }
+}
