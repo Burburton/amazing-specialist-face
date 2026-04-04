@@ -12,18 +12,18 @@ M002
 
 | Task ID | Task Name | Role | Status | Dependencies |
 |---------|-----------|------|--------|--------------|
-| T-B001 | 类型定义 | developer | pending | - |
-| T-B002 | GitHub API 客户端 | developer | pending | T-B001 |
-| T-B003 | 路由配置 | developer | pending | - |
-| T-B004 | StatsOverview 组件 | developer | pending | T-B001 |
-| T-B005 | TaskCard 组件 | developer | pending | T-B001, T-B002 |
-| T-B006 | Timeline 组件 | developer | pending | T-B001 |
-| T-B007 | LogViewer 组件 | developer | pending | T-B001 |
-| T-B008 | PayloadViewer 组件 | developer | pending | T-B001 |
-| T-B009 | ExecutionPage 页面 | developer | pending | T-B004~T-B008 |
-| T-B010 | 导航更新 | developer | pending | T-B009 |
-| T-B011 | 模拟数据 | developer | pending | T-B001 |
-| T-B012 | 构建验证 | developer | pending | T-B009, T-B010 |
+| T-B001 | 类型定义 | developer | ✅ completed | - |
+| T-B002 | GitHub API 客户端 | developer | ✅ completed | T-B001 |
+| T-B003 | 路由配置 | developer | ✅ completed | - |
+| T-B004 | StatsOverview 组件 | developer | ✅ completed | T-B001 |
+| T-B005 | TaskCard 组件 | developer | ✅ completed | T-B001, T-B002 |
+| T-B006 | Timeline 组件 | developer | ✅ completed | T-B001 |
+| T-B007 | LogViewer 组件 | developer | ✅ completed | T-B001 |
+| T-B008 | PayloadViewer 组件 | developer | ✅ completed | T-B001 |
+| T-B009 | ExecutionPage 页面 | developer | ✅ completed | T-B004~T-B008 |
+| T-B010 | 导航更新 | developer | ✅ completed | T-B009 |
+| T-B011 | 模拟数据 | developer | ✅ completed | T-B001 |
+| T-B012 | 构建验证 | developer | ✅ completed | T-B009, T-B010 |
 
 ---
 
