@@ -7,7 +7,11 @@ import {
   ContractsPage,
   CommandsPage,
   ExecutionPage,
-  NotFoundPage
+  NotFoundPage,
+  SkillDetailPage,
+  RoleDetailPage,
+  ContractDetailPage,
+  CommandDetailPage
 } from './pages';
 import Layout from './components/common/Layout';
 import './App.css';
@@ -28,9 +32,13 @@ function App() {
           <Route element={<Layout />}>
             <Route path="/" element={<HomePage />} />
             <Route path="/skills" element={<SkillsPage />} />
+            <Route path="/skills/:id" element={<SkillDetailPage />} />
             <Route path="/roles" element={<RolesPage />} />
+            <Route path="/roles/:name" element={<RoleDetailPage />} />
             <Route path="/contracts" element={<ContractsPage />} />
+            <Route path="/contracts/:id" element={<ContractDetailPage />} />
             <Route path="/commands" element={<CommandsPage />} />
+            <Route path="/commands/:name" element={<CommandDetailPage />} />
             <Route path="/execution" element={<ExecutionPage />} />
           </Route>
           <Route path="*" element={<NotFoundPage />} />

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './ContractCard.module.css';
 
 interface Contract {
@@ -11,6 +12,7 @@ interface Contract {
 interface ContractCardProps {
   contract: Contract;
   producerColor: string;
+  href?: string;
 }
 
 const ROLE_LABELS: Record<string, string> = {
@@ -26,9 +28,9 @@ const ROLE_LABELS: Record<string, string> = {
   OpenClaw: 'OpenClaw',
 };
 
-export default function ContractCard({ contract, producerColor }: ContractCardProps) {
-  return (
-    <div className={styles.contractCard} style={{ borderColor: producerColor }}>
+export default function ContractCard({ contract, producerColor, href }: ContractCardProps) {
+  const content = (
+    <>
       <div className={styles.contractHeader}>
         <span className={styles.contractId}>{contract.contract_id}</span>
         <span className={styles.contractName}>{contract.contract_name}</span>
@@ -55,6 +57,20 @@ export default function ContractCard({ contract, producerColor }: ContractCardPr
           </div>
         </div>
       </div>
-    </div>
+    </>
+  );
+
+  if (href) {
+    return (
+      <Link to={href} className={styles.contractCard} style={{ borderColor: producerColor }}>
+        {content}
+      </Link>
+    );
+  }
+
+  return (
+    <article className={styles.contractCard} style={{ borderColor: producerColor }}>
+      {content}
+    </article>
   );
 }

@@ -14,6 +14,21 @@ OpenCode 专家包可视化展示界面 - React + TypeScript + Vite 前端项目
 - **React Router** 路由
 - **Vitest** 测试框架
 
+### 页面路由
+
+| 路由 | 页面 | 描述 |
+|------|------|------|
+| `/` | HomePage | 首页 (PPT Manual Style) |
+| `/skills` | SkillsPage | 技能列表 |
+| `/skills/:id` | SkillDetailPage | 技能详情 |
+| `/roles` | RolesPage | 角色列表 |
+| `/roles/:name` | RoleDetailPage | 角色详情 |
+| `/contracts` | ContractsPage | 契约列表 |
+| `/contracts/:id` | ContractDetailPage | 契约详情 |
+| `/commands` | CommandsPage | 命令列表 |
+| `/commands/:name` | CommandDetailPage | 命令详情 |
+| `/execution` | ExecutionPage | 执行监控 |
+
 ## 项目结构
 
 ```
@@ -30,7 +45,10 @@ amazing-specialist-face/
 │       └── frontend-design-system/  # 前端设计系统 Plugin
 │
 ├── specs/                   # Feature 开发记录
-│   └── 001-frontend-design-system-plugin/
+│   ├── 001-frontend-design-system-plugin/
+│   ├── 003-ui-redesign/
+│   ├── 004-ppt-manual-style/
+│   └── 005-unified-design-system/  # 统一设计系统 + 详情页
 │
 └── scripts/
     └── sync-from-expert-pack.cjs  # 数据同步脚本

@@ -1,6 +1,7 @@
 import styles from './CommandsPage.module.css';
 import commandsData from '../data/commands.json';
 import CommandCard from '../components/cards/CommandCard';
+import PageHeader from '../components/shared/PageHeader';
 
 const WORKFLOW_STEPS = [
   { step: 1, command: 'spec-start', label: '定义规格' },
@@ -12,15 +13,13 @@ const WORKFLOW_STEPS = [
 
 export default function CommandsPage() {
   return (
-    <div className={styles.commandsPage}>
-      <header className={styles.header}>
-        <h1 className={styles.title}>核心命令</h1>
-        <p className={styles.subtitle}>
-          {commandsData.total} 个命令 · 完整开发流程 · 从规格到验收
-        </p>
-      </header>
+    <div className={styles.page}>
+      <PageHeader 
+        title="核心命令" 
+        subtitle={`${commandsData.commands.length} 个命令 · 完整开发流程 · 从规格到验收`} 
+      />
 
-      <section className={styles.workflow}>
+      <section className={styles.workflowSection}>
         <h2 className={styles.sectionTitle}>工作流程</h2>
         <div className={styles.workflowSteps}>
           {WORKFLOW_STEPS.map((item, idx) => (
@@ -38,14 +37,19 @@ export default function CommandsPage() {
         </div>
       </section>
 
-      <section className={styles.commandsList}>
+      <section className={styles.gridSection}>
         <h2 className={styles.sectionTitle}>命令详情</h2>
         <p className={styles.sectionDesc}>
           每个命令接收 feature 名称或 ID，支持 --enhanced 标志启用 M4 增强技能。
         </p>
         <div className={styles.commandsGrid}>
           {commandsData.commands.map((command, idx) => (
-            <CommandCard key={command.name} command={command} index={idx} />
+            <CommandCard 
+              key={command.name} 
+              command={command} 
+              index={idx} 
+              href={`/commands/${command.name}`}
+            />
           ))}
         </div>
       </section>

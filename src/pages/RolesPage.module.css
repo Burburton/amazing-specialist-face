@@ -1,115 +1,119 @@
-.rolesPage {
-  min-height: 100vh;
-  padding: var(--space-2xl) var(--space-lg);
-  max-width: 1200px;
+.page {
+  min-height: 100%;
+  max-width: var(--container-xl);
   margin: 0 auto;
 }
 
-.header {
-  text-align: center;
-  margin-bottom: var(--space-xl);
+.overviewSection {
+  padding: 0 var(--space-4) var(--space-6);
 }
 
-.title {
-  font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-text-primary);
-  margin-bottom: var(--space-sm);
+.roleGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-4);
 }
 
-.subtitle {
-  font-size: var(--font-size-lg);
-  color: var(--color-text-secondary);
-}
-
-.overview {
-  margin-bottom: var(--space-xl);
-}
-
-.sectionTitle {
-  font-size: var(--font-size-2xl);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text-primary);
-  margin-bottom: var(--space-md);
-}
-
-.roleBadges {
+.roleCard {
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-md);
-  justify-content: center;
+  flex-direction: column;
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  text-decoration: none;
+  transition: transform var(--duration-normal) var(--ease-spring),
+              box-shadow var(--duration-normal) var(--ease-default);
 }
 
-.roleBadge {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  padding: var(--space-sm) var(--space-md);
-  background: var(--color-bg-primary);
-  border: 2px solid;
+.roleCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.roleIcon {
+  width: 48px;
+  height: 48px;
   border-radius: var(--radius-lg);
-  cursor: pointer;
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
-}
-
-.roleBadge:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-
-.badgeIcon {
-  width: 32px;
-  height: 32px;
-  border-radius: var(--radius-full);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-text-inverse);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-sm);
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-3);
 }
 
-.badgeName {
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-medium);
+.roleName {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--font-semibold);
   color: var(--color-text-primary);
+  margin: 0 0 var(--space-2);
 }
 
-.badgeCount {
-  font-size: var(--font-size-xs);
-  color: var(--color-text-tertiary);
-  background: var(--color-bg-tertiary);
-  padding: 2px 6px;
+.roleMission {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+  flex: 1;
+  margin-bottom: var(--space-3);
+}
+
+.roleStats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skillCount {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  background: var(--color-surface-elevated);
+  padding: var(--space-1) var(--space-2);
   border-radius: var(--radius-sm);
 }
 
-.collaboration {
-  margin-bottom: var(--space-xl);
+.viewLink {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-primary);
 }
 
-.roleDetails {
-  margin-bottom: var(--space-xl);
+.collaborationSection {
+  padding: 0 var(--space-4) var(--space-6);
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--font-semibold);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-4);
+}
+
+.detailsSection {
+  padding: 0 var(--space-4) var(--space-8);
 }
 
 .sectionDesc {
-  font-size: var(--font-size-base);
-  color: var(--color-text-secondary);
-  margin-bottom: var(--space-lg);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin: 0 0 var(--space-4);
 }
 
 .roleCards {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  gap: var(--space-4);
 }
 
 @media (max-width: 768px) {
-  .roleBadges {
-    flex-direction: column;
-    align-items: stretch;
+  .overviewSection,
+  .collaborationSection,
+  .detailsSection {
+    padding: 0 var(--space-2) var(--space-4);
   }
 
-  .roleBadge {
-    justify-content: flex-start;
+  .roleGrid {
+    grid-template-columns: 1fr;
   }
 }

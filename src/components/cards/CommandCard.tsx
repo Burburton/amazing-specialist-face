@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './CommandCard.module.css';
 
 interface Command {
@@ -10,21 +11,22 @@ interface Command {
 interface CommandCardProps {
   command: Command;
   index: number;
+  href?: string;
 }
 
 const COMMAND_COLORS = [
-  '#2563eb', // blue
-  '#22c55e', // green
-  '#f59e0b', // amber
-  '#8b5cf6', // purple
-  '#ef4444', // red
+  '#2563eb',
+  '#22c55e',
+  '#f59e0b',
+  '#8b5cf6',
+  '#ef4444',
 ];
 
-export default function CommandCard({ command, index }: CommandCardProps) {
+export default function CommandCard({ command, index, href }: CommandCardProps) {
   const color = COMMAND_COLORS[index % COMMAND_COLORS.length];
 
-  return (
-    <div className={styles.commandCard} style={{ borderColor: color }}>
+  const content = (
+    <>
       <div className={styles.commandHeader}>
         <span className={styles.commandNumber} style={{ backgroundColor: color }}>
           {index + 1}
@@ -57,6 +59,20 @@ export default function CommandCard({ command, index }: CommandCardProps) {
           </ul>
         </div>
       </div>
-    </div>
+    </>
+  );
+
+  if (href) {
+    return (
+      <Link to={href} className={styles.commandCard} style={{ borderColor: color }}>
+        {content}
+      </Link>
+    );
+  }
+
+  return (
+    <article className={styles.commandCard} style={{ borderColor: color }}>
+      {content}
+    </article>
   );
 }

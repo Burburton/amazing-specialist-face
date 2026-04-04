@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './SkillCard.module.css';
 
 interface Skill {
@@ -13,6 +14,7 @@ interface SkillCardProps {
   skill: Skill;
   roleColor?: string;
   onClick?: (skill: Skill) => void;
+  href?: string;
 }
 
 const ROLE_COLORS_400: Record<string, string> = {
@@ -25,7 +27,7 @@ const ROLE_COLORS_400: Record<string, string> = {
   common: 'var(--color-role-common-400)',
 };
 
-export default function SkillCard({ skill, roleColor, onClick }: SkillCardProps) {
+export default function SkillCard({ skill, roleColor, onClick, href }: SkillCardProps) {
   const isMvp = skill.category === 'MVP';
   const roleColorValue = roleColor || ROLE_COLORS_400[skill.role] || 'var(--color-role-common-400)';
 
@@ -41,6 +43,43 @@ export default function SkillCard({ skill, roleColor, onClick }: SkillCardProps)
     }
   };
 
+  const content = (
+    <>
+      <div className={styles.skillHeader}>
+        <h3 id={`${skill.id}-title`} className={styles.skillName}>
+          {skill.name}
+        </h3>
+        <span className={`${styles.skillCategory} ${isMvp ? styles.mvp : styles.m4}`}>
+          {skill.category}
+        </span>
+      </div>
+
+      <p id={`${skill.id}-desc`} className={styles.skillDescription}>
+        {skill.description}
+      </p>
+
+      <div className={styles.skillMeta}>
+        <span className={styles.skillRole} style={{ backgroundColor: roleColorValue }}>
+          {skill.role}
+        </span>
+        <span className={styles.skillId}>{skill.id}</span>
+      </div>
+    </>
+  );
+
+  if (href) {
+    return (
+      <Link
+        to={href}
+        className={cardClassName}
+        aria-labelledby={`${skill.id}-title`}
+        aria-describedby={`${skill.id}-desc`}
+      >
+        {content}
+      </Link>
+    );
+  }
+
   return (
     <article
       className={cardClassName}
@@ -52,36 +91,7 @@ export default function SkillCard({ skill, roleColor, onClick }: SkillCardProps)
       aria-describedby={`${skill.id}-desc`}
       aria-label={`技能: ${skill.name}, 类别: ${skill.category}, 角色: ${skill.role}`}
     >
-      <div className={styles.skillHeader}>
-        <h3
-          id={`${skill.id}-title`}
-          className={styles.skillName}
-        >
-          {skill.name}
-        </h3>
-        <span className={`${styles.skillCategory} ${isMvp ? styles.mvp : styles.m4}`}>
-          {skill.category}
-        </span>
-      </div>
-
-      <p
-        id={`${skill.id}-desc`}
-        className={styles.skillDescription}
-      >
-        {skill.description}
-      </p>
-
-      <div className={styles.skillMeta}>
-        <span
-          className={styles.skillRole}
-          style={{ backgroundColor: roleColorValue }}
-        >
-          {skill.role}
-        </span>
-        <span className={styles.skillId}>
-          {skill.id}
-        </span>
-      </div>
+      {content}
     </article>
   );
 }

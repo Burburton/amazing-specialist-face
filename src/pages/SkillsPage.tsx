@@ -3,6 +3,7 @@ import styles from './SkillsPage.module.css';
 import skillsData from '../data/skills.json';
 import SkillCard from '../components/cards/SkillCard';
 import SkillDependencyDiagram from '../components/diagrams/SkillDependencyDiagram';
+import PageHeader from '../components/shared/PageHeader';
 
 const ROLES = ['all', 'common', 'architect', 'developer', 'tester', 'reviewer', 'docs', 'security'];
 const ROLE_LABELS: Record<string, string> = {
@@ -59,15 +60,13 @@ export default function SkillsPage() {
   };
 
   return (
-    <div className={styles.skillsPage}>
-      <header className={styles.header}>
-        <h1 className={styles.title}>技能库</h1>
-        <p className={styles.subtitle}>
-          {skillsData.total} 个技能 · {skillsData.mvpCount} MVP 核心 · {skillsData.m4Count} M4 扩展
-        </p>
-      </header>
-
-      <section className={styles.filters}>
+    <div className={styles.page}>
+      <PageHeader 
+        title="技能库" 
+        subtitle={`${skillsData.skills.length} 个技能 · ${skillsData.skills.filter(s => s.category === 'MVP').length} MVP 核心 · ${skillsData.skills.filter(s => s.category === 'M4').length} M4 扩展`} 
+      />
+      
+      <section className={styles.filterSection}>
         <div className={styles.tabBar}>
           {ROLES.map(role => (
             <button
@@ -109,7 +108,7 @@ export default function SkillsPage() {
         </div>
       </section>
 
-      <section className={styles.stats}>
+      <section className={styles.statsSection}>
         <div className={styles.statItem}>
           <span className={styles.statValue}>{stats.total}</span>
           <span className={styles.statLabel}>当前显示</span>
@@ -124,9 +123,11 @@ export default function SkillsPage() {
         </div>
       </section>
 
-      <SkillDependencyDiagram skills={skillsData.skills} />
+      <section className={styles.diagramSection}>
+        <SkillDependencyDiagram skills={skillsData.skills} />
+      </section>
 
-      <section className={styles.skillGrid}>
+      <section className={styles.gridSection}>
         {Object.entries(groupedSkills).map(([role, skills]) => (
           <div key={role} className={styles.roleGroup}>
             <h3 className={styles.roleGroupTitle} style={{ borderColor: ROLE_COLORS_400[role] }}>
@@ -134,7 +135,7 @@ export default function SkillsPage() {
             </h3>
             <div className={styles.skills}>
               {skills.map(skill => (
-                <SkillCard key={skill.id} skill={skill} />
+                <SkillCard key={skill.id} skill={skill} href={`/skills/${skill.id}`} />
               ))}
             </div>
           </div>
