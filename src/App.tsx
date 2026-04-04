@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import {
   HomePage,
   SkillsPage,
@@ -21,7 +21,7 @@ function LoadingFallback() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Suspense fallback={<LoadingFallback />}>
         <Routes>
           <Route element={<Layout />}>
@@ -34,7 +34,7 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
