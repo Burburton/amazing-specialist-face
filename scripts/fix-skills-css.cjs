@@ -1,4 +1,6 @@
-.skillsPage {
+const fs = require('fs');
+
+const cssContent = `.skillsPage {
   min-height: 100vh;
   padding: var(--space-2xl) var(--space-lg);
   max-width: 1200px;
@@ -165,3 +167,7 @@
     gap: var(--space-md);
   }
 }
+`;
+
+fs.writeFileSync('src/pages/SkillsPage.module.css', cssContent);
+console.log('Fixed SkillsPage.module.css');
