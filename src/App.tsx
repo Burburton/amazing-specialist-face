@@ -6,6 +6,7 @@ import {
   RolesPage,
   ContractsPage,
   CommandsPage,
+  ExecutionPage,
   NotFoundPage
 } from './pages';
 import Layout from './components/common/Layout';
@@ -30,6 +31,7 @@ function App() {
             <Route path="/roles" element={<RolesPage />} />
             <Route path="/contracts" element={<ContractsPage />} />
             <Route path="/commands" element={<CommandsPage />} />
+            <Route path="/execution" element={<ExecutionPage />} />
           </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

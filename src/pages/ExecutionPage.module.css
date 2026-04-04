@@ -1,0 +1,26 @@
+.execution-page {
+  min-height: 100vh;
+  padding: var(--space-2xl) var(--space-lg);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.execution-page h1 {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-lg);
+}
+
+.execution-page p {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  color: var(--color-text-secondary);
+}

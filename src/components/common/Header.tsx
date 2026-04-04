@@ -8,6 +8,7 @@ const navLinks = [
   { path: '/roles', label: 'Roles' },
   { path: '/contracts', label: 'Contracts' },
   { path: '/commands', label: 'Commands' },
+  { path: '/execution', label: 'Execution' },
 ];
 
 function Header() {

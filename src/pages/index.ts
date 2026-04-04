@@ -5,4 +5,5 @@ export const SkillsPage = lazy(() => import('./SkillsPage'));
 export const RolesPage = lazy(() => import('./RolesPage'));
 export const ContractsPage = lazy(() => import('./ContractsPage'));
 export const CommandsPage = lazy(() => import('./CommandsPage'));
+export const ExecutionPage = lazy(() => import('./ExecutionPage'));
 export const NotFoundPage = lazy(() => import('./NotFoundPage'));
