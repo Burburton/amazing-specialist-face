@@ -18,8 +18,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout GUI
         uses: actions/checkout@v4
+
+      - name: Checkout Expert Pack
+        uses: actions/checkout@v4
+        with:
+          repository: Burburton/amazing_agent_specialist
+          path: ../amazing_agent_specialist
 
       - name: Setup Node
         uses: actions/setup-node@v4
