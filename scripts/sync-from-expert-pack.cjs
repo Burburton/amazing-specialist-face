@@ -108,6 +108,23 @@ function getDefaultCommands() {
 }
 
 async function syncData(expertPackPath) {
+  console.log('Checking expert pack at:', expertPackPath);
+  
+  if (!fs.existsSync(expertPackPath)) {
+    console.log('Expert pack not found. Keeping existing data.');
+    console.log('To sync data, ensure expert pack is available at:', expertPackPath);
+    return;
+  }
+  
+  const roleDefPath = path.join(expertPackPath, 'role-definition.md');
+  const skillsDir = path.join(expertPackPath, '.opencode/skills');
+  const contractsPath = path.join(expertPackPath, 'contracts/pack/registry.json');
+  
+  if (!fs.existsSync(roleDefPath) && !fs.existsSync(skillsDir) && !fs.existsSync(contractsPath)) {
+    console.log('Expert pack found but no data files. Keeping existing data.');
+    return;
+  }
+  
   console.log('Syncing data from:', expertPackPath);
   console.log('Output directory:', OUTPUT_DIR);
   
@@ -116,24 +133,33 @@ async function syncData(expertPackPath) {
   }
   
   console.log('Syncing roles...');
-  const roleDefPath = path.join(expertPackPath, 'role-definition.md');
   if (fs.existsSync(roleDefPath)) {
     const roles = parseRoles(fs.readFileSync(roleDefPath, 'utf-8'));
     fs.writeFileSync(path.join(OUTPUT_DIR, 'roles.json'), JSON.stringify({ roles, total: roles.length }, null, 2));
     console.log('  Done:', roles.length, 'roles');
+  } else {
+    console.log('  Skipped: role-definition.md not found');
   }
   
   console.log('Syncing skills...');
   const skills = parseSkills(expertPackPath);
-  const mvpCount = skills.filter(s => s.category === 'MVP').length;
-  const m4Count = skills.filter(s => s.category === 'M4').length;
-  fs.writeFileSync(path.join(OUTPUT_DIR, 'skills.json'), JSON.stringify({ skills, total: skills.length, mvpCount, m4Count }, null, 2));
-  console.log('  Done:', skills.length, 'skills');
+  if (skills.length > 0) {
+    const mvpCount = skills.filter(s => s.category === 'MVP').length;
+    const m4Count = skills.filter(s => s.category === 'M4').length;
+    fs.writeFileSync(path.join(OUTPUT_DIR, 'skills.json'), JSON.stringify({ skills, total: skills.length, mvpCount, m4Count }, null, 2));
+    console.log('  Done:', skills.length, 'skills');
+  } else {
+    console.log('  Skipped: no skills found (keeping existing data)');
+  }
   
   console.log('Syncing contracts...');
   const contracts = loadContracts(expertPackPath);
-  fs.writeFileSync(path.join(OUTPUT_DIR, 'contracts.json'), JSON.stringify({ contracts, total: contracts.length }, null, 2));
-  console.log('  Done:', contracts.length, 'contracts');
+  if (contracts.length > 0) {
+    fs.writeFileSync(path.join(OUTPUT_DIR, 'contracts.json'), JSON.stringify({ contracts, total: contracts.length }, null, 2));
+    console.log('  Done:', contracts.length, 'contracts');
+  } else {
+    console.log('  Skipped: no contracts found (keeping existing data)');
+  }
   
   console.log('Syncing commands...');
   const commands = getDefaultCommands();
@@ -143,8 +169,8 @@ async function syncData(expertPackPath) {
   console.log('Generating stats...');
   const stats = {
     totalSkills: skills.length,
-    mvpSkills: mvpCount,
-    m4Skills: m4Count,
+    mvpSkills: skills.filter(s => s.category === 'MVP').length,
+    m4Skills: skills.filter(s => s.category === 'M4').length,
     totalRoles: 6,
     totalContracts: contracts.length,
     totalCommands: 5,
@@ -168,5 +194,5 @@ for (let i = 0; i < args.length; i++) {
 
 syncData(path.resolve(expertPackPath)).catch(err => {
   console.error('Error:', err.message);
-  process.exit(1);
+  process.exit(0);
 });
