@@ -1,0 +1,134 @@
+.contractsPage {
+  min-height: 100vh;
+  padding: var(--space-2xl) var(--space-lg);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+}
+
+.overview {
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.sectionTitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-md);
+}
+
+.sectionDesc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-lg);
+}
+
+.roleBadges {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.roleBadge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-bg-primary);
+  border: 2px solid;
+  border-radius: var(--radius-lg);
+  transition: transform var(--transition-normal);
+}
+
+.roleBadge:hover {
+  transform: translateY(-2px);
+}
+
+.badgeIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-inverse);
+}
+
+.badgeName {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.badgeCount {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-tertiary);
+  background: var(--color-bg-tertiary);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.contractGroups {
+  margin-bottom: var(--space-xl);
+}
+
+.roleGroup {
+  margin-bottom: var(--space-xl);
+}
+
+.roleGroup:last-child {
+  margin-bottom: 0;
+}
+
+.roleGroupTitle {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 2px solid currentColor;
+}
+
+.contractsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: var(--space-md);
+}
+
+@media (max-width: 768px) {
+  .roleBadges {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .roleBadge {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+  
+  .contractsGrid {
+    grid-template-columns: 1fr;
+  }
+}
