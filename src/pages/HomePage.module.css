@@ -51,6 +51,14 @@
   font-weight: var(--font-weight-medium);
 }
 
+.helloWorld {
+  margin-bottom: var(--space-2xl);
+  padding: var(--space-lg);
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+}
+
 /* Stats Section */
 .stats {
   margin-bottom: var(--space-3xl);
