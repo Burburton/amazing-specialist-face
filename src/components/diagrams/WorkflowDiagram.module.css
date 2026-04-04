@@ -1,0 +1,155 @@
+.diagram {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.rolesGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--space-md);
+}
+
+.roleCard {
+  background: var(--color-bg-primary);
+  border: 2px solid;
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  text-align: center;
+  transition: transform var(--transition-normal);
+}
+
+.roleCard:hover {
+  transform: scale(1.05);
+}
+
+.roleIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-sm);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-inverse);
+}
+
+.roleName {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.roleMission {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+}
+
+.workflowConnections {
+  background: var(--color-bg-tertiary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+}
+
+.connectionsTitle {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-md);
+  text-align: center;
+}
+
+.connectionsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.connection {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-md);
+}
+
+.connectionFrom {
+  font-weight: var(--font-weight-semibold);
+}
+
+.connectionArrow {
+  color: var(--color-text-tertiary);
+}
+
+.connectionTo {
+  font-weight: var(--font-weight-semibold);
+}
+
+.connectionLabel {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  margin-left: auto;
+}
+
+.workflowCycle {
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-accent-light) 100%);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+}
+
+.cycleTitle {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-inverse);
+  margin-bottom: var(--space-md);
+  text-align: center;
+}
+
+.cycleFlow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.cycleStep {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-inverse);
+  background: rgba(255, 255, 255, 0.2);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+}
+
+.cycleArrow {
+  color: var(--color-text-inverse);
+  font-weight: var(--font-weight-bold);
+}
+
+@media (max-width: 768px) {
+  .rolesGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .rolesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .connection {
+    flex-wrap: wrap;
+  }
+
+  .connectionLabel {
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
+    padding-top: var(--space-xs);
+  }
+}

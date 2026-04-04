@@ -1,0 +1,141 @@
+.roleCard {
+  background: var(--color-bg-primary);
+  border: 2px solid;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: box-shadow var(--transition-normal);
+}
+
+.roleCard:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.roleHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  cursor: pointer;
+  background: var(--color-bg-secondary);
+}
+
+.roleIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-inverse);
+  flex-shrink: 0;
+}
+
+.roleInfo {
+  flex: 1;
+}
+
+.roleName {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.roleId {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-tertiary);
+}
+
+.skillCount {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  background: var(--color-bg-tertiary);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+}
+
+.expandIcon {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-tertiary);
+}
+
+.roleMission {
+  padding: var(--space-md);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.roleDetails {
+  padding: var(--space-md);
+}
+
+.detailSection {
+  margin-bottom: var(--space-md);
+}
+
+.detailSection:last-child {
+  margin-bottom: 0;
+}
+
+.detailTitle {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-sm) 0;
+}
+
+.detailList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.detailList li {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  padding: var(--space-xs) 0;
+  padding-left: var(--space-md);
+  position: relative;
+}
+
+.detailList li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.inScopeItem::before {
+  background: var(--color-success);
+}
+
+.outScopeItem::before {
+  background: var(--color-error);
+}
+
+.triggerItem::before {
+  background: var(--color-accent);
+}
+
+.skillsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.skillTag {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  background: var(--color-bg-tertiary);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid;
+}

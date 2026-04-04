@@ -1,0 +1,158 @@
+.diagram {
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+}
+
+.diagramTitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  text-align: center;
+  margin: 0 0 var(--space-xl) 0;
+}
+
+.rolesRow {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-xl);
+}
+
+.roleNode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-lg);
+  color: var(--color-text-inverse);
+  min-width: 80px;
+}
+
+.roleInitial {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+}
+
+.roleLabel {
+  font-size: var(--font-size-xs);
+  margin-top: var(--space-xs);
+}
+
+.flowsSection {
+  margin-bottom: var(--space-xl);
+}
+
+.flowsTitle {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-md) 0;
+}
+
+.flowsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-sm);
+}
+
+.flowItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  background: var(--color-bg-primary);
+  border-radius: var(--radius-md);
+}
+
+.flowFrom, .flowTo {
+  padding: var(--space-xs) var(--space-sm);
+  border: 2px solid;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.flowArrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.flowLabel {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+}
+
+.arrowIcon {
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-bold);
+}
+
+.workflowCycle {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+}
+
+.cycleTitle {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-inverse);
+  margin: 0 0 var(--space-md) 0;
+  text-align: center;
+}
+
+.cycleFlow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.cycleStep {
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-inverse);
+}
+
+.cycleArrow {
+  color: var(--color-text-inverse);
+  font-weight: var(--font-weight-bold);
+}
+
+.cycleNote {
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: rgba(255, 255, 255, 0.8);
+  margin: var(--space-md) 0 0 0;
+}
+
+@media (max-width: 768px) {
+  .rolesRow {
+    gap: var(--space-sm);
+  }
+
+  .roleNode {
+    min-width: 60px;
+    padding: var(--space-xs) var(--space-sm);
+  }
+
+  .flowsList {
+    grid-template-columns: 1fr;
+  }
+
+  .cycleFlow {
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .cycleArrow {
+    transform: rotate(90deg);
+  }
+}

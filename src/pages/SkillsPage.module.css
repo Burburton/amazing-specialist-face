@@ -1,0 +1,203 @@
+﻿.skillsPage {
+  min-height: 100vh;
+  padding: var(--space-2xl) var(--space-lg);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+}
+
+.filters {
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.searchInput {
+  flex: 1;
+  padding: var(--space-md);
+  border: 1px solid var(--color-border-medium);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.clearButton {
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-secondary);
+  color: var(--color-text-inverse);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-weight: var(--font-weight-bold);
+}
+
+.roleFilters {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-md);
+}
+
+.roleButton {
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-bg-primary);
+  border: 2px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  transition: all var(--transition-normal);
+}
+
+.roleButton:hover {
+  background: var(--color-bg-tertiary);
+}
+
+.roleButton.active {
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  border-color: var(--color-primary);
+}
+
+.roleCount {
+  font-size: var(--font-size-xs);
+  background: var(--color-bg-tertiary);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}
+
+.roleButton.active .roleCount {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.categoryFilters {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.categoryButton {
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.categoryButton:hover {
+  background: var(--color-bg-tertiary);
+}
+
+.categoryButton.active {
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+  border-color: var(--color-accent);
+}
+
+.resultsInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.mvpBadge {
+  background: var(--color-success);
+  color: var(--color-text-inverse);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+}
+
+.m4Badge {
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+}
+
+.skillsList {
+  margin-bottom: var(--space-xl);
+}
+
+.roleGroup {
+  margin-bottom: var(--space-xl);
+}
+
+.roleGroupTitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 2px solid currentColor;
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-md);
+}
+
+.noResults {
+  text-align: center;
+  padding: var(--space-3xl);
+  color: var(--color-text-tertiary);
+}
+
+.noResults button {
+  margin-top: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .roleFilters {
+    flex-direction: column;
+  }
+
+  .roleButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .skillsGrid {
+    grid-template-columns: 1fr;
+  }
+}

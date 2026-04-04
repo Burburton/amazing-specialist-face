@@ -1,0 +1,72 @@
+﻿.skillCard {
+  background: var(--color-bg-primary);
+  border: 2px solid;
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.skillCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.skillHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.skillName {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  word-break: break-word;
+}
+
+.skillCategory {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.skillCategory.mvp {
+  background: var(--color-success);
+  color: var(--color-text-inverse);
+}
+
+.skillCategory.m4 {
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+}
+
+.skillDescription {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--space-md);
+}
+
+.skillMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.skillRole {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-inverse);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.skillId {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  font-family: var(--font-family-mono);
+}
