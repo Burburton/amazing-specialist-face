@@ -4,121 +4,195 @@
       "contract_id": "AC-001",
       "contract_name": "design-note",
       "producer_role": "architect",
-      "consumer_roles": ["developer", "tester", "reviewer", "docs"],
+      "consumer_roles": [
+        "developer",
+        "tester",
+        "reviewer",
+        "docs"
+      ],
       "description": "Primary design baseline document produced by architect, transforming feature specifications into structured technical designs"
     },
     {
       "contract_id": "AC-002",
       "contract_name": "open-questions",
       "producer_role": "architect",
-      "consumer_roles": ["developer", "tester", "reviewer", "management"],
+      "consumer_roles": [
+        "developer",
+        "tester",
+        "reviewer",
+        "management"
+      ],
       "description": "Structured document capturing unresolved design questions with impact analysis and temporary assumptions"
     },
     {
       "contract_id": "AC-003",
       "contract_name": "risks-and-tradeoffs",
       "producer_role": "architect",
-      "consumer_roles": ["reviewer", "management"],
+      "consumer_roles": [
+        "reviewer",
+        "management"
+      ],
       "description": "Document capturing identified risks, their severity, mitigation strategies, and trade-off decisions made during design"
     },
     {
       "contract_id": "AC-004",
       "contract_name": "module-boundaries",
       "producer_role": "architect",
-      "consumer_roles": ["developer", "tester", "reviewer"],
+      "consumer_roles": [
+        "developer",
+        "tester",
+        "reviewer"
+      ],
       "description": "Definition of module boundaries, ownership assignments, and interface contracts between modules"
     },
     {
       "contract_id": "DC-001",
       "contract_name": "implementation-summary",
       "producer_role": "developer",
-      "consumer_roles": ["tester", "reviewer", "docs"],
+      "consumer_roles": [
+        "tester",
+        "reviewer",
+        "docs"
+      ],
       "description": "Developer-produced artifact documenting code changes, goal achievement, and known issues"
     },
     {
       "contract_id": "DC-002",
       "contract_name": "self-check-report",
       "producer_role": "developer",
-      "consumer_roles": ["tester", "reviewer"],
+      "consumer_roles": [
+        "tester",
+        "reviewer"
+      ],
       "description": "Developer self-validation report showing compliance with coding rules and implementation requirements"
     },
     {
       "contract_id": "DC-003",
       "contract_name": "bugfix-report",
       "producer_role": "developer",
-      "consumer_roles": ["tester", "reviewer", "docs"],
+      "consumer_roles": [
+        "tester",
+        "reviewer",
+        "docs"
+      ],
       "description": "Report documenting bug fix implementation with root cause analysis and verification evidence"
     },
     {
       "contract_id": "TC-001",
       "contract_name": "verification-report",
       "producer_role": "tester",
-      "consumer_roles": ["reviewer", "acceptance", "developer"],
+      "consumer_roles": [
+        "reviewer",
+        "acceptance",
+        "developer"
+      ],
       "description": "Tester-produced report recording tests run, pass/fail summary, coverage gaps, and confidence level"
     },
     {
       "contract_id": "TC-002",
       "contract_name": "test-scope-report",
       "producer_role": "tester",
-      "consumer_roles": ["reviewer", "developer"],
+      "consumer_roles": [
+        "reviewer",
+        "developer"
+      ],
       "description": "Document defining test scope, boundary conditions, and risk-based testing priorities"
     },
     {
       "contract_id": "TC-003",
       "contract_name": "regression-risk-report",
       "producer_role": "tester",
-      "consumer_roles": ["reviewer", "developer"],
+      "consumer_roles": [
+        "reviewer",
+        "developer"
+      ],
       "description": "Analysis of regression risks from code changes with recommended regression test scope"
     },
     {
       "contract_id": "RC-001",
       "contract_name": "review-findings-report",
       "producer_role": "reviewer",
-      "consumer_roles": ["acceptance", "docs", "security", "developer"],
+      "consumer_roles": [
+        "acceptance",
+        "docs",
+        "security",
+        "developer"
+      ],
       "description": "Independent review report with severity-classified findings, governance alignment status, and actionable recommendations"
     },
     {
       "contract_id": "RC-002",
       "contract_name": "actionable-feedback-report",
       "producer_role": "reviewer",
-      "consumer_roles": ["developer", "acceptance"],
+      "consumer_roles": [
+        "developer",
+        "acceptance"
+      ],
       "description": "Structured feedback for developer with must-fix items, improvement suggestions, and clear acceptance conditions"
     },
     {
       "contract_id": "RC-003",
       "contract_name": "acceptance-decision-record",
       "producer_role": "reviewer",
-      "consumer_roles": ["docs", "management", "acceptance"],
+      "consumer_roles": [
+        "docs",
+        "management",
+        "acceptance"
+      ],
       "description": "Formal record of acceptance decision with conditions, evidence, and traceability to upstream artifacts"
     },
     {
       "contract_id": "DOC-001",
       "contract_name": "docs-sync-report",
       "producer_role": "docs",
-      "consumer_roles": ["acceptance", "management", "OpenClaw"],
+      "consumer_roles": [
+        "acceptance",
+        "management",
+        "OpenClaw"
+      ],
       "description": "Documentation synchronization report recording changes made, evidence consumed, and downstream handoff recommendation"
     },
     {
       "contract_id": "DOC-002",
       "contract_name": "changelog-entry",
       "producer_role": "docs",
-      "consumer_roles": ["management", "release"],
+      "consumer_roles": [
+        "management",
+        "release"
+      ],
       "description": "Structured changelog entry with change type classification, capability changes, and breaking changes notes"
+    },
+    {
+      "contract_id": "DOC-003",
+      "contract_name": "issue-progress-report",
+      "producer_role": "docs",
+      "consumer_roles": [
+        "management",
+        "acceptance"
+      ],
+      "description": "Progress report posted to GitHub Issue after execution completion, signaling pending acceptance without closing the Issue"
     },
     {
       "contract_id": "SEC-001",
       "contract_name": "security-review-report",
       "producer_role": "security",
-      "consumer_roles": ["developer", "reviewer", "management"],
+      "consumer_roles": [
+        "developer",
+        "reviewer",
+        "management"
+      ],
       "description": "Security review report with vulnerability findings, CWE/OWASP references, and gate decision"
     },
     {
       "contract_id": "SEC-002",
       "contract_name": "input-validation-review-report",
       "producer_role": "security",
-      "consumer_roles": ["developer", "reviewer"],
+      "consumer_roles": [
+        "developer",
+        "reviewer"
+      ],
       "description": "Focused security review for input validation with attack vectors analysis and remediation guidance"
     }
   ],
-  "total": 17
+  "total": 18
 }

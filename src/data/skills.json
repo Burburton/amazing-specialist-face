@@ -1,50 +1,311 @@
 {
   "skills": [
-    {"id": "common/artifact-reading", "name": "artifact-reading", "role": "common", "category": "MVP", "description": "统一读取 spec、design note、test report、review report 等工件，提取关键字段与约束，生成结构化摘要供当前角色使用", "path": ".opencode/skills/common/artifact-reading/SKILL.md"},
-    {"id": "common/context-summarization", "name": "context-summarization", "role": "common", "category": "MVP", "description": "上下文裁剪，防止膨胀，为执行层提供精简的上下文", "path": ".opencode/skills/common/context-summarization/SKILL.md"},
-    {"id": "common/failure-analysis", "name": "failure-analysis", "role": "common", "category": "MVP", "description": "失败根因分析，分类失败类型，为返工提供依据", "path": ".opencode/skills/common/failure-analysis/SKILL.md"},
-    {"id": "common/execution-reporting", "name": "execution-reporting", "role": "common", "category": "MVP", "description": "统一输出执行结果，标准化 execution result 格式", "path": ".opencode/skills/common/execution-reporting/SKILL.md"},
-    {"id": "common/retry-strategy", "name": "retry-strategy", "role": "common", "category": "MVP", "description": "智能返工策略选择，决定 CONTINUE/REWORK/REPLAN/ESCALATE", "path": ".opencode/skills/common/retry-strategy/SKILL.md"},
-    
-    {"id": "architect/requirement-to-design", "name": "requirement-to-design", "role": "architect", "category": "MVP", "description": "Transform feature specifications into structured technical design notes that define module boundaries, interface contracts, and implementation roadmaps", "path": ".opencode/skills/architect/requirement-to-design/SKILL.md"},
-    {"id": "architect/module-boundary-design", "name": "module-boundary-design", "role": "architect", "category": "MVP", "description": "Define module boundaries, responsibilities, and dependencies for clean architecture", "path": ".opencode/skills/architect/module-boundary-design/SKILL.md"},
-    {"id": "architect/tradeoff-analysis", "name": "tradeoff-analysis", "role": "architect", "category": "MVP", "description": "Document design decisions with alternatives, rationale, and trade-off analysis", "path": ".opencode/skills/architect/tradeoff-analysis/SKILL.md"},
-    {"id": "architect/interface-contract-design", "name": "interface-contract-design", "role": "architect", "category": "M4", "description": "Define API and data contracts with version strategy and error taxonomy", "path": ".opencode/skills/architect/interface-contract-design/SKILL.md"},
-    {"id": "architect/migration-planning", "name": "migration-planning", "role": "architect", "category": "M4", "description": "Design migration strategies with rollback requirements and risk assessment", "path": ".opencode/skills/architect/migration-planning/SKILL.md"},
-    
-    {"id": "developer/feature-implementation", "name": "feature-implementation", "role": "developer", "category": "MVP", "description": "指导 developer 按 task 描述和 design note 完成代码实现，输出可交付的代码变更和实现总结", "path": ".opencode/skills/developer/feature-implementation/SKILL.md"},
-    {"id": "developer/bugfix-workflow", "name": "bugfix-workflow", "role": "developer", "category": "MVP", "description": "Bug 修复闭环流程，包括根因分析、修复实现、验证回归", "path": ".opencode/skills/developer/bugfix-workflow/SKILL.md"},
-    {"id": "developer/code-change-selfcheck", "name": "code-change-selfcheck", "role": "developer", "category": "MVP", "description": "代码变更自检，确保实现符合约束和规范", "path": ".opencode/skills/developer/code-change-selfcheck/SKILL.md"},
-    {"id": "developer/refactor-safely", "name": "refactor-safely", "role": "developer", "category": "M4", "description": "安全重构流程，确保行为不变的前提下改进代码结构", "path": ".opencode/skills/developer/refactor-safely/SKILL.md"},
-    {"id": "developer/dependency-minimization", "name": "dependency-minimization", "role": "developer", "category": "M4", "description": "依赖最小化策略，减少不必要的依赖引入", "path": ".opencode/skills/developer/dependency-minimization/SKILL.md"},
-    
-    {"id": "tester/unit-test-design", "name": "unit-test-design", "role": "tester", "category": "MVP", "description": "单元测试设计，确保关键路径有测试覆盖", "path": ".opencode/skills/tester/unit-test-design/SKILL.md"},
-    {"id": "tester/regression-analysis", "name": "regression-analysis", "role": "tester", "category": "MVP", "description": "回归分析，评估代码变更的回归风险", "path": ".opencode/skills/tester/regression-analysis/SKILL.md"},
-    {"id": "tester/edge-case-matrix", "name": "edge-case-matrix", "role": "tester", "category": "MVP", "description": "边界条件矩阵，确保边界条件覆盖完整", "path": ".opencode/skills/tester/edge-case-matrix/SKILL.md"},
-    {"id": "tester/integration-test-design", "name": "integration-test-design", "role": "tester", "category": "M4", "description": "集成测试设计，验证模块间协作正确性", "path": ".opencode/skills/tester/integration-test-design/SKILL.md"},
-    {"id": "tester/flaky-test-diagnosis", "name": "flaky-test-diagnosis", "role": "tester", "category": "M4", "description": "不稳定测试诊断，识别和修复偶发失败的测试", "path": ".opencode/skills/tester/flaky-test-diagnosis/SKILL.md"},
-    {"id": "tester/performance-test-design", "name": "performance-test-design", "role": "tester", "category": "M4", "description": "性能测试设计，定义性能测试场景和指标", "path": ".opencode/skills/tester/performance-test-design/SKILL.md"},
-    {"id": "tester/benchmark-analysis", "name": "benchmark-analysis", "role": "tester", "category": "M4", "description": "基准测试分析，建立性能基线并跟踪变化", "path": ".opencode/skills/tester/benchmark-analysis/SKILL.md"},
-    {"id": "tester/load-test-orchestration", "name": "load-test-orchestration", "role": "tester", "category": "M4", "description": "负载测试编排，设计和执行高并发测试场景", "path": ".opencode/skills/tester/load-test-orchestration/SKILL.md"},
-    {"id": "tester/performance-regression-analysis", "name": "performance-regression-analysis", "role": "tester", "category": "M4", "description": "性能回归分析，检测性能退化问题", "path": ".opencode/skills/tester/performance-regression-analysis/SKILL.md"},
-    
-    {"id": "reviewer/code-review-checklist", "name": "code-review-checklist", "role": "reviewer", "category": "MVP", "description": "代码审查清单，确保审查覆盖关键质量点", "path": ".opencode/skills/reviewer/code-review-checklist/SKILL.md"},
-    {"id": "reviewer/spec-implementation-diff", "name": "spec-implementation-diff", "role": "reviewer", "category": "MVP", "description": "Spec 与实现对比，验证实现符合规格要求", "path": ".opencode/skills/reviewer/spec-implementation-diff/SKILL.md"},
-    {"id": "reviewer/reject-with-actionable-feedback", "name": "reject-with-actionable-feedback", "role": "reviewer", "category": "MVP", "description": "可执行反馈，提供清晰的修改建议而非模糊评价", "path": ".opencode/skills/reviewer/reject-with-actionable-feedback/SKILL.md"},
-    {"id": "reviewer/maintainability-review", "name": "maintainability-review", "role": "reviewer", "category": "M4", "description": "可维护性审查，评估代码长期维护成本", "path": ".opencode/skills/reviewer/maintainability-review/SKILL.md"},
-    {"id": "reviewer/risk-review", "name": "risk-review", "role": "reviewer", "category": "M4", "description": "风险评估审查，识别技术风险和业务风险", "path": ".opencode/skills/reviewer/risk-review/SKILL.md"},
-    
-    {"id": "docs/readme-sync", "name": "readme-sync", "role": "docs", "category": "MVP", "description": "README 文档同步，确保 README 准确反映当前实现状态", "path": ".opencode/skills/docs/readme-sync/SKILL.md"},
-    {"id": "docs/changelog-writing", "name": "changelog-writing", "role": "docs", "category": "MVP", "description": "变更日志编写，生成结构化的 changelog 条目", "path": ".opencode/skills/docs/changelog-writing/SKILL.md"},
-    {"id": "docs/architecture-doc-sync", "name": "architecture-doc-sync", "role": "docs", "category": "M4", "description": "架构文档同步，更新架构设计文档", "path": ".opencode/skills/docs/architecture-doc-sync/SKILL.md"},
-    {"id": "docs/user-guide-update", "name": "user-guide-update", "role": "docs", "category": "M4", "description": "用户指南更新，编写面向最终用户的使用文档", "path": ".opencode/skills/docs/user-guide-update/SKILL.md"},
-    
-    {"id": "security/auth-and-permission-review", "name": "auth-and-permission-review", "role": "security", "category": "MVP", "description": "认证权限审查，检查认证和授权逻辑安全性", "path": ".opencode/skills/security/auth-and-permission-review/SKILL.md"},
-    {"id": "security/input-validation-review", "name": "input-validation-review", "role": "security", "category": "MVP", "description": "输入验证审查，检查输入处理的安全性", "path": ".opencode/skills/security/input-validation-review/SKILL.md"},
-    {"id": "security/secret-handling-review", "name": "secret-handling-review", "role": "security", "category": "M4", "description": "密钥处理审查，检查敏感信息的存储和使用", "path": ".opencode/skills/security/secret-handling-review/SKILL.md"},
-    {"id": "security/dependency-risk-review", "name": "dependency-risk-review", "role": "security", "category": "M4", "description": "依赖风险审查，评估第三方依赖的安全风险", "path": ".opencode/skills/security/dependency-risk-review/SKILL.md"}
+    {
+      "id": "architect/interface-contract-design",
+      "name": "interface-contract-design",
+      "role": "architect",
+      "category": "M4",
+      "description": "Design API and module interface contracts that ensure upstream-downstream alignment, prevent integration issues, and enable independent development.",
+      "path": ".opencode/skills/architect/interface-contract-design/SKILL.md"
+    },
+    {
+      "id": "architect/migration-planning",
+      "name": "migration-planning",
+      "role": "architect",
+      "category": "M4",
+      "description": "Plan data and system migration strategies that minimize risk, ensure data integrity, and provide clear rollback paths.",
+      "path": ".opencode/skills/architect/migration-planning/SKILL.md"
+    },
+    {
+      "id": "architect/module-boundary-design",
+      "name": "module-boundary-design",
+      "role": "architect",
+      "category": "MVP",
+      "description": "Define module boundaries, responsibility divisions, dependencies, and integration seams to ensure high cohesion and low coupling.",
+      "path": ".opencode/skills/architect/module-boundary-design/SKILL.md"
+    },
+    {
+      "id": "architect/requirement-to-design",
+      "name": "requirement-to-design",
+      "role": "architect",
+      "category": "MVP",
+      "description": "Transform feature specifications into structured technical design notes that define module boundaries, interface contracts, implementation roadmaps, and enable downstream roles (developer, tester, reviewer, docs, security) to execute their work.",
+      "path": ".opencode/skills/architect/requirement-to-design/SKILL.md"
+    },
+    {
+      "id": "architect/tradeoff-analysis",
+      "name": "tradeoff-analysis",
+      "role": "architect",
+      "category": "MVP",
+      "description": "Provide explicit trade-off analysis for key architecture decisions, including alternative evaluations, rationale, and revisit conditions.",
+      "path": ".opencode/skills/architect/tradeoff-analysis/SKILL.md"
+    },
+    {
+      "id": "common/artifact-reading",
+      "name": "artifact-reading",
+      "role": "common",
+      "category": "MVP",
+      "description": "统一读取 spec、design note、test report、review report 等工件，提取关键字段与约束，生成结构化摘要供当前角色使用。",
+      "path": ".opencode/skills/common/artifact-reading/SKILL.md"
+    },
+    {
+      "id": "common/context-summarization",
+      "name": "context-summarization",
+      "role": "common",
+      "category": "MVP",
+      "description": "把大量项目上下文裁剪成当前角色执行当前 task 需要的最小上下文，防止上下文膨胀导致质量下降。",
+      "path": ".opencode/skills/common/context-summarization/SKILL.md"
+    },
+    {
+      "id": "common/execution-reporting",
+      "name": "execution-reporting",
+      "role": "common",
+      "category": "MVP",
+      "description": "要求所有角色以统一格式输出 execution result 和 artifact summary，确保 OpenClaw 管理层能稳定 intake，不同角色的输出不会风格漂移。",
+      "path": ".opencode/skills/common/execution-reporting/SKILL.md"
+    },
+    {
+      "id": "common/failure-analysis",
+      "name": "failure-analysis",
+      "role": "common",
+      "category": "MVP",
+      "description": "从 test fail、review reject、verification fail、logs 中提炼根因，区分可重试、需返工、需重规划、需升级，是返工闭环质量的核心保障。",
+      "path": ".opencode/skills/common/failure-analysis/SKILL.md"
+    },
+    {
+      "id": "common/retry-strategy",
+      "name": "retry-strategy",
+      "role": "common",
+      "category": "MVP",
+      "description": "根据失败类型选择最小修复路径，避免粗暴重复尝试，提高返工效率和收敛速度。",
+      "path": ".opencode/skills/common/retry-strategy/SKILL.md"
+    },
+    {
+      "id": "developer/bugfix-workflow",
+      "name": "bugfix-workflow",
+      "role": "developer",
+      "category": "MVP",
+      "description": "指导 developer 对 bug 修复形成闭环：理解问题、定位范围、最小修复、验证闭环。",
+      "path": ".opencode/skills/developer/bugfix-workflow/SKILL.md"
+    },
+    {
+      "id": "developer/code-change-selfcheck",
+      "name": "code-change-selfcheck",
+      "role": "developer",
+      "category": "MVP",
+      "description": "要求 developer 在交付前完成最小自检，确保改动符合目标、遵守约束、不引入风险。",
+      "path": ".opencode/skills/developer/code-change-selfcheck/SKILL.md"
+    },
+    {
+      "id": "developer/dependency-minimization",
+      "name": "dependency-minimization",
+      "role": "developer",
+      "category": "M4",
+      "description": "指导 developer 分析和优化项目依赖，减少依赖数量和体积，提升构建速度和安全性。",
+      "path": ".opencode/skills/developer/dependency-minimization/SKILL.md"
+    },
+    {
+      "id": "developer/feature-implementation",
+      "name": "feature-implementation",
+      "role": "developer",
+      "category": "MVP",
+      "description": "指导 developer 按 task 描述和 design note 完成代码实现，输出可交付的代码变更和实现总结。",
+      "path": ".opencode/skills/developer/feature-implementation/SKILL.md"
+    },
+    {
+      "id": "developer/refactor-safely",
+      "name": "refactor-safely",
+      "role": "developer",
+      "category": "M4",
+      "description": "指导 developer 安全地重构代码，在不改变外部行为的前提下改善代码结构、可读性和可维护性。",
+      "path": ".opencode/skills/developer/refactor-safely/SKILL.md"
+    },
+    {
+      "id": "docs/architecture-doc-sync",
+      "name": "architecture-doc-sync",
+      "role": "docs",
+      "category": "M4",
+      "description": "保证架构文档与当前实现一致，确保设计决策、模块边界、依赖关系等架构信息准确反映实际代码状态。",
+      "path": ".opencode/skills/docs/architecture-doc-sync/SKILL.md"
+    },
+    {
+      "id": "docs/changelog-writing",
+      "name": "changelog-writing",
+      "role": "docs",
+      "category": "MVP",
+      "description": "按结构化方式记录项目变更，让用户和开发者了解版本更新内容。",
+      "path": ".opencode/skills/docs/changelog-writing/SKILL.md"
+    },
+    {
+      "id": "docs/issue-status-sync",
+      "name": "issue-status-sync",
+      "role": "docs",
+      "category": "MVP",
+      "description": "同步任务执行状态到 GitHub Issue，发布进度评论，**不关闭 Issue**（等待管理层验收）。",
+      "path": ".opencode/skills/docs/issue-status-sync/SKILL.md"
+    },
+    {
+      "id": "docs/readme-sync",
+      "name": "readme-sync",
+      "role": "docs",
+      "category": "MVP",
+      "description": "保证 README 与当前实现一致，让用户和开发者能获取最新的项目信息。",
+      "path": ".opencode/skills/docs/readme-sync/SKILL.md"
+    },
+    {
+      "id": "docs/user-guide-update",
+      "name": "user-guide-update",
+      "role": "docs",
+      "category": "M4",
+      "description": "保证用户指南与当前实现一致，确保用户能获取最新的功能使用说明、API 文档和操作指南。",
+      "path": ".opencode/skills/docs/user-guide-update/SKILL.md"
+    },
+    {
+      "id": "reviewer/code-review-checklist",
+      "name": "code-review-checklist",
+      "role": "reviewer",
+      "category": "MVP",
+      "description": "为 reviewer 提供系统化的代码审查框架，确保审查覆盖目标对齐、范围控制、边界条件、风险识别、可维护性等关键维度。",
+      "path": ".opencode/skills/reviewer/code-review-checklist/SKILL.md"
+    },
+    {
+      "id": "reviewer/maintainability-review",
+      "name": "maintainability-review",
+      "role": "reviewer",
+      "category": "M4",
+      "description": "为 reviewer 提供系统化的代码可维护性评估框架，专注于识别影响长期维护效率的问题。",
+      "path": ".opencode/skills/reviewer/maintainability-review/SKILL.md"
+    },
+    {
+      "id": "reviewer/reject-with-actionable-feedback",
+      "name": "reject-with-actionable-feedback",
+      "role": "reviewer",
+      "category": "MVP",
+      "description": "保证 reviewer 在拒绝时给出可执行的修改建议，包括 must-fix、non-blocking、residual risks，让 developer 知道具体怎么改。",
+      "path": ".opencode/skills/reviewer/reject-with-actionable-feedback/SKILL.md"
+    },
+    {
+      "id": "reviewer/risk-review",
+      "name": "risk-review",
+      "role": "reviewer",
+      "category": "M4",
+      "description": "为 reviewer 提供系统化的技术风险评估框架，专注于识别可能导致系统故障、性能下降、数据丢失或安全问题的关键风险点。",
+      "path": ".opencode/skills/reviewer/risk-review/SKILL.md"
+    },
+    {
+      "id": "reviewer/spec-implementation-diff",
+      "name": "spec-implementation-diff",
+      "role": "reviewer",
+      "category": "MVP",
+      "description": "检查 spec / design 与 implementation 是否一致，识别偏离和遗漏，确保实现符合原始需求。",
+      "path": ".opencode/skills/reviewer/spec-implementation-diff/SKILL.md"
+    },
+    {
+      "id": "security/auth-and-permission-review",
+      "name": "auth-and-permission-review",
+      "role": "security",
+      "category": "MVP",
+      "description": "检查认证、授权、权限边界逻辑，确保身份验证和访问控制的安全性。",
+      "path": ".opencode/skills/security/auth-and-permission-review/SKILL.md"
+    },
+    {
+      "id": "security/dependency-risk-review",
+      "name": "dependency-risk-review",
+      "role": "security",
+      "category": "M4",
+      "description": "审查依赖安全风险，识别已知漏洞、维护状态问题、许可证合规问题。",
+      "path": ".opencode/skills/security/dependency-risk-review/SKILL.md"
+    },
+    {
+      "id": "security/input-validation-review",
+      "name": "input-validation-review",
+      "role": "security",
+      "category": "MVP",
+      "description": "检查输入验证逻辑，识别注入攻击、XSS、路径遍历等安全漏洞。",
+      "path": ".opencode/skills/security/input-validation-review/SKILL.md"
+    },
+    {
+      "id": "security/secret-handling-review",
+      "name": "secret-handling-review",
+      "role": "security",
+      "category": "M4",
+      "description": "审查密钥和敏感信息处理，确保密钥管理符合安全最佳实践。",
+      "path": ".opencode/skills/security/secret-handling-review/SKILL.md"
+    },
+    {
+      "id": "tester/benchmark-analysis",
+      "name": "benchmark-analysis",
+      "role": "tester",
+      "category": "M4",
+      "description": "建立性能基线并进行对比分析，识别性能变化和优化效果。",
+      "path": ".opencode/skills/tester/benchmark-analysis/SKILL.md"
+    },
+    {
+      "id": "tester/edge-case-matrix",
+      "name": "edge-case-matrix",
+      "role": "tester",
+      "category": "MVP",
+      "description": "生成边界条件矩阵，确保测试不只看 happy path，覆盖各种边界和异常情况。",
+      "path": ".opencode/skills/tester/edge-case-matrix/SKILL.md"
+    },
+    {
+      "id": "tester/flaky-test-diagnosis",
+      "name": "flaky-test-diagnosis",
+      "role": "tester",
+      "category": "M4",
+      "description": "指导 tester 诊断和修复不稳定测试（flaky tests），确保测试可重复执行，提高 CI/CD 可信度。",
+      "path": ".opencode/skills/tester/flaky-test-diagnosis/SKILL.md"
+    },
+    {
+      "id": "tester/integration-test-design",
+      "name": "integration-test-design",
+      "role": "tester",
+      "category": "M4",
+      "description": "指导 tester 设计集成测试，验证模块间交互、API 端到端流程、数据库集成等跨组件行为。",
+      "path": ".opencode/skills/tester/integration-test-design/SKILL.md"
+    },
+    {
+      "id": "tester/load-test-orchestration",
+      "name": "load-test-orchestration",
+      "role": "tester",
+      "category": "M4",
+      "description": "编排负载测试，生成并发请求，监控系统资源，识别系统瓶颈。",
+      "path": ".opencode/skills/tester/load-test-orchestration/SKILL.md"
+    },
+    {
+      "id": "tester/performance-regression-analysis",
+      "name": "performance-regression-analysis",
+      "role": "tester",
+      "category": "M4",
+      "description": "检测性能回归，分析根本原因，提供修复建议。",
+      "path": ".opencode/skills/tester/performance-regression-analysis/SKILL.md"
+    },
+    {
+      "id": "tester/performance-test-design",
+      "name": "performance-test-design",
+      "role": "tester",
+      "category": "M4",
+      "description": "设计性能测试方案，定义性能指标和测试场景，确保系统满足性能需求。",
+      "path": ".opencode/skills/tester/performance-test-design/SKILL.md"
+    },
+    {
+      "id": "tester/regression-analysis",
+      "name": "regression-analysis",
+      "role": "tester",
+      "category": "MVP",
+      "description": "分析改动后哪些路径需要回归测试，哪些问题可能复发，确保变更不会破坏现有功能。",
+      "path": ".opencode/skills/tester/regression-analysis/SKILL.md"
+    },
+    {
+      "id": "tester/unit-test-design",
+      "name": "unit-test-design",
+      "role": "tester",
+      "category": "MVP",
+      "description": "指导 tester 设计单元测试，覆盖关键路径、正常路径、失败路径，确保代码行为符合预期。",
+      "path": ".opencode/skills/tester/unit-test-design/SKILL.md"
+    }
   ],
-  "total": 37,
-  "mvpCount": 21,
+  "total": 38,
+  "mvpCount": 22,
   "m4Count": 16
 }

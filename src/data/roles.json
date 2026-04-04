@@ -18,6 +18,7 @@
         "产品范围取舍（由 OpenClaw 管理层或用户决策）"
       ],
       "triggerConditions": [
+        "以下情况应调用 architect：",
         "新 feature 需要技术方案设计",
         "中大型功能需要模块拆分",
         "模块重构前需要结构规划",
@@ -25,7 +26,7 @@
         "迁移或演进方案需要设计",
         "存在多个技术 trade-off 需要评估"
       ],
-      "skills": ["requirement-to-design", "module-boundary-design", "tradeoff-analysis", "interface-contract-design", "migration-planning"]
+      "skills": []
     },
     {
       "name": "developer",
@@ -45,13 +46,14 @@
         "大规模架构重构（涉及架构变更需 architect 先出方案）"
       ],
       "triggerConditions": [
+        "以下情况应调用 developer：",
         "有明确的 implementation task",
         "有 bugfix task（修复缺陷）",
         "需要按 design note 落地代码",
         "需要局部重构（不涉及架构变更）",
         "需要补齐配置或脚本"
       ],
-      "skills": ["feature-implementation", "bugfix-workflow", "code-change-selfcheck", "refactor-safely", "dependency-minimization"]
+      "skills": []
     },
     {
       "name": "tester",
@@ -71,13 +73,14 @@
         "通过修改业务逻辑掩盖测试失败（禁止行为）"
       ],
       "triggerConditions": [
+        "以下情况应调用 tester：",
         "developer 完成代码实现后",
         "需要验证功能是否满足 acceptance criteria",
         "需要建立回归测试",
         "需要验证边界条件",
         "bugfix 后需要验证修复"
       ],
-      "skills": ["unit-test-design", "regression-analysis", "edge-case-matrix", "integration-test-design", "flaky-test-diagnosis", "performance-test-design", "benchmark-analysis", "load-test-orchestration", "performance-regression-analysis"]
+      "skills": []
     },
     {
       "name": "reviewer",
@@ -89,7 +92,7 @@
         "可维护性检查",
         "放行 / 拒绝建议",
         "review report 输出",
-        "治理基线对齐检查（AH-006）"
+        "**治理基线对齐检查**（AH-006）"
       ],
       "outOfScope": [
         "主导新功能代码实现（developer 职责）",
@@ -98,42 +101,77 @@
         "一边 review 一边偷偷完成实现（禁止行为）"
       ],
       "triggerConditions": [
+        "以下情况应调用 reviewer：",
         "developer 完成实现后",
         "tester 完成测试后",
         "有代码变更需要审查",
         "高风险 task 需要额外审查",
         "milestone 完成前需要综合审查",
-        "需要 governance baseline audit 时（AH-006）"
+        "**需要 governance baseline audit 时（AH-006）**"
       ],
-      "skills": ["code-review-checklist", "spec-implementation-diff", "reject-with-actionable-feedback", "maintainability-review", "risk-review"]
+      "skills": []
     },
     {
       "name": "docs",
-      "mission": "确保 repository-level documentation consistency after implementation, testing, and review。Docs 同步 README、changelog 和用户文档与实际实现状态，所有文档变更基于上游证据而非推测。",
+      "mission": "确保 **repository-level documentation consistency after implementation, testing, and review**。Docs 同步 README、changelog 和用户文档与实际实现状态，所有文档变更基于上游证据而非推测。\n\nDocs 是 6-role 执行链的最终阶段：\n\n```\narchitect → developer → tester → reviewer → docs\n```\n\n> **实现来源**: `007-docs-core` feature 正式实现了 docs 角色核心能力。",
       "inScope": [
-        "README 同步",
-        "Changelog 生成",
-        "跨文档一致性",
-        "基于证据的文档",
-        "状态真实性",
-        "文档缺口识别"
+        "### 核心职责（来源：007-docs-core/role-scope.md）",
+        "| 职责 | 描述 | BR 引用 |",
+        "|------|------|---------|",
+        "| README 同步 | 更新 README 准确反映 feature 状态、进度表和 skill 覆盖 | BR-005 |",
+        "| Changelog 生成 | 从完成工作创建结构化 changelog 条目 | BR-006 |",
+        "| 跨文档一致性 | 验证 README、completion-report、spec 状态对齐 | BR-005, BR-008 |",
+        "| 基于证据的文档 | 所有文档变更基于上游 artifacts | BR-001, BR-003 |",
+        "| 状态真实性 | 确保文档反映实际完成状态 | BR-008 |",
+        "| 文档缺口识别 | 识别缺失或过时的文档 | - |",
+        "### 核心 Skills",
+        "| Skill ID | Skill Name | 用途 |",
+        "|----------|------------|------|",
+        "| SKILL-001 | readme-sync | 同步 README 和仓库文档与实际实现状态 |",
+        "| SKILL-002 | changelog-writing | 为完成工作和修复生成结构化 changelog 条目 |",
+        "| SKILL-003 | issue-status-sync | 同步任务执行状态到 GitHub Issue，发布进度评论，**不关闭 Issue**（等待管理层验收） |",
+        "### 输出 Artifacts",
+        "| Artifact | 用途 | Consumer |",
+        "|----------|------|----------|",
+        "| docs-sync-report | 主要结构化文档同步报告 | OpenClaw, maintainers |",
+        "| changelog-entry | 结构化 changelog 条目 | Maintainers, users |",
+        "| issue-progress-report | Issue 进度报告（DOC-003） | Management, acceptance |"
       ],
       "outOfScope": [
-        "修改实现代码（developer 职责）",
-        "修改测试代码（tester 职责）",
-        "修改 spec 或 design 文档（architect 职责）",
-        "做产品决策（OpenClaw 管理层）",
-        "在无证据情况下声明 feature 完成",
-        "为未实现功能编写文档"
+        "### 明确禁止（BR-007）",
+        "| 禁止行为 | 原因 |",
+        "|----------|------|",
+        "| 修改实现代码 | developer 职责 |",
+        "| 修改测试代码 | tester 职责 |",
+        "| 修改 spec 或 design 文档 | architect 职责 |",
+        "| 做产品决策 | OpenClaw 管理层 |",
+        "| 在无证据情况下声明 feature 完成 | 违反 BR-003 |",
+        "| 为未实现功能编写文档 | 违反 BR-007 |",
+        "### 与 Developer 边界",
+        "| 活动 | Docs | Developer |",
+        "|------|------|-----------|",
+        "| 更新 README 状态表 | Yes | No（应触发 docs） |",
+        "| 写代码注释 | No | Yes |",
+        "| 更新 API 文档 | No | Yes（inline docs） |",
+        "| 生成 changelog | Yes | No（应提供 summary） |",
+        "### 延期到 M4（MVP 外）",
+        "| Skill | 描述 | 状态 |",
+        "|-------|------|------|",
+        "| architecture-doc-sync | 深度架构文档同步 | Deferred |",
+        "| user-guide-update | 详细用户指南编写 | Deferred |"
       ],
       "triggerConditions": [
-        "Feature 完成信号",
-        "状态漂移检测",
-        "Changelog 条目需求",
-        "文档债务识别",
-        "治理同步需求"
+        "以下情况应调用 docs：",
+        "| Trigger | 描述 | Priority | Related Skill |",
+        "|---------|------|----------|---------------|",
+        "| Feature 完成信号 | Feature 通过 reviewer 验收 | High | readme-sync, changelog-writing |",
+        "| Issue 进度同步 | 任务通过 GitHub Issue 触发，执行完成后同步进度 | High | issue-status-sync |",
+        "| 状态漂移检测 | README 状态与 completion-report 不匹配 | High | readme-sync |",
+        "| Changelog 条目需求 | 发布准备或 milestone 完成 | High | changelog-writing |",
+        "| 文档债务识别 | 仓库文档已知缺口 | Medium | readme-sync |",
+        "| 治理同步需求 | 治理文档变更后 | Medium | readme-sync |"
       ],
-      "skills": ["readme-sync", "changelog-writing", "architecture-doc-sync", "user-guide-update"]
+      "skills": []
     },
     {
       "name": "security",
@@ -153,6 +191,7 @@
         "性能检查（performance 角色，若存在）"
       ],
       "triggerConditions": [
+        "以下情况应调用 security：",
         "涉及认证、权限的变更",
         "涉及外部输入处理的变更",
         "涉及 secret / token / credential 的变更",
@@ -160,7 +199,7 @@
         "标记为高风险的 task",
         "涉及公开 API 接口变更"
       ],
-      "skills": ["auth-and-permission-review", "input-validation-review", "secret-handling-review", "dependency-risk-review"]
+      "skills": []
     }
   ],
   "total": 6

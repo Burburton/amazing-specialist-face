@@ -3,32 +3,68 @@
     {
       "name": "spec-start",
       "description": "Create or refine a feature spec",
-      "inputs": ["feature name or ID", "--enhanced (optional)"],
-      "outputs": ["specs/<feature>/spec.md", "unresolved ambiguities", "next recommended command"]
+      "inputs": [
+        "feature name or ID",
+        "--enhanced (optional)"
+      ],
+      "outputs": [
+        "specs/<feature>/spec.md",
+        "unresolved ambiguities",
+        "next recommended command"
+      ]
     },
     {
       "name": "spec-plan",
       "description": "Create or refine a feature implementation plan",
-      "inputs": ["feature name or ID", "--enhanced (optional)"],
-      "outputs": ["specs/<feature>/plan.md", "implementation phases", "risk assessment"]
+      "inputs": [
+        "feature name or ID",
+        "--enhanced (optional)"
+      ],
+      "outputs": [
+        "specs/<feature>/plan.md",
+        "implementation phases",
+        "risk assessment"
+      ]
     },
     {
       "name": "spec-tasks",
       "description": "Create or refine task breakdown for a feature",
-      "inputs": ["feature name or ID", "--enhanced (optional)"],
-      "outputs": ["specs/<feature>/tasks.md", "task list", "dependency graph"]
+      "inputs": [
+        "feature name or ID",
+        "--enhanced (optional)"
+      ],
+      "outputs": [
+        "specs/<feature>/tasks.md",
+        "task list",
+        "dependency graph"
+      ]
     },
     {
       "name": "spec-implement",
       "description": "Execute implementation tasks for a feature",
-      "inputs": ["feature name or ID", "task ID (optional)", "--enhanced (optional)"],
-      "outputs": ["code changes", "implementation summary", "test results"]
+      "inputs": [
+        "feature name or ID",
+        "task ID (optional)",
+        "--enhanced (optional)"
+      ],
+      "outputs": [
+        "code changes",
+        "implementation summary",
+        "test results"
+      ]
     },
     {
       "name": "spec-audit",
       "description": "Audit feature completion against spec and governance rules",
-      "inputs": ["feature name or ID", "--enhanced (optional)"],
-      "outputs": ["audit report", "findings", "recommendations"]
+      "inputs": [
+        "feature name or ID",
+        "--enhanced (optional)"
+      ],
+      "outputs": [
+        "audit report",
+        "findings",
+        "recommendations"
+      ]
     }
   ],
   "total": 5
