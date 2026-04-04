@@ -1,4 +1,6 @@
-import { useState, useMemo } from 'react';
+const fs = require('fs');
+
+const content = `import { useState, useMemo } from 'react';
 import styles from './SkillsPage.module.css';
 import skillsData from '../data/skills.json';
 import SkillCard from '../components/cards/SkillCard';
@@ -129,7 +131,7 @@ export default function SkillsPage() {
             </h3>
             <div className={styles.skills}>
               {skills.map(skill => (
-                <SkillCard key={skill.id} skill={skill} roleColor={ROLE_COLORS[role]} />
+                <SkillCard key={skill.id} skill={skill} color={ROLE_COLORS[role]} />
               ))}
             </div>
           </div>
@@ -138,3 +140,7 @@ export default function SkillsPage() {
     </div>
   );
 }
+`;
+
+fs.writeFileSync('src/pages/SkillsPage.tsx', content);
+console.log('Updated SkillsPage.tsx');

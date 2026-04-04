@@ -1,158 +1,145 @@
 .diagram {
   background: var(--color-bg-secondary);
   border-radius: var(--radius-xl);
-  padding: var(--space-xl);
+  padding: var(--space-lg);
+  margin-top: var(--space-xl);
 }
 
-.diagramTitle {
-  font-size: var(--font-size-xl);
+.title {
+  font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-primary);
+  margin-bottom: var(--space-md);
   text-align: center;
-  margin: 0 0 var(--space-xl) 0;
 }
 
-.rolesRow {
-  display: flex;
-  justify-content: center;
+.roleCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: var(--space-md);
-  flex-wrap: wrap;
   margin-bottom: var(--space-xl);
 }
 
-.roleNode {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: var(--space-sm) var(--space-md);
+.roleCard {
+  background: var(--color-bg-primary);
+  border: 2px solid;
   border-radius: var(--radius-lg);
-  color: var(--color-text-inverse);
-  min-width: 80px;
+  padding: var(--space-md);
+  text-align: center;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
 }
 
-.roleInitial {
+.roleCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.roleIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-bold);
+  color: var(--color-text-inverse);
+  margin: 0 auto var(--space-sm);
 }
 
-.roleLabel {
-  font-size: var(--font-size-xs);
-  margin-top: var(--space-xs);
-}
-
-.flowsSection {
-  margin-bottom: var(--space-xl);
-}
-
-.flowsTitle {
+.roleName {
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-primary);
-  margin: 0 0 var(--space-md) 0;
+  margin-bottom: var(--space-xs);
 }
 
-.flowsList {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+.roleStats {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  font-size: var(--font-size-sm);
+}
+
+.statProduces {
+  color: var(--color-success);
+}
+
+.statConsumes {
+  color: var(--color-primary);
+}
+
+.flowSection {
+  margin-top: var(--space-lg);
+}
+
+.sectionTitle {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.flowList {
+  display: flex;
+  flex-direction: column;
   gap: var(--space-sm);
 }
 
 .flowItem {
-  display: flex;
+  display: grid;
+  grid-template-columns: 80px 60px 80px 1fr;
   align-items: center;
   gap: var(--space-sm);
-  padding: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
   background: var(--color-bg-primary);
   border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
 }
 
-.flowFrom, .flowTo {
-  padding: var(--space-xs) var(--space-sm);
-  border: 2px solid;
-  border-radius: var(--radius-sm);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
+.flowProducer,
+.flowConsumer {
+  font-weight: var(--font-weight-semibold);
 }
 
 .flowArrow {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  flex: 1;
+  justify-content: center;
+  gap: var(--space-xs);
 }
 
-.flowLabel {
-  font-size: var(--font-size-xs);
+.arrowLine {
   color: var(--color-text-tertiary);
 }
 
-.arrowIcon {
-  color: var(--color-text-secondary);
-  font-weight: var(--font-weight-bold);
-}
-
-.workflowCycle {
-  background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
-  border-radius: var(--radius-lg);
-  padding: var(--space-lg);
-}
-
-.cycleTitle {
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text-inverse);
-  margin: 0 0 var(--space-md) 0;
-  text-align: center;
-}
-
-.cycleFlow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-sm);
-  flex-wrap: wrap;
-}
-
-.cycleStep {
-  padding: var(--space-xs) var(--space-sm);
+.contractCount {
+  background: var(--color-bg-tertiary);
+  padding: 2px 6px;
   border-radius: var(--radius-sm);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-inverse);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
 }
 
-.cycleArrow {
-  color: var(--color-text-inverse);
-  font-weight: var(--font-weight-bold);
-}
-
-.cycleNote {
-  text-align: center;
-  font-size: var(--font-size-sm);
-  color: rgba(255, 255, 255, 0.8);
-  margin: var(--space-md) 0 0 0;
+.contractNames {
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-xs);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 @media (max-width: 768px) {
-  .rolesRow {
-    gap: var(--space-sm);
+  .roleCards {
+    grid-template-columns: repeat(2, 1fr);
   }
-
-  .roleNode {
-    min-width: 60px;
-    padding: var(--space-xs) var(--space-sm);
+  
+  .flowItem {
+    grid-template-columns: 60px 50px 60px 1fr;
+    font-size: var(--font-size-xs);
   }
-
-  .flowsList {
-    grid-template-columns: 1fr;
-  }
-
-  .cycleFlow {
-    flex-direction: column;
-    gap: var(--space-xs);
-  }
-
-  .cycleArrow {
-    transform: rotate(90deg);
+  
+  .contractNames {
+    display: none;
   }
 }

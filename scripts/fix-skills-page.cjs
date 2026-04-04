@@ -1,4 +1,6 @@
-import { useState, useMemo } from 'react';
+const fs = require('fs');
+
+const content = `import { useState, useMemo } from 'react';
 import styles from './SkillsPage.module.css';
 import skillsData from '../data/skills.json';
 import SkillCard from '../components/cards/SkillCard';
@@ -138,3 +140,7 @@ export default function SkillsPage() {
     </div>
   );
 }
+`;
+
+fs.writeFileSync('src/pages/SkillsPage.tsx', content);
+console.log('Fixed SkillsPage.tsx');

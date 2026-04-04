@@ -1,4 +1,6 @@
-import { useState } from 'react';
+const fs = require('fs');
+
+const content = `import { useState } from 'react';
 import styles from './RolesPage.module.css';
 import rolesData from '../data/roles.json';
 import contractsData from '../data/contracts.json';
@@ -89,3 +91,7 @@ export default function RolesPage() {
     </div>
   );
 }
+`;
+
+fs.writeFileSync('src/pages/RolesPage.tsx', content);
+console.log('Updated RolesPage.tsx');
