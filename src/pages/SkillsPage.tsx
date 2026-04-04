@@ -16,14 +16,15 @@ const ROLE_LABELS: Record<string, string> = {
   security: '安全员',
 };
 
-const ROLE_COLORS: Record<string, string> = {
-  common: '#64748b',
-  architect: '#2563eb',
-  developer: '#22c55e',
-  tester: '#f59e0b',
-  reviewer: '#8b5cf6',
-  docs: '#06b6d4',
-  security: '#ef4444',
+const ROLE_COLORS_400: Record<string, string> = {
+  all: 'var(--color-primary)',
+  common: 'var(--color-role-common-400)',
+  architect: 'var(--color-role-architect-400)',
+  developer: 'var(--color-role-developer-400)',
+  tester: 'var(--color-role-tester-400)',
+  reviewer: 'var(--color-role-reviewer-400)',
+  docs: 'var(--color-role-docs-400)',
+  security: 'var(--color-role-security-400)',
 };
 
 export default function SkillsPage() {
@@ -57,9 +58,6 @@ export default function SkillsPage() {
     m4: filteredSkills.filter(s => s.category === 'M4').length,
   };
 
-  const getRoleButtonClass = (role: string) => 
-    selectedRole === role ? styles.roleButton + ' ' + styles.active : styles.roleButton;
-
   return (
     <div className={styles.skillsPage}>
       <header className={styles.header}>
@@ -70,28 +68,35 @@ export default function SkillsPage() {
       </header>
 
       <section className={styles.filters}>
-        <div className={styles.roleButtons}>
+        <div className={styles.tabBar}>
           {ROLES.map(role => (
             <button
               key={role}
-              className={getRoleButtonClass(role)}
+              className={selectedRole === role ? styles.tabButton + ' ' + styles.active : styles.tabButton}
               onClick={() => setSelectedRole(role)}
-              style={selectedRole === role ? { backgroundColor: ROLE_COLORS[role] || '#6366f1' } : {}}
+              style={selectedRole === role ? { backgroundColor: ROLE_COLORS_400[role] } : {}}
             >
               {ROLE_LABELS[role]}
             </button>
           ))}
         </div>
-        
+
         <div className={styles.filterRow}>
-          <input
-            type="text"
-            placeholder="搜索技能..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className={styles.searchInput}
-          />
-          
+          <div className={styles.searchWrapper}>
+            <input
+              type="text"
+              placeholder="搜索技能..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className={styles.searchInput}
+            />
+            {searchQuery && (
+              <span className={styles.searchCount}>
+                {stats.total} 个结果
+              </span>
+            )}
+          </div>
+
           <select
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value)}
@@ -124,12 +129,12 @@ export default function SkillsPage() {
       <section className={styles.skillGrid}>
         {Object.entries(groupedSkills).map(([role, skills]) => (
           <div key={role} className={styles.roleGroup}>
-            <h3 className={styles.roleGroupTitle} style={{ color: ROLE_COLORS[role] }}>
+            <h3 className={styles.roleGroupTitle} style={{ borderColor: ROLE_COLORS_400[role] }}>
               {ROLE_LABELS[role]} ({skills.length})
             </h3>
             <div className={styles.skills}>
               {skills.map(skill => (
-                <SkillCard key={skill.id} skill={skill} roleColor={ROLE_COLORS[role]} />
+                <SkillCard key={skill.id} skill={skill} />
               ))}
             </div>
           </div>

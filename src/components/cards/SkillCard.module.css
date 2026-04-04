@@ -1,12 +1,13 @@
 .skillCard {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-4);
-  transition: transform var(--duration-normal) var(--ease-spring),
-              box-shadow var(--duration-normal) var(--ease-default),
-              border-color var(--duration-fast) var(--ease-default);
+  border-radius: var(--radius-xl);
+  padding: var(--space-3);
+  min-height: 160px;
   cursor: pointer;
+  transition: transform var(--duration-normal) var(--ease-spring),
+              box-shadow var(--duration-normal) var(--ease-spring),
+              border-color var(--duration-normal) var(--ease-spring);
 }
 
 .skillCard:hover {
@@ -16,7 +17,22 @@
 }
 
 .skillCard:focus-visible {
+  outline: none;
   box-shadow: var(--ring-focus);
+}
+
+.skillCard.mvp:hover {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-lg), var(--glow-accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skillCard {
+    transition: none;
+  }
+  .skillCard:hover {
+    transform: none;
+  }
 }
 
 .skillHeader {
@@ -29,10 +45,13 @@
 
 .skillName {
   font-family: var(--font-display);
-  font-size: var(--text-lg);
+  font-size: var(--text-base);
   font-weight: var(--font-semibold);
   color: var(--color-text-primary);
-  word-break: break-word;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   line-height: var(--leading-tight);
 }
 
@@ -46,20 +65,26 @@
 }
 
 .skillCategory.mvp {
-  background: var(--color-success);
-  color: var(--color-text-inverse);
+  background: var(--color-accent);
+  color: white;
+  border: none;
 }
 
 .skillCategory.m4 {
-  background: var(--color-primary);
-  color: var(--color-text-inverse);
+  background: transparent;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border-subtle);
 }
 
 .skillDescription {
   font-size: var(--text-sm);
   color: var(--color-text-secondary);
   line-height: var(--leading-relaxed);
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-2);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .skillMeta {
@@ -81,4 +106,29 @@
   font-size: var(--text-xs);
   color: var(--color-text-muted);
   font-family: var(--font-mono);
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 1024px) {
+  .skillCard {
+    padding: var(--space-2);
+    min-height: 140px;
+  }
+
+  .skillName {
+    font-size: var(--text-sm);
+  }
+
+  .skillDescription {
+    -webkit-line-clamp: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .skillCard {
+    width: 100%;
+    min-height: 120px;
+  }
 }

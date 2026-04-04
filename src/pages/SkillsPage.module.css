@@ -31,44 +31,49 @@
   margin-bottom: var(--space-6);
 }
 
-.roleButtons {
+.tabBar {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
   margin-bottom: var(--space-3);
 }
 
-.roleButton {
+.tabButton {
   padding: var(--space-2) var(--space-3);
-  background: var(--color-surface-elevated);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-lg);
   cursor: pointer;
   font-size: var(--text-sm);
   font-weight: var(--font-medium);
   color: var(--color-text-secondary);
-  transition: all var(--duration-fast) var(--ease-default);
+  transition: background var(--duration-fast) var(--ease-default),
+              color var(--duration-fast) var(--ease-default);
 }
 
-.roleButton:hover {
-  color: var(--color-text-primary);
-  border-color: var(--color-primary);
-  background: var(--color-primary-subtle);
+.tabButton:hover {
+  background: var(--color-surface-elevated);
 }
 
-.roleButton:focus-visible {
+.tabButton:focus-visible {
   box-shadow: var(--ring-focus);
 }
 
-.roleButton.active {
-  color: var(--color-text-inverse);
-  background: var(--color-primary);
-  border-color: var(--color-primary);
+.tabButton.active {
+  color: white;
 }
 
 .filterRow {
   display: flex;
   gap: var(--space-3);
+}
+
+.searchWrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
 }
 
 .searchInput {
@@ -90,6 +95,12 @@
   outline: none;
   border-color: var(--color-primary);
   box-shadow: var(--ring-focus-offset);
+}
+
+.searchCount {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  white-space: nowrap;
 }
 
 .categorySelect {
@@ -163,13 +174,13 @@
 }
 
 @media (max-width: 768px) {
-  .roleButtons {
+  .tabBar {
     flex-direction: column;
   }
 
-  .roleButton {
+  .tabButton {
     width: 100%;
-    justify-content: center;
+    text-align: center;
   }
 
   .filterRow {
