@@ -183,7 +183,7 @@ async function syncData(expertPackPath) {
 }
 
 const args = process.argv.slice(2);
-let expertPackPath = DEFAULT_EXPERT_PACK_PATH;
+let expertPackPath = process.env.EXPERT_PACK_PATH || DEFAULT_EXPERT_PACK_PATH;
 
 for (let i = 0; i < args.length; i++) {
   if (args[i] === '--expert-pack' && args[i + 1]) {

@@ -25,7 +25,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: Burburton/amazing_agent_specialist
-          path: ../amazing_agent_specialist
+          path: expert-pack
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -38,6 +38,8 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          EXPERT_PACK_PATH: ./expert-pack
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
