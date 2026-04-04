@@ -17,7 +17,7 @@
 ## Design Note
 
 ### Background
-专家包 (amazing_agent_specialist) 是一个 AI 辅助研发的执行层，包含 37 个 skills、6 个角色、17 个 artifact contracts。目前仅通过 markdown 文档呈现，用户需要阅读大量文件才能理解其能力。
+专家包 (amazing-specialists) 是一个 AI 辅助研发的执行层，包含 37 个 skills、6 个角色、17 个 artifact contracts。目前仅通过 markdown 文档呈现，用户需要阅读大量文件才能理解其能力。
 
 本 feature 为专家包创建一个 Web UI，作为"门面"展示其核心内容，降低理解门槛，提供更好的导航体验。
 
@@ -25,10 +25,10 @@
 创建一个静态文档展示型 Web UI，展示专家包的 README、Skills、Roles、Contracts、Commands、Workflow，支持基础的筛选和搜索功能。
 
 ### Input Sources
-- `amazing_agent_specialist/README.md` - 概述内容
-- `amazing_agent_specialist/role-definition.md` - 角色定义
-- `amazing_agent_specialist/contracts/pack/registry.json` - Contract 元数据
-- `amazing_agent_specialist/.opencode/skills/**/SKILL.md` - Skills 定义
+- `amazing-specialists/README.md` - 概述内容
+- `amazing-specialists/role-definition.md` - 角色定义
+- `amazing-specialists/contracts/pack/registry.json` - Contract 元数据
+- `amazing-specialists/.opencode/skills/**/SKILL.md` - Skills 定义
 - 专家包 repo 的 AGENTS.md - 命令定义
 
 ### Requirement-to-Design Mapping
@@ -256,6 +256,6 @@ interface RoleCardProps {
 ## References
 
 - `specs/001-initial-ui/spec.md` - 需求规格
-- `amazing_agent_specialist/README.md` - 专家包概述
-- `amazing_agent_specialist/role-definition.md` - 角色定义
-- `amazing_agent_specialist/contracts/pack/registry.json` - Contract 元数据
+- `amazing-specialists/README.md` - 专家包概述
+- `amazing-specialists/role-definition.md` - 角色定义
+- `amazing-specialists/contracts/pack/registry.json` - Contract 元数据

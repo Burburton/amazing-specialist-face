@@ -129,6 +129,6 @@ Compute from extracted data:
 
 ## Assumptions
 
-1. Expert pack repo at `G:\Workspace\amazing_agent_specialist` is stable
+1. Expert pack repo at `G:\Workspace\amazing-specialists` is stable
 2. SKILL.md files follow consistent format
 3. Type definitions from T-001 are accurate

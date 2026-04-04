@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const DEFAULT_EXPERT_PACK_PATH = '../amazing_agent_specialist';
+const DEFAULT_EXPERT_PACK_PATH = '../amazing-specialists';
 const OUTPUT_DIR = 'src/data';
 
 function parseRoles(content) {

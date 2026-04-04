@@ -15,7 +15,7 @@
 ## Overview
 
 ### Goal
-为 OpenCode 专家包 (amazing_agent_specialist) 创建一个 Web UI 展示界面，展示专家包的核心内容：README、Skills、Roles、Contracts、Commands、Workflow。
+为 OpenCode 专家包 (amazing-specialists) 创建一个 Web UI 展示界面，展示专家包的核心内容：README、Skills、Roles、Contracts、Commands、Workflow。
 
 ### Background
 专家包目前是纯文档形式，用户需要阅读 markdown 文件才能理解其能力。一个可视化界面可以：
@@ -193,7 +193,7 @@
 
 ## References
 
-- 专家包 README: `amazing_agent_specialist/README.md`
-- 专家包 Role Definition: `amazing_agent_specialist/role-definition.md`
-- 专家包 Contract Registry: `amazing_agent_specialist/contracts/pack/registry.json`
-- 专家包 Skills 目录: `amazing_agent_specialist/.opencode/skills/`
+- 专家包 README: `amazing-specialists/README.md`
+- 专家包 Role Definition: `amazing-specialists/role-definition.md`
+- 专家包 Contract Registry: `amazing-specialists/contracts/pack/registry.json`
+- 专家包 Skills 目录: `amazing-specialists/.opencode/skills/`

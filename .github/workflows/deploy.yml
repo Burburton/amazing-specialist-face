@@ -24,7 +24,7 @@ jobs:
       - name: Checkout Expert Pack
         uses: actions/checkout@v4
         with:
-          repository: Burburton/amazing_agent_specialist
+          repository: Burburton/amazing-specialists
           path: expert-pack
 
       - name: Setup Node

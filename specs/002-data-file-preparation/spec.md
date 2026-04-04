@@ -14,7 +14,7 @@
 
 Creating the initial UI for the OpenCode Expert Pack. Phase A (documentation display). This task depends on T-001 (directory structure) which is complete.
 
-Data will be extracted from the expert pack repo at `G:\Workspace\amazing_agent_specialist` and stored as JSON files in this UI repo.
+Data will be extracted from the expert pack repo at `G:\Workspace\amazing-specialists` and stored as JSON files in this UI repo.
 
 ## Goal
 
