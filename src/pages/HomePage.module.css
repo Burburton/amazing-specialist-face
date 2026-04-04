@@ -5,6 +5,15 @@
   scroll-behavior: smooth;
 }
 
+.slideContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.slideContainer {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .slideContainer {
     scroll-behavior: auto;
