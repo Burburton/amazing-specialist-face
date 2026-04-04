@@ -135,7 +135,7 @@ export default function SkillsPage() {
             </h3>
             <div className={styles.skills}>
               {skills.map(skill => (
-                <SkillCard key={skill.id} skill={skill} href={`/skills/${skill.id}`} />
+                <SkillCard key={skill.id} skill={skill} href={`/skills/${encodeURIComponent(skill.id)}`} />
               ))}
             </div>
           </div>

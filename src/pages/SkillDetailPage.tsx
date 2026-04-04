@@ -26,7 +26,8 @@ const ROLE_LABELS: Record<string, string> = {
 
 export default function SkillDetailPage() {
   const { id } = useParams();
-  const skill = skillsData.skills.find(s => s.id === id);
+  const decodedId = id ? decodeURIComponent(id) : '';
+  const skill = skillsData.skills.find(s => s.id === decodedId);
 
   if (!skill) {
     return <Navigate to="/skills" replace />;
@@ -73,7 +74,7 @@ export default function SkillDetailPage() {
             <h2 className={styles.sectionTitle}>相关技能</h2>
             <div className={styles.relatedGrid}>
               {relatedSkills.map(s => (
-                <SkillCard key={s.id} skill={s} href={`/skills/${s.id}`} />
+                <SkillCard key={s.id} skill={s} href={`/skills/${encodeURIComponent(s.id)}`} />
               ))}
             </div>
           </section>
