@@ -1,7 +1,6 @@
 ﻿import styles from './HomePage.module.css';
 import stats from '../data/stats.json';
 import WorkflowDiagram from '../components/diagrams/WorkflowDiagram';
-import HelloWorld from '../components/common/HelloWorld';
 
 export default function HomePage() {
   return (
@@ -17,10 +16,6 @@ export default function HomePage() {
           <span className={styles.highlight}>M4 Skills: {stats.m4Skills}</span>
           <span className={styles.highlight}>Commands: {stats.totalCommands}</span>
         </div>
-      </section>
-
-      <section className={styles.helloWorld}>
-        <HelloWorld />
       </section>
 
       <section className={styles.stats}>
