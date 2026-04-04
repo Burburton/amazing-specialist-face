@@ -1,0 +1,112 @@
+.logViewer {
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-light);
+  overflow: hidden;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-bg-tertiary);
+  border-bottom: 1px solid var(--color-border-light);
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.filters {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.filterBtn {
+  padding: var(--space-xs) var(--space-sm);
+  border: none;
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.filterBtn:hover {
+  background: var(--color-bg-secondary);
+}
+
+.filterBtn.active {
+  background: var(--color-primary);
+  color: white;
+}
+
+.searchInput {
+  padding: var(--space-xs) var(--space-sm);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  min-width: 150px;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.logList {
+  overflow-y: auto;
+  font-family: var(--font-family-mono, monospace);
+  font-size: var(--font-size-sm);
+}
+
+.empty {
+  padding: var(--space-xl);
+  text-align: center;
+  color: var(--color-text-tertiary);
+}
+
+.logEntry {
+  display: flex;
+  gap: var(--space-sm);
+  padding: var(--space-xs) var(--space-md);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.logEntry:last-child {
+  border-bottom: none;
+}
+
+.timestamp {
+  color: var(--color-text-tertiary);
+  flex-shrink: 0;
+}
+
+.level {
+  flex-shrink: 0;
+  font-weight: var(--font-weight-semibold);
+  min-width: 50px;
+}
+
+.message {
+  color: var(--color-text-primary);
+  word-break: break-word;
+}
+
+.info .level {
+  color: #3B82F6;
+}
+
+.warning .level {
+  color: #F59E0B;
+}
+
+.error .level {
+  color: #EF4444;
+}
+
+.debug .level {
+  color: #9CA3AF;
+}
