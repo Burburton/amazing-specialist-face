@@ -1,0 +1,57 @@
+{
+  "id": "frontend-design-system",
+  "name": "Frontend Design System",
+  "version": "1.0.0",
+  "description": "Professional UI design skills for creating human-crafted, polished interfaces. Eliminates generic AI-generated look through design tokens, typography systems, spacing grids, micro-interactions, and state coverage.",
+  "author": "amazing-specialist-face",
+  "compatibility": {
+    "core_version": ">=1.7.0"
+  },
+  "skills": [
+    "design-tokens-setup",
+    "shadcn-integration",
+    "typography-system",
+    "spacing-grid-system",
+    "micro-interactions",
+    "design-state-coverage",
+    "design-review-checklist"
+  ],
+  "templates": [
+    "design-tokens.css",
+    "animation-presets.ts",
+    "accessibility-checklist.md"
+  ],
+  "tags": [
+    "frontend",
+    "design",
+    "ui",
+    "ux",
+    "shadcn",
+    "tailwind",
+    "accessibility",
+    "animation",
+    "design-tokens",
+    "typography",
+    "micro-interactions"
+  ],
+  "platform_mapping": {
+    "opencode": {
+      "developer": {
+        "additional_skills": [
+          "design-tokens-setup",
+          "shadcn-integration",
+          "typography-system",
+          "spacing-grid-system",
+          "micro-interactions",
+          "design-state-coverage"
+        ]
+      },
+      "reviewer": {
+        "additional_skills": ["design-review-checklist", "design-state-coverage"]
+      },
+      "docs": {
+        "additional_skills": ["design-tokens-setup"]
+      }
+    }
+  }
+}
