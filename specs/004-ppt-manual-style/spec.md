@@ -3,8 +3,9 @@
 ## Metadata
 ```yaml
 feature_id: 004-ppt-manual-style
-status: design-phase
+status: ready-for-implementation
 created: 2026-04-05
+updated: 2026-04-05
 author: ui-ux-designer
 design_direction: "PPT 说明书风格"
 ```
@@ -1201,7 +1202,194 @@ src/
 
 ---
 
-## 10. Comparison: Before vs After
+## 10. Header Design Specification
+
+### 10.1 Header 视觉风格
+
+**PPT Manual Style Header 特点**：
+- 极简：只保留核心导航
+- 透明：Slide 内容在下方可见
+- 渐变消失：滚动时背景渐变显现
+- 等宽字体点缀：极客感
+
+```yaml
+header:
+  layout: "horizontal"
+  height: "64px"
+  position: "fixed"
+  
+  style:
+    default:
+      background: "transparent"
+      border: "none"
+    scrolled:
+      background: "rgba(9, 9, 11, 0.9)"
+      border_bottom: "1px solid var(--color-border)"
+      backdrop_filter: "blur(12px)"
+      
+  elements:
+    left:
+      - type: "logo"
+        content: "OpenCode"
+        style:
+          font: "Space Grotesk"
+          size: "1.25rem"
+          weight: "600"
+          color: "var(--color-text-primary)"
+          
+    center:
+      - type: "slide_nav"
+        items: ["关于", "流程", "团队", "技能"]
+        style:
+          font: "JetBrains Mono"
+          size: "0.875rem"
+          color: "var(--color-text-muted)"
+          active_color: "var(--color-primary)"
+          
+    right:
+      - type: "github_link"
+        icon: "GitHub"
+        href: "https://github.com/Burburton/amazing-specialists"
+```
+
+### 10.2 Header 导航映射
+
+| Nav Item | 点击行为 | 对应 Slide |
+|----------|----------|-----------|
+| **关于** | 滚动到 Slide 2 | WhatIsSlide |
+| **流程** | 滚动到 Slide 3 | HowItWorksSlide |
+| **团队** | 滚动到 Slide 4 | CapabilitiesSlide |
+| **技能** | 跳转页面 | /skills |
+
+### 10.3 Header 交互
+
+```yaml
+interactions:
+  scroll_behavior:
+    initial:
+      background: "transparent"
+      opacity: 1
+    after_scroll:
+      background: "rgba(9, 9, 11, 0.9)"
+      backdrop_filter: "blur(12px)"
+      border_bottom: "1px solid var(--color-border)"
+      
+  nav_click:
+    slide_nav:
+      action: "scroll to slide"
+      animation: "smooth scroll"
+    page_nav:
+      action: "navigate to page"
+      
+  hover:
+    nav_item:
+      color: "var(--color-text-primary)"
+      background: "var(--color-surface-elevated)"
+      border_radius: "var(--radius-md)"
+```
+
+### 10.4 Header 组件规范
+
+```tsx
+interface HeaderProps {
+  currentSlide: number;  // 当前可见的 slide index
+}
+
+// Nav Items
+const SLIDE_NAVS = [
+  { id: 'about', label: '关于', slideIndex: 1 },
+  { id: 'process', label: '流程', slideIndex: 2 },
+  { id: 'team', label: '团队', slideIndex: 3 },
+];
+
+const PAGE_NAVS = [
+  { id: 'skills', label: '技能', path: '/skills' },
+];
+```
+
+### 10.5 Header CSS
+
+```css
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-4);
+  z-index: var(--z-sticky);
+  transition: 
+    background-color var(--duration-normal) var(--ease-default),
+    border-color var(--duration-normal) var(--ease-default),
+    backdrop-filter var(--duration-normal) var(--ease-default);
+}
+
+.header.scrolled {
+  background-color: rgba(9, 9, 11, 0.9);
+  border-bottom: 1px solid var(--color-border);
+  backdrop-filter: blur(12px);
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  text-decoration: none;
+}
+
+.slideNav {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.slideNavItem {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  cursor: pointer;
+  transition: 
+    color var(--duration-fast) var(--ease-default),
+    background-color var(--duration-fast) var(--ease-default);
+}
+
+.slideNavItem:hover {
+  color: var(--color-text-primary);
+  background-color: var(--color-surface-elevated);
+}
+
+.slideNavItem.active {
+  color: var(--color-primary);
+}
+
+.githubLink {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: 
+    color var(--duration-fast) var(--ease-default),
+    background-color var(--duration-fast) var(--ease-default);
+}
+
+.githubLink:hover {
+  color: var(--color-text-primary);
+  background-color: var(--color-surface-elevated);
+}
+```
+
+---
+
+## 11. Comparison: Before vs After
 
 ### 10.1 Visual Comparison
 
@@ -1286,14 +1474,14 @@ src/
 
 ---
 
-## 13. Open Questions
+## 14. Open Questions
 
-| ID | Question | Suggestion | Status |
-|----|----------|------------|--------|
-| OQ-001 | 是否需要 Slide 导航指示器？ | 底部圆点或侧边进度条 | 待确认 |
-| OQ-002 | Header 是否需要固定？ | 建议固定，提供快速导航 | 待确认 |
-| OQ-003 | 移动端是否保持 scroll snap？ | 建议保持，确保体验一致 | 待确认 |
-| OQ-004 | 是否需要 Slide 转场动画？ | 建议 fade + slide | 待确认 |
+| ID | Question | Decision | Status |
+|----|----------|----------|--------|
+| OQ-001 | 是否需要 Slide 导航指示器？ | Header 导航即可 | ✅ 已确认 |
+| OQ-002 | Header 是否需要固定？ | 固定 + 滚动时背景渐变 | ✅ 已确认 |
+| OQ-003 | 移动端是否保持 scroll snap？ | 保持 | ✅ 已确认 |
+| OQ-004 | 是否需要 Slide 转场动画？ | 暂不添加，保持简洁 | ✅ 已确认 |
 
 ---
 

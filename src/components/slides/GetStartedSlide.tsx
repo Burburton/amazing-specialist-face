@@ -1,0 +1,32 @@
+import { Link } from 'react-router-dom';
+import styles from './GetStartedSlide.module.css';
+import stats from '../../data/stats.json';
+
+const ENTRY_CARDS = [
+  { icon: '📚', title: '技能库', count: `${stats.totalSkills} 个技能`, path: '/skills' },
+  { icon: '👥', title: '角色分工', count: `${stats.totalRoles} 个角色`, path: '/roles' },
+  { icon: '📋', title: '契约规范', count: `${stats.totalContracts} 个契约`, path: '/contracts' },
+];
+
+export default function GetStartedSlide() {
+  return (
+    <section className={styles.slide} aria-label="开始使用">
+      <h2 className={styles.title}>开始使用</h2>
+
+      <div className={styles.cards}>
+        {ENTRY_CARDS.map((card) => (
+          <Link
+            key={card.path}
+            to={card.path}
+            className={styles.card}
+          >
+            <span className={styles.icon}>{card.icon}</span>
+            <h3 className={styles.cardTitle}>{card.title}</h3>
+            <p className={styles.cardCount}>{card.count}</p>
+            <span className={styles.cardArrow}>→</span>
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+}

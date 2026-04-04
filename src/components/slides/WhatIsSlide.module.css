@@ -1,0 +1,296 @@
+.slide {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8) var(--space-4);
+  background: var(--color-background);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  position: relative;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.roleTree {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.roleRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.roleNode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--color-surface);
+  border: 2px solid var(--node-color, var(--color-border));
+  border-radius: var(--radius-xl);
+  padding: var(--space-3) var(--space-4);
+  min-width: 140px;
+  cursor: pointer;
+  transition: 
+    transform var(--duration-normal) var(--ease-spring),
+    box-shadow var(--duration-normal) var(--ease-spring);
+}
+
+.roleNode:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-lg);
+}
+
+.roleNode:focus-visible {
+  outline: none;
+  box-shadow: var(--ring-focus);
+}
+
+.roleEmoji {
+  font-size: 2rem;
+  margin-bottom: var(--space-1);
+}
+
+.roleName {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.roleCount {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-top: var(--space-1);
+}
+
+.connector {
+  height: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.connectorLine {
+  width: 2px;
+  height: 100%;
+  background: var(--color-border);
+}
+
+.connectorUp {
+  height: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.arrow {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  color: var(--color-text-muted);
+}
+
+.arrowLeft {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  color: var(--color-text-muted);
+}
+
+.hint {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin-top: var(--space-6);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 360px;
+  height: 100vh;
+  background: var(--color-surface);
+  border-left: 2px solid var(--panel-color, var(--color-border));
+  padding: var(--space-6);
+  z-index: 101;
+  overflow-y: auto;
+  animation: slideIn 200ms var(--ease-spring);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  background: transparent;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  transition: color var(--duration-fast) var(--ease-default);
+}
+
+.closeButton:hover {
+  color: var(--color-text-primary);
+}
+
+.closeButton:focus-visible {
+  outline: none;
+  box-shadow: var(--ring-focus);
+}
+
+.panelHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--space-4);
+}
+
+.panelEmoji {
+  font-size: 3rem;
+  margin-bottom: var(--space-2);
+}
+
+.panelTitle {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: var(--space-1);
+}
+
+.panelCount {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.panelSection {
+  margin-bottom: var(--space-6);
+}
+
+.panelSectionTitle {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-3);
+}
+
+.panelList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.panelListItem {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.panelListItem:last-child {
+  border-bottom: none;
+}
+
+.skillList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skillItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.skillItem:last-child {
+  border-bottom: none;
+}
+
+.skillName {
+  font-size: 0.875rem;
+  color: var(--color-text-primary);
+}
+
+.skillCategory {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  padding: 2px 6px;
+  background: var(--color-surface-elevated);
+  border-radius: var(--radius-sm);
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .roleNode {
+    min-width: 100px;
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .roleEmoji {
+    font-size: 1.5rem;
+  }
+
+  .roleName {
+    font-size: 0.875rem;
+  }
+
+  .panel {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel {
+    animation: none;
+  }
+
+  .roleNode {
+    transition: none;
+  }
+
+  .roleNode:hover {
+    transform: none;
+  }
+}

@@ -5,31 +5,6 @@
   scroll-behavior: smooth;
 }
 
-.placeholderSlide {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-8) var(--space-4);
-  background: var(--color-surface);
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-}
-
-.placeholderText {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  color: var(--color-text-secondary);
-  margin-bottom: var(--space-2);
-}
-
-.placeholderHint {
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
-  color: var(--color-text-muted);
-}
-
 @media (prefers-reduced-motion: reduce) {
   .slideContainer {
     scroll-behavior: auto;
