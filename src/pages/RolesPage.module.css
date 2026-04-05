@@ -5,7 +5,6 @@
 
 .overviewSection {
   padding: var(--space-8) var(--space-4);
-  border-bottom: 1px solid var(--color-border);
 }
 
 .roleGrid {
@@ -82,7 +81,6 @@
 
 .collaborationSection {
   padding: var(--space-8) var(--space-4);
-  border-bottom: 1px solid var(--color-border);
 }
 
 .sectionTitle {
