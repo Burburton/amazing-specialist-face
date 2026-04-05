@@ -32,6 +32,58 @@
 
 ## Implementation Process
 
+### Phase 0: Issue 准备 (Issue Preparation)
+
+> **触发条件**: 以下情况必须执行此 Phase：
+> - dispatch payload 包含 `issue_id` 字段
+> - 从 `/spec-start` 命令启动的 GitHub Issue 驱动流程
+> - 任务明确要求 "GitHub Issue 驱动方式"
+>
+> **跳过条件**: 以下情况可跳过此 Phase：
+> - 从 CLI 直接触发，无 Issue ID
+> - 任务明确指定不使用 Issue 驱动
+> - 紧急修复场景（后续补充 Issue）
+
+#### Step 0: 检查 GitHub Issues
+
+**目的**: 确保任务在 GitHub Issues 中正确管理，避免创建重复 Issue。
+
+1. **列出现有 Issues**
+   ```bash
+   gh issue list --state all --limit 100
+   ```
+
+2. **搜索相关 Issue**
+   - 使用关键词搜索（feature 名称、组件名称、任务描述关键词）
+   - 检查 Issue 状态（open, closed, closed-as-completed）
+   - 检查 Issue 内容是否与当前任务匹配
+
+3. **决策分支**
+
+   | 情况 | 处理方式 |
+   |------|----------|
+   | 找到匹配的 open Issue | 使用现有 Issue，直接进入 Phase 1 |
+   | 找到匹配的 closed Issue（已完成） | 检查是否需要新 Issue（如需求变更），否则跳过任务 |
+   | 找到匹配的 closed Issue（未完成） | 重新打开 Issue 或创建新 Issue |
+   | 未找到匹配 Issue | 创建新 Issue，进入 Phase 1 |
+
+4. **创建 Issue（如需要）**
+   ```bash
+   gh issue create --title "[Feature] <feature-name>" --body "..."
+   ```
+
+**Checklist - Phase 0**:
+- [ ] 已列出并检查现有 GitHub Issues
+- [ ] 已搜索与任务相关的 Issue
+- [ ] 已确认 Issue 状态（使用现有或创建新的）
+- [ ] 已记录 Issue ID 用于后续关联
+
+**常见错误**:
+- ❌ 未检查现有 Issue，直接创建新 Issue → 导致重复 Issue
+- ❌ 未记录 Issue ID → 后续无法关联 PR 和 Issue
+
+---
+
 ### Phase 1: 准备 (Preparation)
 
 #### Step 1: 理解任务

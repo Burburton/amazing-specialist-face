@@ -57,6 +57,14 @@
       "path": ".opencode/skills/common/context-summarization/SKILL.md"
     },
     {
+      "id": "common/error-reporter",
+      "name": "error-reporter",
+      "role": "common",
+      "category": "MVP",
+      "description": "将角色执行中的错误信息转化为标准 `error-report` artifact，确保管理层能稳定消费执行层错误信息，做出准确的流程决策。",
+      "path": ".opencode/skills/common/error-reporter/SKILL.md"
+    },
+    {
       "id": "common/execution-reporting",
       "name": "execution-reporting",
       "role": "common",
@@ -71,6 +79,14 @@
       "category": "MVP",
       "description": "从 test fail、review reject、verification fail、logs 中提炼根因，区分可重试、需返工、需重规划、需升级，是返工闭环质量的核心保障。",
       "path": ".opencode/skills/common/failure-analysis/SKILL.md"
+    },
+    {
+      "id": "common/github-issue-reporter",
+      "name": "github-issue-reporter",
+      "role": "common",
+      "category": "MVP",
+      "description": "将 `error-report` artifact 发布到 GitHub Issue，使用户能直观看到错误详情、严重程度和处理建议，无需翻阅文件系统中的 artifact 文件。",
+      "path": ".opencode/skills/common/github-issue-reporter/SKILL.md"
     },
     {
       "id": "common/retry-strategy",
@@ -305,7 +321,7 @@
       "path": ".opencode/skills/tester/unit-test-design/SKILL.md"
     }
   ],
-  "total": 38,
-  "mvpCount": 22,
+  "total": 40,
+  "mvpCount": 24,
   "m4Count": 16
 }

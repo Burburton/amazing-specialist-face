@@ -192,7 +192,23 @@
         "reviewer"
       ],
       "description": "Focused security review for input validation with attack vectors analysis and remediation guidance"
+    },
+    {
+      "contract_id": "ERR-001",
+      "contract_name": "error-report",
+      "producer_role": "common",
+      "consumer_roles": [
+        "OpenClaw",
+        "execution-reporting",
+        "architect",
+        "developer",
+        "tester",
+        "reviewer",
+        "docs",
+        "security"
+      ],
+      "description": "Standardized error report format for 6-role execution layer, enabling accurate process decisions"
     }
   ],
-  "total": 18
+  "total": 19
 }
