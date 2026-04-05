@@ -1,0 +1,95 @@
+/* SearchResultItem.module.css */
+/* PPT Manual Style Search Result Item */
+
+.resultItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background var(--duration-fast);
+}
+
+.resultItem:hover {
+  background: var(--color-surface-elevated);
+}
+
+.typeIcon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+}
+
+.typeIcon.skill {
+  color: #a78bfa; /* purple */
+}
+
+.typeIcon.role {
+  color: #10b981; /* green */
+}
+
+.typeIcon.contract {
+  color: #f59e0b; /* amber */
+}
+
+.typeIcon.command {
+  color: #06b6d4; /* cyan */
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.description {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.metadata {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-1);
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-elevated);
+  color: var(--color-text-muted);
+}
+
+.arrow {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  align-self: center;
+  opacity: 0;
+  transition: opacity var(--duration-fast);
+}
+
+.resultItem:hover .arrow {
+  opacity: 1;
+}

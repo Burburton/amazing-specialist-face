@@ -4,7 +4,7 @@
 002-execution-monitor
 
 ## Status
-`planned`
+`completed`
 
 ## Version
 1.0.0

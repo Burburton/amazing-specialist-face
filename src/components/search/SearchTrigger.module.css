@@ -1,0 +1,42 @@
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background var(--duration-fast), border-color var(--duration-fast);
+}
+
+.trigger:hover {
+  background: var(--color-surface-elevated);
+  border-color: var(--color-text-muted);
+}
+
+.icon {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+}
+
+.text {
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  font-family: var(--font-body);
+}
+
+.shortcut {
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  background: var(--color-background);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+@media (max-width: 640px) {
+  .text {
+    display: none;
+  }
+}

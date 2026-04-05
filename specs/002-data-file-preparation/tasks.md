@@ -4,18 +4,18 @@
 
 | Task ID | Task Name | Role | Status | Parallel |
 |---------|-----------|------|--------|----------|
-| T-002-001 | Extract skills.json | developer | pending | Yes (with T-002-002, T-002-003) |
-| T-002-002 | Extract roles.json | developer | pending | Yes (with T-002-001, T-002-003) |
-| T-002-003 | Extract contracts.json | developer | pending | Yes (with T-002-001, T-002-002) |
-| T-002-004 | Extract commands.json | developer | pending | Yes (with T-002-005) |
-| T-002-005 | Generate stats.json | developer | pending | Yes (with T-002-004) |
-| T-002-006 | T-EXP-001: Skills Availability Test | tester | pending | No |
-| T-002-007 | T-EXP-002: Contracts Stability Test | tester | pending | No |
-| T-002-008 | T-EXP-003: Performance Test | tester | pending | No |
-| T-002-009 | T-EXP-004: Integration Test | tester | pending | No |
-| T-002-010 | T-EXP-005: Error Handling Test | tester | pending | No |
-| T-002-011 | Generate test-results.json | tester | pending | No |
-| T-002-012 | Validate JSON against types | reviewer | pending | No |
+| T-002-001 | Extract skills.json | developer | ✅ completed | Yes (with T-002-002, T-002-003) |
+| T-002-002 | Extract roles.json | developer | ✅ completed | Yes (with T-002-001, T-002-003) |
+| T-002-003 | Extract contracts.json | developer | ✅ completed | Yes (with T-002-001, T-002-002) |
+| T-002-004 | Extract commands.json | developer | ✅ completed | Yes (with T-002-005) |
+| T-002-005 | Generate stats.json | developer | ✅ completed | Yes (with T-002-004) |
+| T-002-006 | T-EXP-001: Skills Availability Test | tester | ✅ completed | No |
+| T-002-007 | T-EXP-002: Contracts Stability Test | tester | ✅ completed | No |
+| T-002-008 | T-EXP-003: Performance Test | tester | ✅ completed | No |
+| T-002-009 | T-EXP-004: Integration Test | tester | ✅ completed | No |
+| T-002-010 | T-EXP-005: Error Handling Test | tester | ✅ completed | No |
+| T-002-011 | Generate test-results.json | tester | ✅ completed | No |
+| T-002-012 | Validate JSON against types | reviewer | ✅ completed | No |
 
 ---
 
