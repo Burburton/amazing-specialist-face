@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SearchTrigger from '../search/SearchTrigger';
 import SearchModal from '../search/SearchModal';
+import ThemeToggle from './ThemeToggle';
 import styles from './Header.module.css';
 
 const SLIDE_NAVS = [
@@ -90,6 +91,8 @@ function Header() {
         </nav>
 
         <SearchTrigger onClick={() => setIsSearchOpen(true)} />
+
+        <ThemeToggle />
 
         <a
           href="https://github.com/Burburton/amazing-specialists"
