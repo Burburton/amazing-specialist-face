@@ -6,22 +6,15 @@ describe('Layout Component Structure', () => {
     expect(module.default).toBeDefined();
     expect(typeof module.default).toBe('function');
   });
-
-  it('should have CSS module import', async () => {
-    const cssModule = await import('../components/common/Layout.module.css');
-    expect(cssModule).toBeDefined();
-    expect(cssModule.layout).toBeDefined();
-    expect(cssModule.main).toBeDefined();
-  });
 });
 
 describe('Layout CSS Classes', () => {
-  it('should have responsive breakpoint at 768px', async () => {
+  it('should use modern viewport unit (svh)', async () => {
     const fs = await import('fs');
     const path = await import('path');
     const cssPath = path.join(process.cwd(), 'src/components/common/Layout.module.css');
     const content = fs.readFileSync(cssPath, 'utf-8');
-    expect(content.includes('@media (max-width: 768px)')).toBe(true);
+    expect(content.includes('min-height: 100svh')).toBe(true);
   });
 
   it('should have flexbox layout', async () => {

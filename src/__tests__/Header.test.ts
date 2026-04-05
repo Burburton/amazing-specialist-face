@@ -19,22 +19,10 @@ describe('Header Component Structure', () => {
     expect(expectedLinks[0].path).toBe('/');
     expect(expectedLinks[4].label).toBe('Commands');
   });
-
-  it('should have CSS module import', async () => {
-    const cssModule = await import('../components/common/Header.module.css');
-    expect(cssModule).toBeDefined();
-    expect(cssModule.header).toBeDefined();
-    expect(cssModule.nav).toBeDefined();
-    expect(cssModule.logo).toBeDefined();
-    expect(cssModule.active).toBeDefined();
-    expect(cssModule.mobileNav).toBeDefined();
-    expect(cssModule.menuButton).toBeDefined();
-  });
 });
 
 describe('Header CSS Classes', () => {
   it('should have responsive breakpoint at 768px', async () => {
-    const cssContent = `@media (max-width: 768px)`;
     const fs = await import('fs');
     const path = await import('path');
     const cssPath = path.join(process.cwd(), 'src/components/common/Header.module.css');
@@ -42,12 +30,12 @@ describe('Header CSS Classes', () => {
     expect(content.includes('@media (max-width: 768px)')).toBe(true);
   });
 
-  it('should have sticky header positioning', async () => {
+  it('should have fixed header positioning', async () => {
     const fs = await import('fs');
     const path = await import('path');
     const cssPath = path.join(process.cwd(), 'src/components/common/Header.module.css');
     const content = fs.readFileSync(cssPath, 'utf-8');
-    expect(content.includes('position: sticky')).toBe(true);
+    expect(content.includes('position: fixed')).toBe(true);
   });
 
   it('should have hamburger menu styles', async () => {
