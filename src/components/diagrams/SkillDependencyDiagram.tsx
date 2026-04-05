@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './SkillDependencyDiagram.module.css';
 
 interface Skill {
@@ -13,14 +13,14 @@ interface SkillDependencyDiagramProps {
   skills: Skill[];
 }
 
-const ROLE_COLORS: Record<string, string> = {
-  architect: '#2563eb',
-  developer: '#22c55e',
-  tester: '#f59e0b',
-  reviewer: '#8b5cf6',
-  docs: '#06b6d4',
-  security: '#ef4444',
-  common: '#6b7280',
+const ROLE_COLORS_400: Record<string, string> = {
+  architect: 'var(--color-role-architect-400)',
+  developer: 'var(--color-role-developer-400)',
+  tester: 'var(--color-role-tester-400)',
+  reviewer: 'var(--color-role-reviewer-400)',
+  docs: 'var(--color-role-docs-400)',
+  security: 'var(--color-role-security-400)',
+  common: 'var(--color-role-common-400)',
 };
 
 const ROLE_LABELS: Record<string, string> = {
@@ -36,84 +36,67 @@ const ROLE_LABELS: Record<string, string> = {
 const ROLE_ORDER = ['architect', 'developer', 'tester', 'reviewer', 'docs', 'security', 'common'];
 
 export default function SkillDependencyDiagram({ skills }: SkillDependencyDiagramProps) {
-  const skillsByRole = useMemo(() => {
-    const grouped: Record<string, Skill[]> = {};
-    
-    ROLE_ORDER.forEach(role => {
-      grouped[role] = skills.filter(s => s.role === role);
-    });
-    
-    return grouped;
-  }, [skills]);
+  const skillsByRole: Record<string, Skill[]> = {};
+  ROLE_ORDER.forEach(role => {
+    skillsByRole[role] = skills.filter(s => s.role === role);
+  });
 
-  const categoryStats = useMemo(() => {
-    const mvp = skills.filter(s => s.category === 'MVP').length;
-    const m4 = skills.filter(s => s.category === 'M4').length;
-    return { mvp, m4, total: skills.length };
-  }, [skills]);
+  const mvpCount = skills.filter(s => s.category === 'MVP').length;
+  const m4Count = skills.filter(s => s.category === 'M4').length;
 
   return (
     <div className={styles.diagram}>
-      <h3 className={styles.title}>技能分布图</h3>
-      
-      <div className={styles.categoryStats}>
-        <div className={styles.statItem}>
-          <span className={styles.statLabel}>MVP 核心</span>
-          <span className={styles.statValue}>{categoryStats.mvp}</span>
+      <div className={styles.header}>
+        <div className={styles.heroStat}>
+          <span className={styles.heroNumber}>{skills.length}</span>
+          <span className={styles.heroLabel}>Total Skills</span>
         </div>
-        <div className={styles.statItem}>
-          <span className={styles.statLabel}>M4 扩展</span>
-          <span className={styles.statValue}>{categoryStats.m4}</span>
-        </div>
-        <div className={styles.statItem}>
-          <span className={styles.statLabel}>总计</span>
-          <span className={styles.statValue}>{categoryStats.total}</span>
+        <div className={styles.subStats}>
+          <div className={styles.subStat}>
+            <span className={styles.subValue}>{mvpCount}</span>
+            <span className={styles.subLabel}>MVP</span>
+          </div>
+          <div className={styles.subStat}>
+            <span className={styles.subValue}>{m4Count}</span>
+            <span className={styles.subLabel}>M4</span>
+          </div>
+          <div className={styles.subStat}>
+            <span className={styles.subValue}>6</span>
+            <span className={styles.subLabel}>Roles</span>
+          </div>
         </div>
       </div>
 
-      <div className={styles.roleSections}>
-        {ROLE_ORDER.map(role => (
-          skillsByRole[role] && skillsByRole[role].length > 0 && (
-            <div key={role} className={styles.roleSection}>
-              <div className={styles.roleHeader}>
-                <div
-                  className={styles.roleDot}
-                  style={{ backgroundColor: ROLE_COLORS[role] }}
-                />
-                <span className={styles.roleTitle}>
-                  {ROLE_LABELS[role]}
-                </span>
-                <span className={styles.roleCount}>
-                  {skillsByRole[role].length}
-                </span>
-              </div>
-              
-              <div className={styles.skillGrid}>
-                {skillsByRole[role].map(skill => (
-                  <div
-                    key={skill.id}
-                    className={skill.category === 'M4' ? styles.skillNode + ' ' + styles.skillM4 : styles.skillNode}
-                    title={skill.description}
-                  >
-                    <span className={styles.skillName}>{skill.name}</span>
-                    <span className={styles.skillCategory}>{skill.category}</span>
-                  </div>
-                ))}
-              </div>
+      <div className={styles.roleGrid}>
+        {ROLE_ORDER.filter(role => skillsByRole[role]?.length > 0).map(role => (
+          <div key={role} className={styles.roleColumn}>
+            <div className={styles.roleHeader}>
+              <span 
+                className={styles.roleDot}
+                style={{ backgroundColor: ROLE_COLORS_400[role] }}
+              />
+              <span className={styles.roleName}>{ROLE_LABELS[role]}</span>
+              <span className={styles.roleCount}>{skillsByRole[role].length}</span>
             </div>
-          )
+            <div className={styles.skillList}>
+              {skillsByRole[role].slice(0, 5).map(skill => (
+                <Link
+                  key={skill.id}
+                  to={`/skills/${encodeURIComponent(skill.id)}`}
+                  className={`${styles.skillItem} ${skill.category === 'M4' ? styles.m4 : ''}`}
+                >
+                  <span className={styles.skillName}>{skill.name}</span>
+                  <span className={styles.skillBadge}>{skill.category}</span>
+                </Link>
+              ))}
+              {skillsByRole[role].length > 5 && (
+                <Link to={`/skills`} className={styles.moreLink}>
+                  +{skillsByRole[role].length - 5} more
+                </Link>
+              )}
+            </div>
+          </div>
         ))}
-      </div>
-
-      <div className={styles.legend}>
-        <div className={styles.legendItem}>
-          <span className={styles.legendDot + ' ' + styles.legendMVP} />
-          <span>MVP 核心技能</span>
-        </div>
-        <div className={styles.legendItem}>
-          <span className={styles.legendDot + ' ' + styles.legendM4} />
-          <span>M4 扩展技能</span>
-        </div>
       </div>
     </div>
   );

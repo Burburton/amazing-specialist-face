@@ -1,39 +1,40 @@
 .page {
   min-height: 100%;
-  max-width: var(--container-xl);
-  margin: 0 auto;
+  width: 100%;
 }
 
 .filterSection {
   background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
-  padding: var(--space-4);
-  margin: 0 var(--space-4) var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-6) var(--space-4);
 }
 
 .tabBar {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-4);
+  max-width: var(--container-xl);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .tabButton {
-  padding: var(--space-2) var(--space-3);
+  padding: var(--space-2) var(--space-4);
   background: transparent;
-  border: none;
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   cursor: pointer;
+  font-family: var(--font-mono);
   font-size: var(--text-sm);
   font-weight: var(--font-medium);
   color: var(--color-text-secondary);
-  transition: background var(--duration-fast) var(--ease-default),
-              color var(--duration-fast) var(--ease-default);
+  transition: all var(--duration-fast);
 }
 
 .tabButton:hover {
   background: var(--color-surface-elevated);
+  border-color: var(--color-border-subtle);
 }
 
 .tabButton:focus-visible {
@@ -41,12 +42,15 @@
 }
 
 .tabButton.active {
-  color: white;
+  color: var(--color-text-inverse);
+  border-color: transparent;
 }
 
 .filterRow {
   display: flex;
   gap: var(--space-3);
+  max-width: var(--container-xl);
+  margin: 0 auto;
 }
 
 .searchWrapper {
@@ -62,10 +66,11 @@
   padding: var(--space-2) var(--space-3);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  font-size: var(--text-base);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
   background: var(--color-surface-elevated);
   color: var(--color-text-primary);
-  transition: border-color var(--duration-fast) var(--ease-default);
+  transition: border-color var(--duration-fast);
 }
 
 .searchInput::placeholder {
@@ -75,11 +80,11 @@
 .searchInput:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: var(--ring-focus-offset);
 }
 
 .searchCount {
-  font-size: var(--text-sm);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
   color: var(--color-text-muted);
   white-space: nowrap;
 }
@@ -88,11 +93,12 @@
   padding: var(--space-2) var(--space-3);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  font-size: var(--text-base);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
   background: var(--color-surface-elevated);
   color: var(--color-text-primary);
   cursor: pointer;
-  transition: border-color var(--duration-fast) var(--ease-default);
+  transition: border-color var(--duration-fast);
 }
 
 .categorySelect:focus {
@@ -103,12 +109,9 @@
 .statsSection {
   display: flex;
   justify-content: center;
-  gap: var(--space-6);
-  margin: 0 var(--space-4) var(--space-6);
-  padding: var(--space-4);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  gap: var(--space-8);
+  padding: var(--space-8) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .statItem {
@@ -120,30 +123,32 @@
 
 .statValue {
   font-family: var(--font-display);
-  font-size: var(--text-2xl);
+  font-size: var(--text-3xl);
   font-weight: var(--font-bold);
   color: var(--color-primary);
 }
 
 .statLabel {
-  font-size: var(--text-sm);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
   color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
 }
 
 .diagramSection {
-  margin: 0 var(--space-4) var(--space-6);
-  padding: var(--space-6);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
+  padding: var(--space-8) 0;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .gridSection {
-  padding: 0 var(--space-4) var(--space-8);
+  padding: var(--space-8) var(--space-4);
+  max-width: var(--container-xl);
+  margin: 0 auto;
 }
 
 .roleGroup {
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-8);
 }
 
 .roleGroupTitle {
@@ -153,7 +158,7 @@
   color: var(--color-text-primary);
   margin-bottom: var(--space-4);
   padding-bottom: var(--space-2);
-  border-bottom: 2px solid var(--color-primary);
+  border-bottom: 2px solid;
 }
 
 .skills {
@@ -164,7 +169,7 @@
 
 @media (max-width: 768px) {
   .filterSection {
-    margin: 0 var(--space-2) var(--space-4);
+    padding: var(--space-4) var(--space-3);
   }
 
   .tabBar {
@@ -186,15 +191,11 @@
 
   .statsSection {
     flex-direction: column;
-    gap: var(--space-3);
-    margin: 0 var(--space-2) var(--space-4);
-  }
-
-  .diagramSection {
-    margin: 0 var(--space-2) var(--space-4);
+    gap: var(--space-4);
+    padding: var(--space-6) var(--space-3);
   }
 
   .gridSection {
-    padding: 0 var(--space-2) var(--space-6);
+    padding: var(--space-6) var(--space-3);
   }
 }

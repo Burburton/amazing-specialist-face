@@ -7,15 +7,6 @@
 
 .main {
   flex: 1;
-  padding: var(--space-4);
   width: 100%;
   box-sizing: border-box;
-  max-width: var(--container-xl);
-  margin: 0 auto;
-}
-
-@media (max-width: 768px) {
-  .main {
-    padding: var(--space-3);
-  }
 }

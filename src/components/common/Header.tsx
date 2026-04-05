@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import styles from './Header.module.css';
 
 const SLIDE_NAVS = [
@@ -15,6 +15,10 @@ const PAGE_NAVS = [
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,10 +30,14 @@ function Header() {
   }, []);
 
   const scrollToSlide = (index: number) => {
-    const container = document.querySelector('[data-slide-container]');
-    if (container) {
-      const slide = container.children[index] as HTMLElement;
-      slide?.scrollIntoView({ behavior: 'smooth' });
+    if (isHomePage) {
+      const container = document.querySelector('[data-slide-container]');
+      if (container) {
+        const slide = container.children[index] as HTMLElement;
+        slide?.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      navigate(`/#slide-${index}`);
     }
     setIsMenuOpen(false);
   };
