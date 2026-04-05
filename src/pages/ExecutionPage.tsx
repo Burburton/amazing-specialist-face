@@ -33,37 +33,53 @@ function ExecutionPage() {
     });
   }, [filter]);
 
+  const scrollToTasks = () => {
+    const tasksSection = document.querySelector('[data-tasks-section]');
+    tasksSection?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <div className={styles.executionPage}>
-      <h1 className={styles.pageTitle}>Execution Monitor</h1>
+    <div className={styles.container} data-execution-container>
+      <section className={styles.overviewSection}>
+        <div className={styles.overviewContent}>
+          <h1 className={styles.pageTitle}>Execution</h1>
+          <p className={styles.subtitle}>Real-time Task Monitor</p>
+          <StatsOverview stats={stats} />
+          <button className={styles.scrollHint} onClick={scrollToTasks} type="button">
+            View Tasks ↓
+          </button>
+        </div>
+      </section>
 
-      <StatsOverview stats={stats} />
+      <section className={styles.tasksSection} data-tasks-section>
+        <div className={styles.sectionContent}>
+          <div className={styles.sectionHeader}>
+            <h2 className={styles.sectionTitle}>Tasks</h2>
+            <span className={styles.taskCount}>{filteredTasks.length}</span>
+          </div>
 
-      <div className={styles.filterBar}>
-        <select
-          value={filter.status || ''}
-          onChange={(e) => setFilter({ ...filter, status: e.target.value as TaskFilter['status'] || undefined })}
-          className={styles.filterSelect}
-        >
-          <option value="">All Status</option>
-          <option value="pending">Pending</option>
-          <option value="in-progress">In Progress</option>
-          <option value="success">Success</option>
-          <option value="failed">Failed</option>
-          <option value="blocked">Blocked</option>
-        </select>
-        <input
-          type="text"
-          placeholder="Search tasks..."
-          value={filter.search || ''}
-          onChange={(e) => setFilter({ ...filter, search: e.target.value })}
-          className={styles.searchInput}
-        />
-      </div>
+          <div className={styles.filterBar}>
+            <select
+              value={filter.status || ''}
+              onChange={(e) => setFilter({ ...filter, status: e.target.value as TaskFilter['status'] || undefined })}
+              className={styles.filterSelect}
+            >
+              <option value="">All Status</option>
+              <option value="pending">Pending</option>
+              <option value="in-progress">In Progress</option>
+              <option value="success">Success</option>
+              <option value="failed">Failed</option>
+              <option value="blocked">Blocked</option>
+            </select>
+            <input
+              type="text"
+              placeholder="Search tasks..."
+              value={filter.search || ''}
+              onChange={(e) => setFilter({ ...filter, search: e.target.value })}
+              className={styles.searchInput}
+            />
+          </div>
 
-      <div className={styles.content}>
-        <div className={styles.taskList}>
-          <h2 className={styles.sectionTitle}>Tasks ({filteredTasks.length})</h2>
           <div className={styles.taskGrid}>
             {filteredTasks.map((task) => (
               <TaskCard
@@ -74,34 +90,48 @@ function ExecutionPage() {
             ))}
           </div>
         </div>
+      </section>
 
-        {selectedTask && (
-          <div className={styles.taskDetail}>
-            <h2 className={styles.sectionTitle}>{selectedTask.task_id}: {selectedTask.title}</h2>
+      {selectedTask && (
+        <section className={styles.detailSection}>
+          <div className={styles.sectionContent}>
+            <div className={styles.detailHeader}>
+              <h2 className={styles.sectionTitle}>
+                {selectedTask.task_id}: {selectedTask.title}
+              </h2>
+              <button
+                className={styles.closeButton}
+                onClick={() => setSelectedTask(null)}
+                type="button"
+                aria-label="Close"
+              >
+                ×
+              </button>
+            </div>
 
             {selectedTask.phases.length > 0 && (
-              <div className={styles.detailSection}>
-                <h3 className={styles.detailTitle}>Execution Timeline</h3>
+              <div className={styles.detailBlock}>
+                <h3 className={styles.detailLabel}>Execution Timeline</h3>
                 <Timeline phases={selectedTask.phases} currentPhase="developer" />
               </div>
             )}
 
             {selectedTask.dispatch_payload && (
-              <div className={styles.detailSection}>
-                <h3 className={styles.detailTitle}>Dispatch Payload</h3>
+              <div className={styles.detailBlock}>
+                <h3 className={styles.detailLabel}>Dispatch Payload</h3>
                 <PayloadViewer payload={selectedTask.dispatch_payload} />
               </div>
             )}
 
             {selectedTask.logs.length > 0 && (
-              <div className={styles.detailSection}>
-                <h3 className={styles.detailTitle}>Execution Logs</h3>
+              <div className={styles.detailBlock}>
+                <h3 className={styles.detailLabel}>Execution Logs</h3>
                 <LogViewer logs={selectedTask.logs} />
               </div>
             )}
           </div>
-        )}
-      </div>
+        </section>
+      )}
     </div>
   );
 }

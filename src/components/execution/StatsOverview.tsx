@@ -6,23 +6,34 @@ interface StatsOverviewProps {
 }
 
 function StatsOverview({ stats }: StatsOverviewProps) {
-  const statItems = [
-    { key: 'total', label: 'Total', value: stats.total, color: 'default' },
+  const mainStats = [
+    { key: 'total', label: 'Total', value: stats.total },
+    { key: 'inProgress', label: 'Active', value: stats.inProgress },
+    { key: 'success', label: 'Done', value: stats.success },
+  ];
+
+  const statusStats = [
     { key: 'pending', label: 'Pending', value: stats.pending, color: 'pending' },
-    { key: 'inProgress', label: 'In Progress', value: stats.inProgress, color: 'inProgress' },
-    { key: 'success', label: 'Success', value: stats.success, color: 'success' },
     { key: 'failed', label: 'Failed', value: stats.failed, color: 'failed' },
     { key: 'blocked', label: 'Blocked', value: stats.blocked, color: 'blocked' },
-  ] as const;
+  ];
 
   return (
     <div className={styles.statsOverview}>
-      <h2 className={styles.title}>Execution Statistics</h2>
-      <div className={styles.statsGrid}>
-        {statItems.map((item) => (
-          <div key={item.key} className={`${styles.statCard} ${styles[item.color]}`}>
-            <div className={styles.statValue}>{item.value}</div>
-            <div className={styles.statLabel}>{item.label}</div>
+      <div className={styles.mainStats}>
+        {mainStats.map((item) => (
+          <div key={item.key} className={styles.mainStat}>
+            <div className={styles.mainValue}>{item.value}</div>
+            <div className={styles.mainLabel}>{item.label}</div>
+          </div>
+        ))}
+      </div>
+
+      <div className={styles.statusStats}>
+        {statusStats.map((item) => (
+          <div key={item.key} className={`${styles.statusStat} ${styles[item.color]}`}>
+            <span className={styles.statusValue}>{item.value}</span>
+            <span className={styles.statusLabel}>{item.label}</span>
           </div>
         ))}
       </div>
