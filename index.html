@@ -15,25 +15,6 @@
           }
         } catch (e) {}
       })();
-      
-      // SPA routing for GitHub Pages
-      // Handles redirects from 404.html
-      (function() {
-        var pathSegmentsToKeep = 1; // Keep '/amazing-specialist-face' in the path
-        var l = window.location;
-        if (l.search[1] === '/') {
-          var decoded = l.search.slice(1).split('&').map(function(s) {
-            return s.replace(/~and~/g, '&');
-          });
-          l.replace(
-            l.origin + 
-            l.pathname + 
-            decoded[0].slice(1) +
-            (decoded[1] ? '?' + decoded.slice(1).join('&') : '') +
-            l.hash
-          );
-        }
-      })();
     </script>
   </head>
   <body>
