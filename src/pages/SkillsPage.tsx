@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import styles from './SkillsPage.module.css';
 import skillsData from '../data/skills.json';
 import SkillCard from '../components/cards/SkillCard';
@@ -29,7 +30,11 @@ const ROLE_COLORS_400: Record<string, string> = {
 };
 
 export default function SkillsPage() {
-  const [selectedRole, setSelectedRole] = useState('all');
+  const [searchParams] = useSearchParams();
+  const roleParam = searchParams.get('role');
+  const initialRole = ROLES.includes(roleParam || '') ? roleParam! : 'all';
+  
+  const [selectedRole, setSelectedRole] = useState(initialRole);
   const [searchQuery, setSearchQuery] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('all');
 

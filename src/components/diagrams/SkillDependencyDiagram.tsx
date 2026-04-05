@@ -90,7 +90,7 @@ export default function SkillDependencyDiagram({ skills }: SkillDependencyDiagra
                 </Link>
               ))}
               {skillsByRole[role].length > 5 && (
-                <Link to={`/skills`} className={styles.moreLink}>
+                <Link to={`/skills?role=${role}`} className={styles.moreLink}>
                   +{skillsByRole[role].length - 5} more
                 </Link>
               )}
