@@ -13,15 +13,15 @@ based_on: plan.md
 
 | Phase | Task ID | 描述 | 优先级 | 状态 | 依赖 |
 |-------|---------|------|--------|------|------|
-| 1 | T-001 | 重构 ExecutionPage 为 section 布局 | 🔴 最高 | ⏳ pending | - |
-| 1 | T-002 | 添加 scroll-snap 行为 | 🟡 高 | ⏳ pending | T-001 |
-| 1 | T-003 | 更新页面 CSS 为 PPT Manual Style | 🔴 最高 | ⏳ pending | T-001 |
-| 2 | T-004 | 更新 StatsOverview 组件样式 | 🔴 最高 | ⏳ pending | T-003 |
-| 2 | T-005 | 更新 TaskCard 组件样式 | 🔴 最高 | ⏳ pending | T-003 |
-| 2 | T-006 | 更新 filter bar 样式 | 🟡 高 | ⏳ pending | T-003 |
-| 2 | T-007 | 更新 detail section 样式 | 🟡 高 | ⏳ pending | T-003 |
-| 3 | T-008 | 响应式适配 | 🟡 高 | ⏳ pending | T-007 |
-| 3 | T-009 | 构建验证 | 🔴 最高 | ⏳ pending | T-008 |
+| 1 | T-001 | 重构 ExecutionPage 为 section 布局 | 🔴 最高 | ✅ completed | - |
+| 1 | T-002 | 添加 scroll-snap 行为 | 🟡 高 | ✅ completed | T-001 |
+| 1 | T-003 | 更新页面 CSS 为 PPT Manual Style | 🔴 最高 | ✅ completed | T-001 |
+| 2 | T-004 | 更新 StatsOverview 组件样式 | 🔴 最高 | ✅ completed | T-003 |
+| 2 | T-005 | 更新 TaskCard 组件样式 | 🔴 最高 | ✅ completed | T-003 |
+| 2 | T-006 | 更新 filter bar 样式 | 🟡 高 | ✅ completed | T-003 |
+| 2 | T-007 | 更新 detail section 样式 | 🟡 高 | ✅ completed | T-003 |
+| 3 | T-008 | 响应式适配 | 🟡 高 | ✅ completed | T-007 |
+| 3 | T-009 | 构建验证 | 🔴 最高 | ✅ completed | T-008 |
 
 ---
 
@@ -31,7 +31,7 @@ based_on: plan.md
 
 **优先级**: 🔴 最高
 
-**状态**: ⏳ pending
+**状态**: ✅ completed
 
 **输出**: `src/pages/ExecutionPage.tsx` (modified)
 
@@ -46,7 +46,7 @@ based_on: plan.md
 
 **优先级**: 🟡 高
 
-**状态**: ⏳ pending
+**状态**: ✅ completed
 
 **依赖**: T-001
 
@@ -63,7 +63,7 @@ based_on: plan.md
 
 **优先级**: 🔴 最高
 
-**状态**: ⏳ pending
+**状态**: ✅ completed
 
 **依赖**: T-001
 
@@ -83,7 +83,7 @@ based_on: plan.md
 
 **优先级**: 🔴 最高
 
-**状态**: ⏳ pending
+**状态**: ✅ completed
 
 **依赖**: T-003
 
@@ -102,7 +102,7 @@ based_on: plan.md
 
 **优先级**: 🔴 最高
 
-**状态**: ⏳ pending
+**状态**: ✅ completed
 
 **依赖**: T-003
 
@@ -122,7 +122,7 @@ based_on: plan.md
 
 **优先级**: 🟡 高
 
-**状态**: ⏳ pending
+**状态**: ✅ completed
 
 **依赖**: T-003
 
@@ -139,7 +139,7 @@ based_on: plan.md
 
 **优先级**: 🟡 高
 
-**状态**: ⏳ pending
+**状态**: ✅ completed
 
 **依赖**: T-003
 
@@ -158,7 +158,7 @@ based_on: plan.md
 
 **优先级**: 🟡 高
 
-**状态**: ⏳ pending
+**状态**: ✅ completed
 
 **依赖**: T-007
 
@@ -173,7 +173,7 @@ based_on: plan.md
 
 **优先级**: 🔴 最高
 
-**状态**: ⏳ pending
+**状态**: ✅ completed
 
 **依赖**: T-008
 
