@@ -39,6 +39,10 @@ function Header() {
         e.preventDefault();
         setIsSearchOpen(true);
       }
+      if (e.key === 'Escape') {
+        setIsMenuOpen(false);
+        setIsSearchOpen(false);
+      }
     };
 
     window.addEventListener('keydown', handleKeyDown);
@@ -63,12 +67,12 @@ function Header() {
 
   return (
     <>
-      <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
-        <Link to="/" className={styles.logo}>
+      <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`} role="banner">
+        <Link to="/" className={styles.logo} aria-label="OpenCode home">
           OpenCode
         </Link>
 
-        <nav className={styles.nav}>
+        <nav className={styles.nav} aria-label="Main navigation">
           {SLIDE_NAVS.map((nav) => (
             <button
               key={nav.id}
@@ -127,7 +131,7 @@ function Header() {
           </span>
         </button>
 
-        <nav className={`${styles.mobileNav} ${isMenuOpen ? styles.open : ''}`}>
+        <nav className={`${styles.mobileNav} ${isMenuOpen ? styles.open : ''}`} aria-label="Mobile navigation" aria-hidden={!isMenuOpen}>
           {SLIDE_NAVS.map((nav) => (
             <button
               key={nav.id}
