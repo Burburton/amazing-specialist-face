@@ -59,7 +59,8 @@ export default function Icon({
   className = '',
   ...props 
 }: IconProps) {
-  const iconRef = `/icons.svg#icon-${name}`;
+  const base = import.meta.env.BASE_URL || '/';
+  const iconRef = `${base}icons.svg#icon-${name}`;
   const dimension = sizeMap[size];
   
   const combinedClassName = ['icon', `icon-${name}`, className].filter(Boolean).join(' ');
