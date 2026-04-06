@@ -1,3 +1,4 @@
+import Icon from '../common/Icon';
 import styles from './SearchTrigger.module.css';
 
 interface SearchTriggerProps {
@@ -10,7 +11,7 @@ export default function SearchTrigger({ onClick }: SearchTriggerProps) {
 
   return (
     <button className={styles.trigger} onClick={onClick} type="button" aria-label="Open search">
-      <span className={styles.icon}>🔍</span>
+      <Icon name="search" size={20} />
       <span className={styles.text}>搜索</span>
       <kbd className={styles.shortcut}>{shortcut}</kbd>
     </button>

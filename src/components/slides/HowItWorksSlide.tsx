@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styles from './HowItWorksSlide.module.css';
+import Icon from '../common/Icon';
 
 const FLOW_STEPS = [
   { id: 'spec', title: 'Spec', subtitle: '需求定义', role: 'architect' },
@@ -24,7 +25,7 @@ export default function HowItWorksSlide() {
                 <span className={styles.stepSubtitle}>{step.subtitle}</span>
               </div>
               {index < FLOW_STEPS.length - 1 && (
-                <span className={styles.arrow} aria-hidden="true">→</span>
+                <span className={styles.arrow} aria-hidden="true"><Icon name="arrow-right" size={20} /></span>
               )}
             </div>
           ))}
@@ -36,7 +37,7 @@ export default function HowItWorksSlide() {
       </p>
 
       <Link to="/skills" className={styles.cta}>
-        浏览技能库 →
+        浏览技能库 <Icon name="arrow-right" size={16} />
       </Link>
     </section>
   );

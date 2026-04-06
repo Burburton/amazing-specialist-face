@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react';
 import styles from './WhatIsSlide.module.css';
 import skillsData from '../../data/skills.json';
 import rolesData from '../../data/roles.json';
+import Icon, { roleIconMap } from '../common/Icon';
 
 const ROLE_COLORS: Record<string, string> = {
   architect: 'var(--color-role-architect-400)',
@@ -10,15 +11,6 @@ const ROLE_COLORS: Record<string, string> = {
   reviewer: 'var(--color-role-reviewer-400)',
   docs: 'var(--color-role-docs-400)',
   security: 'var(--color-role-security-400)',
-};
-
-const ROLE_EMOJIS: Record<string, string> = {
-  architect: '🏛️',
-  developer: '💻',
-  tester: '🔍',
-  reviewer: '✅',
-  docs: '📝',
-  security: '🔐',
 };
 
 const ROLE_NAMES: Record<string, string> = {
@@ -57,11 +49,11 @@ function RoleDetailPanel({ selectedRole, onClose }: RoleDetailPanelProps) {
           aria-label="关闭"
           type="button"
         >
-          ✕
+          <Icon name="close" size={16} />
         </button>
 
         <div className={styles.panelHeader} style={{ borderColor: roleColor }}>
-          <span className={styles.panelEmoji}>{ROLE_EMOJIS[selectedRole]}</span>
+          <Icon name={roleIconMap[selectedRole]} size={24} label={ROLE_NAMES[selectedRole]} />
           <h3 className={styles.panelTitle} style={{ color: roleColor }}>
             {ROLE_NAMES[selectedRole]}
           </h3>
@@ -121,7 +113,7 @@ export default function WhatIsSlide() {
             onClick={() => handleRoleClick('architect')}
             type="button"
           >
-            <span className={styles.roleEmoji}>{ROLE_EMOJIS.architect}</span>
+            <span className={styles.roleEmoji}><Icon name="architect" size={24} label="架构师" /></span>
             <span className={styles.roleName}>{ROLE_NAMES.architect}</span>
             <span className={styles.roleCount}>{getSkillCount('architect')} 技能</span>
           </button>
@@ -138,12 +130,12 @@ export default function WhatIsSlide() {
             onClick={() => handleRoleClick('developer')}
             type="button"
           >
-            <span className={styles.roleEmoji}>{ROLE_EMOJIS.developer}</span>
+            <span className={styles.roleEmoji}><Icon name="developer" size={24} label="开发者" /></span>
             <span className={styles.roleName}>{ROLE_NAMES.developer}</span>
             <span className={styles.roleCount}>{getSkillCount('developer')} 技能</span>
           </button>
 
-          <div className={styles.arrow} aria-hidden="true">→</div>
+          <div className={styles.arrow} aria-hidden="true"><Icon name="arrow-right" size={20} /></div>
 
           <button
             className={styles.roleNode}
@@ -151,7 +143,7 @@ export default function WhatIsSlide() {
             onClick={() => handleRoleClick('tester')}
             type="button"
           >
-            <span className={styles.roleEmoji}>{ROLE_EMOJIS.tester}</span>
+            <span className={styles.roleEmoji}><Icon name="tester" size={24} label="测试员" /></span>
             <span className={styles.roleName}>{ROLE_NAMES.tester}</span>
             <span className={styles.roleCount}>{getSkillCount('tester')} 技能</span>
           </button>
@@ -168,12 +160,12 @@ export default function WhatIsSlide() {
             onClick={() => handleRoleClick('reviewer')}
             type="button"
           >
-            <span className={styles.roleEmoji}>{ROLE_EMOJIS.reviewer}</span>
+            <span className={styles.roleEmoji}><Icon name="reviewer" size={24} label="审查员" /></span>
             <span className={styles.roleName}>{ROLE_NAMES.reviewer}</span>
             <span className={styles.roleCount}>{getSkillCount('reviewer')} 技能</span>
           </button>
 
-          <div className={styles.arrowLeft} aria-hidden="true">←</div>
+          <div className={styles.arrowLeft} aria-hidden="true"><Icon name="arrow-left" size={20} /></div>
 
           <button
             className={styles.roleNode}
@@ -181,7 +173,7 @@ export default function WhatIsSlide() {
             onClick={() => handleRoleClick('docs')}
             type="button"
           >
-            <span className={styles.roleEmoji}>{ROLE_EMOJIS.docs}</span>
+            <span className={styles.roleEmoji}><Icon name="docs" size={24} label="文档员" /></span>
             <span className={styles.roleName}>{ROLE_NAMES.docs}</span>
             <span className={styles.roleCount}>{getSkillCount('docs')} 技能</span>
           </button>
@@ -198,7 +190,7 @@ export default function WhatIsSlide() {
             onClick={() => handleRoleClick('security')}
             type="button"
           >
-            <span className={styles.roleEmoji}>{ROLE_EMOJIS.security}</span>
+            <span className={styles.roleEmoji}><Icon name="security" size={24} label="安全员" /></span>
             <span className={styles.roleName}>{ROLE_NAMES.security}</span>
             <span className={styles.roleCount}>{getSkillCount('security')} 技能</span>
           </button>

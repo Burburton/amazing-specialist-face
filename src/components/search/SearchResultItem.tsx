@@ -1,4 +1,5 @@
 import type { SearchResult } from '../../types/search';
+import Icon, { type IconName } from '../common/Icon';
 import styles from './SearchResultItem.module.css';
 
 interface SearchResultItemProps {
@@ -6,19 +7,21 @@ interface SearchResultItemProps {
   onSelect: (href: string) => void;
 }
 
-const TYPE_ICONS: Record<string, string> = {
-  skill: '⚡',
-  role: '🎭',
-  contract: '📋',
-  command: '▶️',
+const TYPE_ICONS: Record<string, IconName> = {
+  skill: 'skills',
+  role: 'roles',
+  contract: 'contracts',
+  command: 'commands',
 };
 
 export default function SearchResultItem({ result, onSelect }: SearchResultItemProps) {
-  const icon = result.metadata?.emoji || TYPE_ICONS[result.type];
+  const iconName: IconName = (result.metadata?.role as IconName) || TYPE_ICONS[result.type] || 'common';
 
   return (
     <div className={styles.resultItem} onClick={() => onSelect(result.href)}>
-      <div className={`${styles.typeIcon} ${styles[result.type]}`}>{icon}</div>
+      <div className={`${styles.typeIcon} ${styles[result.type]}`}>
+        <Icon name={iconName} size={20} />
+      </div>
       <div className={styles.content}>
         <div className={styles.name}>{result.name}</div>
         <div className={styles.description}>{result.description}</div>
@@ -36,7 +39,7 @@ export default function SearchResultItem({ result, onSelect }: SearchResultItemP
           </div>
         )}
       </div>
-      <span className={styles.arrow}>→</span>
+      <Icon name="arrow-right" size={16} />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styles from './CoverSlide.module.css';
+import Icon from '../common/Icon';
 
 export default function CoverSlide() {
   return (
@@ -24,7 +25,7 @@ export default function CoverSlide() {
       </div>
 
       <div className={styles.scrollHint} aria-hidden="true">
-        <span className={styles.scrollText}>↓ 滚动继续</span>
+        <span className={styles.scrollText}><Icon name="arrow-down" size={16} /> 滚动继续</span>
       </div>
     </section>
   );

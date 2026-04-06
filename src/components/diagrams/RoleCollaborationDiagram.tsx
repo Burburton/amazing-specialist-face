@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import styles from './RoleCollaborationDiagram.module.css';
+import Icon from '../common/Icon';
 
 interface Contract {
   contract_id: string;
@@ -106,10 +107,10 @@ export default function RoleCollaborationDiagram({ contracts }: RoleCollaboratio
             <div className={styles.roleName}>{ROLE_LABELS[role]}</div>
             <div className={styles.roleStats}>
               <span className={styles.statProduces}>
-                ↑ {roleStats[role].produces}
+                <Icon name="arrow-up" size={16} /> {roleStats[role].produces}
               </span>
               <span className={styles.statConsumes}>
-                ↓ {roleStats[role].consumes}
+                <Icon name="arrow-down" size={16} /> {roleStats[role].consumes}
               </span>
             </div>
           </div>
@@ -128,7 +129,7 @@ export default function RoleCollaborationDiagram({ contracts }: RoleCollaboratio
                     {ROLE_LABELS[producer]}
                   </div>
                   <div className={styles.flowArrow}>
-                    <span className={styles.arrowLine}>→</span>
+                    <span className={styles.arrowLine}><Icon name="arrow-right" size={16} /></span>
                     <span className={styles.contractCount}>{contractNames.length}</span>
                   </div>
                   <div className={styles.flowConsumer} style={{ color: ROLE_COLORS[consumer] }}>

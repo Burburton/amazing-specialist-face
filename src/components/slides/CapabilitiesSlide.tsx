@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styles from './CapabilitiesSlide.module.css';
+import Icon from '../common/Icon';
 import stats from '../../data/stats.json';
 
 export default function CapabilitiesSlide() {
@@ -27,7 +28,7 @@ export default function CapabilitiesSlide() {
       </div>
 
       <Link to="/skills" className={styles.cta}>
-        浏览技能库 →
+        浏览技能库 <Icon name="arrow-right" size={16} />
       </Link>
     </section>
   );

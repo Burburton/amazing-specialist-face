@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useTheme } from '../../hooks/useTheme';
+import Icon from './Icon';
+import type { IconName } from './Icon';
 import styles from './ThemeToggle.module.css';
 
 export default function ThemeToggle() {
@@ -28,7 +30,7 @@ export default function ThemeToggle() {
     };
   }, []);
 
-  const icon = resolvedTheme === 'dark' ? '🌙' : '☀️';
+  const iconName: IconName = resolvedTheme === 'dark' ? 'moon' : 'sun';
   const themeLabel = theme === 'system' ? 'System' : theme === 'dark' ? 'Dark' : 'Light';
 
   return (
@@ -42,7 +44,7 @@ export default function ThemeToggle() {
         aria-expanded={isOpen}
         aria-haspopup="menu"
       >
-        {icon}
+        <Icon name={iconName} size={20} />
       </button>
 
       {isOpen && (
@@ -58,7 +60,7 @@ export default function ThemeToggle() {
             role="menuitemradio"
             aria-checked={theme === 'light'}
           >
-            ☀️ Light
+            <Icon name="sun" size={18} /> Light
           </button>
           <button
             className={`${styles.option} ${theme === 'dark' ? styles.active : ''}`}
@@ -71,7 +73,7 @@ export default function ThemeToggle() {
             role="menuitemradio"
             aria-checked={theme === 'dark'}
           >
-            🌙 Dark
+            <Icon name="moon" size={18} /> Dark
           </button>
           <button
             className={`${styles.option} ${theme === 'system' ? styles.active : ''}`}
@@ -84,7 +86,7 @@ export default function ThemeToggle() {
             role="menuitemradio"
             aria-checked={theme === 'system'}
           >
-            💻 System
+            <Icon name="system" size={18} /> System
           </button>
         </div>
       )}

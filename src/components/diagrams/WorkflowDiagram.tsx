@@ -2,6 +2,7 @@ import { useState, useCallback, useEffect, useRef } from 'react';
 import styles from './WorkflowDiagram.module.css';
 import skillsData from '../../data/skills.json';
 import rolesData from '../../data/roles.json';
+import Icon from '../common/Icon';
 
 const ROLE_COLORS_400: Record<string, string> = {
   architect: 'var(--color-role-architect-400)',
@@ -13,12 +14,12 @@ const ROLE_COLORS_400: Record<string, string> = {
 };
 
 const ROLES = [
-  { id: 'architect', name: 'Architect', mission: '规划与设计', emoji: '🏛️' },
-  { id: 'developer', name: 'Developer', mission: '实现与编码', emoji: '💻' },
-  { id: 'tester', name: 'Tester', mission: '验证与测试', emoji: '🔍' },
-  { id: 'reviewer', name: 'Reviewer', mission: '审查与反馈', emoji: '✅' },
-  { id: 'docs', name: 'Docs', mission: '文档与记录', emoji: '📝' },
-  { id: 'security', name: 'Security', mission: '安全与合规', emoji: '🔐' },
+  { id: 'architect', name: 'Architect', mission: '规划与设计', icon: 'architect' },
+  { id: 'developer', name: 'Developer', mission: '实现与编码', icon: 'developer' },
+  { id: 'tester', name: 'Tester', mission: '验证与测试', icon: 'tester' },
+  { id: 'reviewer', name: 'Reviewer', mission: '审查与反馈', icon: 'reviewer' },
+  { id: 'docs', name: 'Docs', mission: '文档与记录', icon: 'docs' },
+  { id: 'security', name: 'Security', mission: '安全与合规', icon: 'security' },
 ];
 
 const WORKFLOW_STEPS = [
@@ -74,11 +75,11 @@ function RoleDetailPanel({ selectedRole, onClose }: RoleDetailPanelProps) {
         aria-label="关闭详情面板"
         type="button"
       >
-        ✕
+        <Icon name="close" size={16} />
       </button>
 
       <div className={styles.detailHeader}>
-        <span className={styles.detailEmoji}>{roleData?.emoji}</span>
+        <Icon name={roleData?.icon as 'architect' | 'developer' | 'tester' | 'reviewer' | 'docs' | 'security'} size={24} label={roleData?.name} />
         <h3 className={styles.detailTitle} style={{ color: roleColor }}>
           {roleData?.name}
         </h3>
@@ -126,7 +127,7 @@ function RoleDetailPanel({ selectedRole, onClose }: RoleDetailPanelProps) {
                 <span style={{ color: ROLE_COLORS_400[step.from] }}>
                   {ROLES.find(r => r.id === step.from)?.name}
                 </span>
-                <span className={styles.flowArrow}>→</span>
+                <span className={styles.flowArrow}><Icon name="arrow-right" size={16} /></span>
                 <span style={{ color: ROLE_COLORS_400[step.to] }}>
                   {ROLES.find(r => r.id === step.to)?.name}
                 </span>
@@ -172,12 +173,12 @@ export default function WorkflowDiagram() {
             onClick={() => handleRoleClick(role.id)}
             onKeyDown={(e) => handleRoleKeyDown(e, role.id)}
           >
-            <div
-              className={styles.roleIcon}
-              style={{ backgroundColor: ROLE_COLORS_400[role.id] }}
-            >
-              {role.emoji}
-            </div>
+<div
+            className={styles.roleIcon}
+            style={{ backgroundColor: ROLE_COLORS_400[role.id] }}
+          >
+            <Icon name={role.icon as 'architect' | 'developer' | 'tester' | 'reviewer' | 'docs' | 'security'} size={20} label={role.name} />
+          </div>
             <div className={styles.roleName}>{role.name}</div>
             <div className={styles.roleMission}>{role.mission}</div>
           </div>
@@ -205,7 +206,7 @@ export default function WorkflowDiagram() {
                   {fromRole?.name}
                 </span>
                 <span className={`${styles.connectionArrow} ${isHovered ? styles.connectionArrowPulse : ''}`}>
-                  →
+                  <Icon name="arrow-right" size={16} />
                 </span>
                 <span
                   className={styles.connectionTo}
@@ -224,15 +225,15 @@ export default function WorkflowDiagram() {
         <h3 className={styles.cycleTitle}>闭环执行</h3>
         <div className={styles.cycleFlow}>
           <span className={styles.cycleStep}>Spec</span>
-          <span className={styles.cycleArrow}>→</span>
+          <span className={styles.cycleArrow}><Icon name="arrow-right" size={16} /></span>
           <span className={styles.cycleStep}>Plan</span>
-          <span className={styles.cycleArrow}>→</span>
+          <span className={styles.cycleArrow}><Icon name="arrow-right" size={16} /></span>
           <span className={styles.cycleStep}>Implement</span>
-          <span className={styles.cycleArrow}>→</span>
+          <span className={styles.cycleArrow}><Icon name="arrow-right" size={16} /></span>
           <span className={styles.cycleStep}>Test</span>
-          <span className={styles.cycleArrow}>→</span>
+          <span className={styles.cycleArrow}><Icon name="arrow-right" size={16} /></span>
           <span className={styles.cycleStep}>Review</span>
-          <span className={styles.cycleArrow}>→</span>
+          <span className={styles.cycleArrow}><Icon name="arrow-right" size={16} /></span>
           <span className={styles.cycleStep}>Deploy</span>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styles from './BackButton.module.css';
+import Icon from '../common/Icon';
 
 interface BackButtonProps {
   to: string;
@@ -9,7 +10,7 @@ interface BackButtonProps {
 export default function BackButton({ to, label = '返回' }: BackButtonProps) {
   return (
     <Link to={to} className={styles.backButton}>
-      <span className={styles.arrow}>←</span>
+      <span className={styles.arrow}><Icon name="arrow-left" size={16} /></span>
       <span className={styles.label}>{label}</span>
     </Link>
   );
