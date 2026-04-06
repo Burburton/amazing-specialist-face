@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import ThemeToggle from '../components/common/ThemeToggle';
 
@@ -22,7 +22,8 @@ describe('ThemeToggle', () => {
     it('should show a theme icon', () => {
       render(<ThemeToggle />);
       const button = screen.getByRole('button');
-      expect(button.textContent).toMatch(/[🌙☀️]/);
+      const hasMoonOrSun = button.textContent?.includes('🌙') || button.textContent?.includes('☀️');
+      expect(hasMoonOrSun).toBe(true);
     });
 
     it('should have aria-expanded set to false initially', () => {

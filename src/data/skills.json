@@ -89,6 +89,14 @@
       "path": ".opencode/skills/common/github-issue-reporter/SKILL.md"
     },
     {
+      "id": "common/icon-design",
+      "name": "icon-design",
+      "role": "common",
+      "category": "MVP",
+      "description": "Design consistent, accessible, and visually coherent icons that match the project's UI design system. This skill ensures all icons follow established design patterns, color schemes, and accessibility guidelines.",
+      "path": ".opencode/skills/common/icon-design/SKILL.md"
+    },
+    {
       "id": "common/retry-strategy",
       "name": "retry-strategy",
       "role": "common",
@@ -321,7 +329,7 @@
       "path": ".opencode/skills/tester/unit-test-design/SKILL.md"
     }
   ],
-  "total": 40,
-  "mvpCount": 24,
+  "total": 41,
+  "mvpCount": 25,
   "m4Count": 16
 }
