@@ -18,8 +18,15 @@ import './App.css';
 
 function LoadingFallback() {
   return (
-    <div className="loading">
-      <p>Loading...</p>
+    <div className="loading-skeleton">
+      <div className="skeleton-header" />
+      <div className="skeleton-content">
+        <div className="skeleton-grid">
+          <div className="skeleton-card" />
+          <div className="skeleton-card" />
+          <div className="skeleton-card" />
+        </div>
+      </div>
     </div>
   );
 }
