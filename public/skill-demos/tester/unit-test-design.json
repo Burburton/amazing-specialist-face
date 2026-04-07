@@ -1,0 +1,57 @@
+{
+  "skill_id": "tester/unit-test-design",
+  "inputs": [
+    {
+      "name": "function_name",
+      "type": "text",
+      "label": "函数名称",
+      "description": "要测试的函数名称",
+      "default_value": "validateEmail",
+      "placeholder": "例如: validateEmail"
+    },
+    {
+      "name": "function_description",
+      "type": "textarea",
+      "label": "函数描述",
+      "description": "函数的功能和预期行为",
+      "default_value": "验证邮箱地址格式是否正确，返回 true/false。支持标准邮箱格式，不支持特殊字符。",
+      "placeholder": "描述函数功能..."
+    },
+    {
+      "name": "edge_cases",
+      "type": "textarea",
+      "label": "边界情况",
+      "description": "需要特别测试的边界情况",
+      "default_value": "- 空字符串\n- null/undefined\n- 缺少 @ 符号\n- 多个 @ 符号\n- 超长邮箱地址\n- 特殊字符",
+      "placeholder": "列出边界情况..."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "test_code",
+      "type": "markdown",
+      "label": "测试代码",
+      "description": "完整的单元测试代码",
+      "example_value": "```typescript\nimport { describe, it, expect } from 'vitest';\nimport { validateEmail } from './validateEmail';\n\ndescribe('validateEmail', () => {\n  // 正常情况\n  describe('valid emails', () => {\n    it('should return true for standard email', () => {\n      expect(validateEmail('user@example.com')).toBe(true);\n    });\n\n    it('should return true for email with subdomain', () => {\n      expect(validateEmail('user@mail.example.com')).toBe(true);\n    });\n\n    it('should return true for email with numbers', () => {\n      expect(validateEmail('user123@example.com')).toBe(true);\n    });\n  });\n\n  // 边界情况\n  describe('edge cases', () => {\n    it('should return false for empty string', () => {\n      expect(validateEmail('')).toBe(false);\n    });\n\n    it('should return false for null', () => {\n      expect(validateEmail(null as any)).toBe(false);\n    });\n\n    it('should return false for undefined', () => {\n      expect(validateEmail(undefined as any)).toBe(false);\n    });\n\n    it('should return false for email without @', () => {\n      expect(validateEmail('userexample.com')).toBe(false);\n    });\n\n    it('should return false for email with multiple @', () => {\n      expect(validateEmail('user@@example.com')).toBe(false);\n    });\n\n    it('should return false for email without domain', () => {\n      expect(validateEmail('user@')).toBe(false);\n    });\n\n    it('should return false for email without local part', () => {\n      expect(validateEmail('@example.com')).toBe(false);\n    });\n  });\n\n  // 特殊字符\n  describe('special characters', () => {\n    it('should return false for email with spaces', () => {\n      expect(validateEmail('user @example.com')).toBe(false);\n    });\n\n    it('should return true for email with dot in local part', () => {\n      expect(validateEmail('user.name@example.com')).toBe(true);\n    });\n\n    it('should return true for email with plus sign', () => {\n      expect(validateEmail('user+tag@example.com')).toBe(true);\n    });\n  });\n\n  // 性能测试\n  describe('performance', () => {\n    it('should handle very long email', () => {\n      const longEmail = 'a'.repeat(100) + '@example.com';\n      expect(() => validateEmail(longEmail)).not.toThrow();\n    });\n  });\n});\n```"
+    },
+    {
+      "name": "coverage_report",
+      "type": "json",
+      "label": "覆盖率报告",
+      "description": "测试覆盖率预期",
+      "example_value": "{\n  \"function\": \"validateEmail\",\n  \"expected_coverage\": {\n    \"statements\": \"100%\",\n    \"branches\": \"100%\",\n    \"functions\": \"100%\",\n    \"lines\": \"100%\"\n  },\n  \"test_cases\": 12,\n  \"edge_cases_covered\": [\n    \"empty string\",\n    \"null\",\n    \"undefined\",\n    \"missing @\",\n    \"multiple @\",\n    \"missing domain\",\n    \"missing local part\",\n    \"spaces\",\n    \"special characters\"\n  ]\n}"
+    }
+  ],
+  "context": {
+    "trigger": "需要为函数编写单元测试时，包括：新功能开发、bug 修复验证、代码重构",
+    "role_responsibilities": [
+      "分析函数的输入输出边界",
+      "设计覆盖所有分支的测试用例",
+      "编写清晰的测试代码",
+      "确保测试可维护性",
+      "输出覆盖率报告"
+    ],
+    "typical_duration": "30 分钟 - 1 小时",
+    "dependencies": ["tester/edge-case-matrix"]
+  }
+}

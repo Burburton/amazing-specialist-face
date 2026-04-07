@@ -1,0 +1,50 @@
+{
+  "skill_id": "reviewer/code-review-checklist",
+  "inputs": [
+    {
+      "name": "pr_title",
+      "type": "text",
+      "label": "PR 标题",
+      "description": "Pull Request 的标题",
+      "default_value": "feat: add user authentication system",
+      "placeholder": "PR 标题..."
+    },
+    {
+      "name": "changed_files",
+      "type": "textarea",
+      "label": "变更文件",
+      "description": "本次变更涉及的文件",
+      "default_value": "src/hooks/useAuth.ts\nsrc/components/LoginForm.tsx\nsrc/api/auth.ts\nsrc/types/user.ts",
+      "placeholder": "列出变更文件..."
+    },
+    {
+      "name": "review_focus",
+      "type": "select",
+      "label": "审查重点",
+      "description": "本次审查的重点关注项",
+      "default_value": "security",
+      "options": ["correctness", "security", "performance", "maintainability", "all"]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "review_checklist",
+      "type": "markdown",
+      "label": "审查清单",
+      "description": "结构化的代码审查结果",
+      "example_value": "# Code Review Checklist\n\n## PR: feat: add user authentication system\n\n### 📋 审查概览\n- **审查者**: reviewer\n- **审查重点**: Security\n- **变更文件数**: 4\n- **建议状态**: ⚠️ Request Changes\n\n---\n\n### ✅ 通过项 (8/10)\n\n| 检查项 | 状态 | 说明 |\n|--------|------|------|\n| 功能正确性 | ✅ | 登录逻辑实现正确 |\n| 错误处理 | ✅ | 异常情况处理完善 |\n| 代码风格 | ✅ | 符合项目规范 |\n| 命名规范 | ✅ | 变量命名清晰 |\n| 注释完整 | ✅ | 关键逻辑有注释 |\n| 测试覆盖 | ✅ | 单元测试覆盖率 85% |\n| 文档更新 | ✅ | README 已更新 |\n| 类型定义 | ✅ | TypeScript 类型完整 |\n\n### ⚠️ 需改进项 (2)\n\n| 检查项 | 严重性 | 问题描述 | 建议 |\n|--------|--------|----------|------|\n| 安全性 | 🔴 High | JWT secret 硬编码在代码中 | 使用环境变量 |\n| 安全性 | 🟡 Medium | 密码传输未加密 | 确保 HTTPS |\n\n---\n\n### 🔴 必须修复\n\n#### 1. JWT Secret 硬编码\n**文件**: `src/hooks/useAuth.ts:15`\n\n```typescript\n// ❌ 问题代码\nconst token = jwt.sign(payload, 'my-secret-key');\n\n// ✅ 建议修复\nconst token = jwt.sign(payload, process.env.JWT_SECRET!);\n```\n\n**原因**: 硬编码密钥存在泄露风险\n\n---\n\n### 📊 审查统计\n\n```\n总检查项: 10\n通过: 8 (80%)\n需改进: 2 (20%)\n阻塞项: 1\n```\n\n### 🎯 下一步\n1. 修复 JWT secret 硬编码问题\n2. 确保生产环境使用 HTTPS\n3. 重新提交审查"
+    }
+  ],
+  "context": {
+    "trigger": "代码需要审查时，包括：PR 提交、代码合并前、重要功能上线前",
+    "role_responsibilities": [
+      "验证代码是否符合功能需求",
+      "检查代码质量和可维护性",
+      "识别安全风险",
+      "提供可执行的改进建议",
+      "确保符合项目规范"
+    ],
+    "typical_duration": "30 分钟 - 1 小时",
+    "dependencies": ["reviewer/risk-review", "reviewer/maintainability-review"]
+  }
+}

@@ -136,6 +136,9 @@ amazing-specialists (专家包核心)          amazing-specialist-face (展示�
 | 006-global-search | 全局搜索 (Cmd+K / Ctrl+K) | ✅ 完成 |
 | 007-theme-switcher | Light/Dark/System 主题切换 | ✅ 完成 |
 | 008-execution-ppt-style | ExecutionPage PPT Manual Style 改造 | ✅ 完成 |
+| 009-a11y-improvements | WCAG 2.1 AA 无障碍合规 | 📋 规划中 |
+| 010-performance-optimization | 性能优化 (代码分割、懒加载) | 📋 规划中 |
+| 011-interactive-skill-demo | 交互式 Skill Demo (输入输出示例) | 📋 规划中 |
 
 ## Scripts
 

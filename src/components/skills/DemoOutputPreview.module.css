@@ -1,0 +1,68 @@
+.output {
+  margin-bottom: var(--spacing-4);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-1);
+}
+
+.label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+.description {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--spacing-2) 0;
+}
+
+.copyButton {
+  padding: var(--spacing-1) var(--spacing-2);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  background-color: transparent;
+  border: 1px solid var(--color-border-primary);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.copyButton:hover {
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-tertiary);
+  border-color: var(--color-border-secondary);
+}
+
+.preview {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-primary);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-3);
+  max-height: 400px;
+  overflow: auto;
+}
+
+.codeContent,
+.markdownContent {
+  margin: 0;
+  font-size: var(--font-size-xs);
+  font-family: var(--font-family-mono);
+  line-height: 1.6;
+  color: var(--color-text-primary);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.markdown {
+  background-color: var(--color-bg-tertiary);
+}
+
+.json {
+  max-height: 300px;
+}

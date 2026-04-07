@@ -1,0 +1,11 @@
+{
+  "demos": {
+    "architect/requirement-to-design": "architect/requirement-to-design.json",
+    "developer/bugfix-workflow": "developer/bugfix-workflow.json",
+    "tester/unit-test-design": "tester/unit-test-design.json",
+    "reviewer/code-review-checklist": "reviewer/code-review-checklist.json",
+    "common/artifact-reading": "common/artifact-reading.json"
+  },
+  "total": 5,
+  "lastUpdated": "2026-04-07"
+}

@@ -1,0 +1,56 @@
+{
+  "skill_id": "common/artifact-reading",
+  "inputs": [
+    {
+      "name": "artifact_type",
+      "type": "select",
+      "label": "Artifact 类型",
+      "description": "要读取的 artifact 类型",
+      "default_value": "design-note",
+      "options": ["spec", "design-note", "test-report", "review-report", "error-report"]
+    },
+    {
+      "name": "artifact_path",
+      "type": "text",
+      "label": "Artifact 路径",
+      "description": "文件路径",
+      "default_value": "specs/011-interactive-skill-demo/design-note.md",
+      "placeholder": "例如: specs/xxx/design-note.md"
+    },
+    {
+      "name": "extract_fields",
+      "type": "textarea",
+      "label": "提取字段",
+      "description": "需要从 artifact 中提取的关键信息",
+      "default_value": "- 模块边界\n- 接口契约\n- 风险识别\n- 实施路线",
+      "placeholder": "列出需要提取的字段..."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "extracted_summary",
+      "type": "json",
+      "label": "提取摘要",
+      "description": "从 artifact 中提取的关键信息结构化摘要",
+      "example_value": "{\n  \"artifact_type\": \"design-note\",\n  \"source\": \"specs/011-interactive-skill-demo/design-note.md\",\n  \"extracted_at\": \"2026-04-07T04:30:00Z\",\n  \"summary\": {\n    \"title\": \"Interactive Skill Demo Design\",\n    \"status\": \"in-progress\",\n    \"modules\": [\n      {\n        \"name\": \"SkillDemoPanel\",\n        \"responsibility\": \"展示交互式 Demo 面板\",\n        \"dependencies\": [\"useSkillDemo\", \"DemoInputField\", \"DemoOutputPreview\"]\n      },\n      {\n        \"name\": \"DemoInputField\",\n        \"responsibility\": \"渲染各类输入控件\",\n        \"dependencies\": []\n      },\n      {\n        \"name\": \"DemoOutputPreview\",\n        \"responsibility\": \"渲染输出预览\",\n        \"dependencies\": []\n      }\n    ],\n    \"interfaces\": [\n      {\n        \"name\": \"SkillDemo\",\n        \"fields\": [\"skill_id\", \"inputs\", \"outputs\", \"context\"]\n      },\n      {\n        \"name\": \"DemoInput\",\n        \"fields\": [\"name\", \"type\", \"label\", \"default_value\"]\n      }\n    ],\n    \"risks\": [\n      {\n        \"risk\": \"Demo 数据维护成本高\",\n        \"level\": \"medium\",\n        \"mitigation\": \"建立数据同步机制\"\n      }\n    ],\n    \"roadmap\": [\n      {\"phase\": 1, \"task\": \"创建类型定义\", \"status\": \"completed\"},\n      {\"phase\": 1, \"task\": \"创建 Demo 数据\", \"status\": \"in-progress\"},\n      {\"phase\": 2, \"task\": \"开发 UI 组件\", \"status\": \"pending\"}\n    ]\n  },\n  \"constraints\": [\n    \"必须使用 TypeScript\",\n    \"遵循 CSS Modules 规范\",\n    \"支持响应式设计\"\n  ]\n}"
+    },
+    {
+      "name": "context_for_role",
+      "type": "markdown",
+      "label": "角色上下文",
+      "description": "为当前角色准备的精简上下文",
+      "example_value": "# Context for Developer\n\n## 你正在实现的功能\nInteractive Skill Demo - 让用户能够交互式地体验 skill 的输入输出\n\n## 关键约束\n1. 使用 TypeScript 类型定义\n2. 使用 CSS Modules 样式\n3. 组件需要响应式\n\n## 你需要的模块\n\n### SkillDemoPanel\n- 位置: `src/components/skills/SkillDemoPanel.tsx`\n- Props: `skillId: string`\n- 职责: 展示完整的 Demo 面板\n\n### 数据加载\n- Hook: `useSkillDemo(skillId)`\n- 返回: `{ demo, loading, error }`\n\n## 现有参考\n- 参考 `src/components/cards/SkillCard.tsx` 的样式风格\n- 参考 `src/pages/SkillDetailPage.tsx` 的布局结构\n\n## 注意事项\n- 如果 demo 不存在，显示友好的提示\n- 输入编辑需要即时响应\n- 输出预览需要格式化显示"
+    }
+  ],
+  "context": {
+    "trigger": "任何角色需要读取项目 artifact 时，包括：开始新任务、理解现有设计、验证实现",
+    "role_responsibilities": [
+      "解析各类 artifact 文件",
+      "提取关键字段和约束",
+      "生成结构化摘要",
+      "为当前角色准备精简上下文"
+    ],
+    "typical_duration": "1-5 分钟",
+    "dependencies": []
+  }
+}

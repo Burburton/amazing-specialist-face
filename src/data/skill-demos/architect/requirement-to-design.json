@@ -1,0 +1,50 @@
+{
+  "skill_id": "architect/requirement-to-design",
+  "inputs": [
+    {
+      "name": "feature_name",
+      "type": "text",
+      "label": "Feature 名称",
+      "description": "要设计的功能名称",
+      "default_value": "user-authentication",
+      "placeholder": "例如: user-authentication"
+    },
+    {
+      "name": "requirements",
+      "type": "textarea",
+      "label": "需求描述",
+      "description": "功能需求的具体描述",
+      "default_value": "实现用户登录、注册、登出功能，支持邮箱和手机号登录，需要记住登录状态",
+      "placeholder": "描述功能需求..."
+    },
+    {
+      "name": "constraints",
+      "type": "textarea",
+      "label": "约束条件",
+      "description": "技术约束、业务约束",
+      "default_value": "- 必须支持 OAuth2.0\n- 密码需要加密存储 (bcrypt)\n- 支持多端登录\n- 登录状态有效期 7 天",
+      "placeholder": "列出约束条件..."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "design_note",
+      "type": "markdown",
+      "label": "设计文档",
+      "description": "技术设计文档，包含模块边界、接口契约、实施路线",
+      "example_value": "# Design Note: user-authentication\n\n## 概述\n实现用户认证系统，支持多种登录方式和安全的会话管理。\n\n## 模块边界\n\n### AuthModule\n- **职责**: 处理所有认证相关逻辑\n- **输入**: 用户凭证 (email/phone + password, OAuth token)\n- **输出**: JWT token, 用户信息\n- **依赖**: UserModule, CryptoService\n\n### UserModule\n- **职责**: 用户信息管理\n- **输入**: 用户注册信息, 更新请求\n- **输出**: 用户实体\n- **依赖**: DatabaseService\n\n## 接口契约\n\n### POST /api/auth/register\n```json\n{\n  \"email\": \"string\",\n  \"password\": \"string\",\n  \"phone\": \"string?\"\n}\n```\n\n### POST /api/auth/login\n```json\n{\n  \"identity\": \"email|phone\",\n  \"credential\": \"string\",\n  \"password\": \"string\"\n}\n```\n\n### POST /api/auth/logout\n- Headers: Authorization: Bearer <token>\n- 返回: 204 No Content\n\n## 实施路线\n\n1. **Phase 1**: 核心认证逻辑 (2天)\n   - 实现 email/password 登录\n   - JWT token 生成与验证\n\n2. **Phase 2**: OAuth 集成 (1天)\n   - Google OAuth\n   - GitHub OAuth\n\n3. **Phase 3**: 安全加固 (1天)\n   - Rate limiting\n   - 密码重置流程\n\n4. **Phase 4**: 测试与文档 (1天)\n\n## 风险识别\n\n| 风险 | 级别 | 缓解措施 |\n|------|------|----------|\n| OAuth provider 宕机 | 中 | 实现降级到 email/password |\n| JWT 密钥泄露 | 高 | 密钥轮换机制, 环境变量管理 |\n| 暴力破解 | 中 | Rate limiting + CAPTCHA |"
+    }
+  ],
+  "context": {
+    "trigger": "新功能需要技术方案设计时，包括：新 feature 开发、大规模重构、API 设计、系统迁移",
+    "role_responsibilities": [
+      "将需求转化为可执行的技术方案",
+      "定义模块边界和职责划分",
+      "设计接口契约 (API / data contract)",
+      "识别技术风险和依赖关系",
+      "制定分阶段实施路线"
+    ],
+    "typical_duration": "30-60 分钟",
+    "dependencies": ["architect/module-boundary-design", "architect/interface-contract-design", "architect/tradeoff-analysis"]
+  }
+}

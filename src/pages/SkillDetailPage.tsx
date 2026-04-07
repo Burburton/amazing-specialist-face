@@ -1,6 +1,8 @@
 import { useParams, Navigate } from 'react-router-dom';
 import BackButton from '../components/shared/BackButton';
 import SkillCard from '../components/cards/SkillCard';
+import SkillDemoPanel from '../components/skills/SkillDemoPanel';
+import { useSkillDemo } from '../hooks/useSkillDemo';
 import skillsData from '../data/skills.json';
 import styles from './SkillDetailPage.module.css';
 
@@ -28,6 +30,7 @@ export default function SkillDetailPage() {
   const { id } = useParams();
   const decodedId = id ? decodeURIComponent(id) : '';
   const skill = skillsData.skills.find(s => s.id === decodedId);
+  const { demo, loading } = useSkillDemo(decodedId);
 
   if (!skill) {
     return <Navigate to="/skills" replace />;
@@ -68,6 +71,10 @@ export default function SkillDetailPage() {
           <h2 className={styles.sectionTitle}>文件路径</h2>
           <code className={styles.path}>{skill.path}</code>
         </section>
+
+        {!loading && demo && (
+          <SkillDemoPanel demo={demo} />
+        )}
 
         {relatedSkills.length > 0 && (
           <section className={styles.relatedSection}>
