@@ -1,0 +1,173 @@
+.card {
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border-primary);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+.card:hover {
+  border-color: var(--color-accent-primary);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.cardHeader {
+  padding: var(--spacing-5);
+  border-bottom: 1px solid var(--color-border-primary);
+}
+
+.categoryBadge {
+  display: inline-block;
+  padding: var(--spacing-1) var(--spacing-2);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-accent-primary);
+  background: rgba(139, 92, 246, 0.1);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--spacing-2);
+}
+
+.cardTitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--spacing-2) 0;
+}
+
+.cardDescription {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.flowSection {
+  padding: var(--spacing-4) var(--spacing-5);
+}
+
+.flowTitle {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-tertiary);
+  margin: 0 0 var(--spacing-3) 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.flowGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  align-items: center;
+}
+
+.flowRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.skillCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-1);
+  padding: var(--spacing-3);
+  background: var(--color-bg-primary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-primary);
+  text-decoration: none;
+  min-width: 90px;
+  transition: all var(--transition-fast);
+}
+
+.skillCard:hover {
+  border-color: var(--color-accent-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.stepNumber {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-accent-primary);
+  color: white;
+  font-size: 10px;
+  font-weight: var(--font-weight-bold);
+  border-radius: 50%;
+}
+
+.skillName {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.roleBadge {
+  font-size: 10px;
+  font-weight: var(--font-weight-medium);
+  color: white;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}
+
+.skillAction {
+  font-size: 10px;
+  color: var(--color-text-tertiary);
+}
+
+.arrow {
+  color: var(--color-text-tertiary);
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-around;
+  padding: var(--spacing-3) var(--spacing-5);
+  background: var(--color-bg-primary);
+  border-top: 1px solid var(--color-border-primary);
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.statIcon {
+  font-size: var(--font-size-md);
+}
+
+.statLabel {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 600px) {
+  .flowGrid {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .flowRow {
+    flex-direction: column;
+  }
+
+  .arrow {
+    transform: rotate(90deg);
+  }
+
+  .skillCard {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    min-width: auto;
+  }
+}

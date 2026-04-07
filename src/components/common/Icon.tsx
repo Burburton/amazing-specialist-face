@@ -37,7 +37,8 @@ export type IconName =
   | 'spec'
   | 'plan'
   | 'task'
-  | 'tutorial';
+  | 'tutorial'
+  | 'cases';
 
 export interface IconProps extends SVGProps<SVGSVGElement> {
   name: IconName;
@@ -296,6 +297,13 @@ const iconPaths: Record<IconName, React.ReactNode> = {
     <>
       <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
       <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+    </>
+  ),
+  cases: (
+    <>
+      <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+      <line x1="12" y1="11" x2="12" y2="17" />
+      <line x1="9" y1="14" x2="15" y2="14" />
     </>
   ),
 };

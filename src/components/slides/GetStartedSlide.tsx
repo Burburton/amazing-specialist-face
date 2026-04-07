@@ -5,9 +5,9 @@ import stats from '../../data/stats.json';
 
 const ENTRY_CARDS = [
   { icon: 'tutorial', title: '新手教程', count: '5 分钟入门', path: '/tutorial' },
+  { icon: 'cases', title: '真实案例', count: '4 个案例', path: '/cases' },
   { icon: 'skills', title: '技能库', count: `${stats.totalSkills} 个技能`, path: '/skills' },
   { icon: 'roles', title: '角色分工', count: `${stats.totalRoles} 个角色`, path: '/roles' },
-  { icon: 'contracts', title: '契约规范', count: `${stats.totalContracts} 个契约`, path: '/contracts' },
 ];
 
 export default function GetStartedSlide() {
@@ -22,7 +22,7 @@ export default function GetStartedSlide() {
             to={card.path}
             className={styles.card}
           >
-            <span className={styles.icon}><Icon name={card.icon as 'tutorial' | 'skills' | 'roles' | 'contracts'} size={32} label={card.title} /></span>
+            <span className={styles.icon}><Icon name={card.icon as 'tutorial' | 'cases' | 'skills' | 'roles'} size={32} label={card.title} /></span>
             <h3 className={styles.cardTitle}>{card.title}</h3>
             <p className={styles.cardCount}>{card.count}</p>
             <span className={styles.cardArrow}><Icon name="arrow-right" size={16} /></span>

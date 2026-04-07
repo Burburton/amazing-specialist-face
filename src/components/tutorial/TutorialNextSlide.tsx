@@ -4,6 +4,12 @@ import styles from './TutorialNextSlide.module.css';
 
 const LEARNING_PATHS = [
   { 
+    icon: 'cases', 
+    title: '查看真实案例', 
+    description: '了解专家包如何解决实际问题',
+    link: '/cases'
+  },
+  { 
     icon: 'roles', 
     title: '深入了解角色', 
     description: '了解 6 个角色各自负责什么',
@@ -14,12 +20,6 @@ const LEARNING_PATHS = [
     title: '浏览所有技能', 
     description: '查看 40 个技能的完整列表',
     link: '/skills'
-  },
-  { 
-    icon: 'contracts', 
-    title: '学习契约规范', 
-    description: '了解 Artifact 的标准化格式',
-    link: '/contracts'
   },
   { 
     icon: 'github', 
@@ -45,7 +45,7 @@ export default function TutorialNextSlide() {
                 rel="noopener noreferrer"
                 className={styles.pathCard}
               >
-                <span className={styles.pathIcon}><Icon name={path.icon as 'roles' | 'skills' | 'contracts' | 'github'} size={32} /></span>
+                <span className={styles.pathIcon}><Icon name={path.icon as 'cases' | 'roles' | 'skills' | 'github'} size={32} /></span>
                 <h3 className={styles.pathTitle}>{path.title}</h3>
                 <p className={styles.pathDescription}>{path.description}</p>
                 <span className={styles.pathArrow}><Icon name="arrow-right" size={16} /></span>
@@ -56,7 +56,7 @@ export default function TutorialNextSlide() {
                 to={path.link}
                 className={styles.pathCard}
               >
-                <span className={styles.pathIcon}><Icon name={path.icon as 'roles' | 'skills' | 'contracts' | 'github'} size={32} /></span>
+                <span className={styles.pathIcon}><Icon name={path.icon as 'cases' | 'roles' | 'skills' | 'github'} size={32} /></span>
                 <h3 className={styles.pathTitle}>{path.title}</h3>
                 <p className={styles.pathDescription}>{path.description}</p>
                 <span className={styles.pathArrow}><Icon name="arrow-right" size={16} /></span>

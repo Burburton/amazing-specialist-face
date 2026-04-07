@@ -1,0 +1,71 @@
+{
+  "cases": [
+    {
+      "id": "user-auth",
+      "title": "用户登录系统",
+      "description": "你的网站需要添加用户登录功能，支持邮箱和手机号登录，需要记住登录状态",
+      "category": "auth",
+      "skills": [
+        { "step": 1, "skillId": "architect/requirement-to-design", "skillName": "需求设计", "role": "architect", "action": "设计方案" },
+        { "step": 2, "skillId": "developer/feature-implementation", "skillName": "功能实现", "role": "developer", "action": "编写代码" },
+        { "step": 3, "skillId": "tester/unit-test-design", "skillName": "单元测试", "role": "tester", "action": "编写测试" },
+        { "step": 4, "skillId": "reviewer/code-review-checklist", "skillName": "代码审查", "role": "reviewer", "action": "检查代码" },
+        { "step": 5, "skillId": "security/auth-and-permission-review", "skillName": "安全审计", "role": "security", "action": "安全检查" },
+        { "step": 6, "skillId": "docs/user-guide-update", "skillName": "文档编写", "role": "docs", "action": "编写文档" }
+      ],
+      "estimatedTime": "2-3 小时",
+      "timeSaved": "40%"
+    },
+    {
+      "id": "ecommerce-order",
+      "title": "电商订单系统",
+      "description": "实现商品下单、支付、发货、退款等完整订单流程",
+      "category": "data",
+      "skills": [
+        { "step": 1, "skillId": "architect/module-boundary-design", "skillName": "模块设计", "role": "architect", "action": "定义边界" },
+        { "step": 2, "skillId": "architect/interface-contract-design", "skillName": "接口设计", "role": "architect", "action": "设计契约" },
+        { "step": 3, "skillId": "developer/feature-implementation", "skillName": "功能实现", "role": "developer", "action": "编写代码" },
+        { "step": 4, "skillId": "tester/integration-test-design", "skillName": "集成测试", "role": "tester", "action": "测试流程" },
+        { "step": 5, "skillId": "reviewer/code-review-checklist", "skillName": "代码审查", "role": "reviewer", "action": "检查代码" }
+      ],
+      "estimatedTime": "4-6 小时",
+      "timeSaved": "35%"
+    },
+    {
+      "id": "api-design",
+      "title": "RESTful API 开发",
+      "description": "设计并实现一套标准的 RESTful API 接口",
+      "category": "api",
+      "skills": [
+        { "step": 1, "skillId": "architect/interface-contract-design", "skillName": "接口设计", "role": "architect", "action": "设计契约" },
+        { "step": 2, "skillId": "developer/feature-implementation", "skillName": "功能实现", "role": "developer", "action": "编写代码" },
+        { "step": 3, "skillId": "security/input-validation-review", "skillName": "输入验证", "role": "security", "action": "检查输入" },
+        { "step": 4, "skillId": "tester/unit-test-design", "skillName": "单元测试", "role": "tester", "action": "测试接口" },
+        { "step": 5, "skillId": "docs/user-guide-update", "skillName": "API 文档", "role": "docs", "action": "编写文档" }
+      ],
+      "estimatedTime": "3-4 小时",
+      "timeSaved": "45%"
+    },
+    {
+      "id": "code-refactor",
+      "title": "代码重构优化",
+      "description": "重构老旧代码，提升代码质量和可维护性",
+      "category": "optimization",
+      "skills": [
+        { "step": 1, "skillId": "reviewer/maintainability-review", "skillName": "可维护性评估", "role": "reviewer", "action": "评估现状" },
+        { "step": 2, "skillId": "architect/tradeoff-analysis", "skillName": "权衡分析", "role": "architect", "action": "分析方案" },
+        { "step": 3, "skillId": "developer/refactor-safely", "skillName": "安全重构", "role": "developer", "action": "重构代码" },
+        { "step": 4, "skillId": "tester/regression-analysis", "skillName": "回归测试", "role": "tester", "action": "验证功能" }
+      ],
+      "estimatedTime": "2-4 小时",
+      "timeSaved": "50%"
+    }
+  ],
+  "categories": [
+    { "id": "all", "label": "全部" },
+    { "id": "auth", "label": "用户认证" },
+    { "id": "data", "label": "数据处理" },
+    { "id": "api", "label": "API开发" },
+    { "id": "optimization", "label": "性能优化" }
+  ]
+}

@@ -2,6 +2,7 @@ import { lazy } from 'react';
 
 export const HomePage = lazy(() => import('./HomePage'));
 export const TutorialPage = lazy(() => import('./TutorialPage'));
+export const CasesPage = lazy(() => import('./CasesPage'));
 export const SkillsPage = lazy(() => import('./SkillsPage'));
 export const RolesPage = lazy(() => import('./RolesPage'));
 export const ContractsPage = lazy(() => import('./ContractsPage'));

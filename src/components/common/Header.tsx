@@ -14,6 +14,7 @@ const SLIDE_NAVS = [
 
 const PAGE_NAVS = [
   { id: 'tutorial', label: '教程', path: '/tutorial' },
+  { id: 'cases', label: '案例', path: '/cases' },
   { id: 'skills', label: '技能', path: '/skills' },
 ];
 

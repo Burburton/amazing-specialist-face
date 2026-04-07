@@ -3,6 +3,7 @@ import { HashRouter, Routes, Route } from 'react-router-dom';
 import {
   HomePage,
   TutorialPage,
+  CasesPage,
   SkillsPage,
   RolesPage,
   ContractsPage,
@@ -40,6 +41,7 @@ function App() {
           <Route element={<Layout />}>
             <Route path="/" element={<HomePage />} />
             <Route path="/tutorial" element={<TutorialPage />} />
+            <Route path="/cases" element={<CasesPage />} />
             <Route path="/skills" element={<SkillsPage />} />
             <Route path="/skills/:id" element={<SkillDetailPage />} />
             <Route path="/roles" element={<RolesPage />} />
