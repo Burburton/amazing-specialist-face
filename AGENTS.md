@@ -190,6 +190,81 @@ Priority order for feature work:
 - Every completed task must be validated against acceptance criteria or derived tests.
 - Implement one task at a time unless explicitly marked parallel-safe.
 
+## Frontend Development Rules（前端开发规则）
+
+### UI/UX Design First（UI/UX 设计先行）
+
+**规则**：所有前端界面修改或新增界面 feature，在实现之前必须先经过 UI/UX skill 设计。
+
+#### 适用范围
+
+以下类型的变更必须遵循此规则：
+- 新增页面或组件
+- 现有界面的布局调整
+- 样式修改（颜色、间距、字体等）
+- 交互行为变更
+- 动画或过渡效果
+- 响应式设计调整
+
+#### 执行流程
+
+```
+1. 需求分析 → 2. UI/UX 设计 → 3. 设计评审 → 4. 实现 → 5. 验证
+```
+
+**强制步骤**：
+
+1. **调用 UI/UX Skill**
+   ```typescript
+   // 在实现任何 UI 变更之前，必须先调用 frontend-ui-ux skill
+   skill(name="frontend-ui-ux")
+   ```
+
+2. **输出设计稿**
+   - 设计稿应包含：布局结构、颜色方案、间距规范、交互说明
+   - 设计稿应记录在 `specs/<feature>/design.md` 或 spec.md 的设计部分
+
+3. **设计评审**
+   - 设计稿需要经过确认后才能开始实现
+   - 用户确认或团队评审通过后方可进入实现阶段
+
+4. **根据设计稿实现**
+   - 实现必须严格遵循设计稿
+   - 如需偏离设计稿，需要重新讨论并获得确认
+
+#### 例外情况
+
+以下情况可以跳过 UI/UX 设计步骤：
+- 纯逻辑修改，不涉及界面变化
+- 文案修改（不改变布局）
+- Bug 修复（不改变设计意图）
+- 配置项调整
+
+#### 违规处理
+
+- 未经过 UI/UX 设计直接实现界面变更 → **major** finding
+- 实现与设计稿不一致且未获确认 → **major** finding
+
+### Visual Engineering Category
+
+前端相关任务必须使用 `visual-engineering` category：
+
+```typescript
+// ✅ CORRECT: UI 任务使用 visual-engineering
+task(
+  category="visual-engineering",
+  load_skills=["frontend-ui-ux"],
+  prompt="设计并实现新的导航组件..."
+)
+
+// ❌ WRONG: UI 任务使用错误 category
+task(
+  category="quick",
+  load_skills=[],
+  prompt="修改页面布局..."  // 应该使用 visual-engineering
+)
+```
+
 ## OpenCode Platform Adaptation（OpenCode 平台适配）
 
 ### Background
