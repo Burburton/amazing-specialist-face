@@ -20,11 +20,19 @@ export default function CasesPage() {
       <div className={styles.container}>
         <BackButton to="/" label="返回首页" />
 
-        <section className={styles.headerSection}>
-          <h1 className={styles.title}>真实案例</h1>
-          <p className={styles.description}>
-            看看专家包如何在真实项目中发挥作用
-          </p>
+        <section className={styles.heroSection}>
+          <div className={styles.heroLine} />
+          <div className={styles.heroContent}>
+            <h1 className={styles.heroTitle}>
+              <span className={styles.heroLabel}>CASE</span>
+              <span className={styles.heroLabel}>STUDIES</span>
+            </h1>
+            <p className={styles.heroDescription}>真实项目案例</p>
+          </div>
+          <div className={styles.heroCount}>
+            <span className={styles.countNumber}>{filteredCases.length}</span>
+            <span className={styles.countLabel}>CASES</span>
+          </div>
         </section>
 
         <CategoryFilter
@@ -34,8 +42,8 @@ export default function CasesPage() {
         />
 
         <div className={styles.casesGrid}>
-          {filteredCases.map((caseItem) => (
-            <CaseCard key={caseItem.id} case={caseItem} />
+          {filteredCases.map((caseItem, index) => (
+            <CaseCard key={caseItem.id} case={caseItem} index={index} />
           ))}
         </div>
 

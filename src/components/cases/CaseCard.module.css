@@ -1,173 +1,243 @@
 .card {
-  background: var(--color-bg-secondary);
-  border-radius: var(--radius-xl);
-  border: 1px solid var(--color-border-primary);
+  display: flex;
+  gap: 0;
+  background: var(--color-bg-primary);
+  border: 1px solid #e0ddd5;
   overflow: hidden;
-  transition: all var(--transition-normal);
+  transition: all 0.3s ease;
 }
 
 .card:hover {
-  border-color: var(--color-accent-primary);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-color: #c9a227;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
 }
 
-.cardHeader {
-  padding: var(--spacing-5);
-  border-bottom: 1px solid var(--color-border-primary);
+.numberSection {
+  flex-shrink: 0;
+  width: 100px;
+  background: #0f0f0f;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 32px;
 }
 
-.categoryBadge {
+.number {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 48px;
+  font-weight: 900;
+  color: #c9a227;
+  line-height: 1;
+}
+
+.contentSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  background: #faf9f6;
+}
+
+.header {
+  margin-bottom: 16px;
+}
+
+.category {
   display: inline-block;
-  padding: var(--spacing-1) var(--spacing-2);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-accent-primary);
-  background: rgba(139, 92, 246, 0.1);
-  border-radius: var(--radius-sm);
-  margin-bottom: var(--spacing-2);
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #6b6b6b;
+  margin-bottom: 8px;
 }
 
-.cardTitle {
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-text-primary);
-  margin: 0 0 var(--spacing-2) 0;
-}
-
-.cardDescription {
-  font-size: var(--font-size-md);
-  color: var(--color-text-secondary);
+.title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f0f0f;
   margin: 0;
-  line-height: 1.5;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  border-bottom: 2px solid #c9a227;
+  padding-bottom: 12px;
+  display: inline-block;
+}
+
+.description {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 15px;
+  font-style: italic;
+  color: #4a4a4a;
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+  border-left: 3px solid #c9a227;
+  padding-left: 16px;
 }
 
 .flowSection {
-  padding: var(--spacing-4) var(--spacing-5);
+  margin-bottom: 24px;
 }
 
-.flowTitle {
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text-tertiary);
-  margin: 0 0 var(--spacing-3) 0;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+.flowLabel {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #6b6b6b;
+  margin: 0 0 16px 0;
 }
 
 .flowGrid {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-2);
+  gap: 12px;
   align-items: center;
 }
 
 .flowRow {
   display: flex;
   align-items: center;
-  gap: var(--spacing-2);
+  gap: 12px;
 }
 
-.skillCard {
-  position: relative;
+.stepCard {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--spacing-1);
-  padding: var(--spacing-3);
-  background: var(--color-bg-primary);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-border-primary);
+  padding: 16px 20px;
+  background: white;
+  border: 1px solid #e0ddd5;
   text-decoration: none;
-  min-width: 90px;
-  transition: all var(--transition-fast);
+  min-width: 100px;
+  transition: all 0.2s ease;
 }
 
-.skillCard:hover {
-  border-color: var(--color-accent-primary);
+.stepCard:hover {
+  border-color: #c9a227;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .stepNumber {
-  position: absolute;
-  top: -8px;
-  left: -8px;
-  width: 20px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--color-accent-primary);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 24px;
+  font-weight: 900;
+  color: #c9a227;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stepName {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #0f0f0f;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.roleTag {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
   color: white;
-  font-size: 10px;
-  font-weight: var(--font-weight-bold);
-  border-radius: 50%;
+  padding: 2px 8px;
+  border-radius: 2px;
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.skillName {
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text-primary);
+.stepAction {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 11px;
+  color: #6b6b6b;
+  margin-top: 2px;
 }
 
-.roleBadge {
-  font-size: 10px;
-  font-weight: var(--font-weight-medium);
-  color: white;
-  padding: 2px 6px;
-  border-radius: var(--radius-sm);
+.connector {
+  font-size: 18px;
+  color: #c9a227;
 }
 
-.skillAction {
-  font-size: 10px;
-  color: var(--color-text-tertiary);
-}
-
-.arrow {
-  color: var(--color-text-tertiary);
-}
-
-.cardFooter {
+.footer {
   display: flex;
-  justify-content: space-around;
-  padding: var(--spacing-3) var(--spacing-5);
-  background: var(--color-bg-primary);
-  border-top: 1px solid var(--color-border-primary);
+  gap: 32px;
+  padding-top: 16px;
+  border-top: 1px solid #e0ddd5;
 }
 
 .stat {
   display: flex;
-  align-items: center;
-  gap: var(--spacing-1);
-}
-
-.statIcon {
-  font-size: var(--font-size-md);
+  flex-direction: column;
+  gap: 2px;
 }
 
 .statLabel {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #6b6b6b;
+}
+
+.statValue {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f0f0f;
+}
+
+@media (max-width: 900px) {
+  .card {
+    flex-direction: column;
+  }
+  
+  .numberSection {
+    width: 100%;
+    padding: 24px;
+    justify-content: flex-start;
+  }
+  
+  .number {
+    font-size: 36px;
+  }
 }
 
 @media (max-width: 600px) {
+  .contentSection {
+    padding: 20px;
+  }
+  
+  .title {
+    font-size: 22px;
+  }
+  
   .flowGrid {
     flex-direction: column;
     align-items: stretch;
   }
-
+  
   .flowRow {
     flex-direction: column;
   }
-
-  .arrow {
+  
+  .connector {
     transform: rotate(90deg);
   }
-
-  .skillCard {
+  
+  .stepCard {
     width: 100%;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     min-width: auto;
+  }
+  
+  .footer {
+    flex-wrap: wrap;
+    gap: 16px;
   }
 }

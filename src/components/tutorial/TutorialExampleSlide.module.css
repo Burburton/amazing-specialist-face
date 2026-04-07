@@ -4,125 +4,231 @@
   align-items: center;
   justify-content: center;
   scroll-snap-align: start;
-  padding: var(--spacing-8);
-  background: linear-gradient(135deg, var(--color-bg-secondary) 0%, var(--color-bg-primary) 100%);
+  padding: 48px 32px;
+  background: #faf9f6;
 }
 
 .content {
-  max-width: 1200px;
+  max-width: 600px;
+  width: 100%;
+}
+
+.header {
   text-align: center;
+  margin-bottom: 32px;
+}
+
+.label {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: #c9a227;
+  margin: 0 0 16px 0;
+  text-transform: uppercase;
+}
+
+.label::before,
+.label::after {
+  content: '━';
+  margin: 0 16px;
+  color: #c9a227;
+}
+
+.titleGroup {
+  border-bottom: 3px double #c9a227;
+  padding-bottom: 16px;
+  display: inline-block;
 }
 
 .title {
-  font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-text-primary);
-  margin-bottom: var(--spacing-2);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #0f0f0f;
+  margin: 0 0 4px 0;
 }
 
 .subtitle {
-  font-size: var(--font-size-lg);
-  color: var(--color-text-secondary);
-  margin-bottom: var(--spacing-8);
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: #6b6b6b;
+  margin: 0;
+  text-transform: uppercase;
 }
 
-.flowContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: var(--spacing-2);
-  margin-bottom: var(--spacing-6);
+.quote {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 16px;
+  font-style: italic;
+  color: #4a4a4a;
+  text-align: center;
+  margin: 0 0 48px 0;
+  padding: 16px 24px;
+  border-left: 4px solid #c9a227;
+  background: white;
 }
 
-.flowItem {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-2);
+.timeline {
+  position: relative;
+  padding-left: 80px;
 }
 
-.flowCard {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--spacing-1);
-  padding: var(--spacing-4);
-  background: var(--color-bg-primary);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--color-border-primary);
-  text-decoration: none;
-  transition: all var(--transition-normal);
-  min-width: 100px;
+.timelineLine {
+  position: absolute;
+  left: 24px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #e0ddd5;
 }
 
-.flowCard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  border-color: var(--color-accent-primary);
+.stepItem {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.stepItem:last-child {
+  margin-bottom: 0;
 }
 
 .stepNumber {
   position: absolute;
-  top: -8px;
-  right: -8px;
-  width: 24px;
-  height: 24px;
+  left: -80px;
+  top: 0;
+  width: 48px;
+  height: 48px;
+  background: #0f0f0f;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-accent-primary);
-  color: white;
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-bold);
-  border-radius: 50%;
 }
 
-.flowCard {
-  position: relative;
+.numberText {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 20px;
+  font-weight: 900;
+  color: #c9a227;
 }
 
-.stepEmoji {
-  font-size: 1.5rem;
+.stepCard {
+  display: block;
+  padding: 20px 24px;
+  background: white;
+  border: 1px solid #e0ddd5;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.stepCard:hover {
+  border-color: #c9a227;
+  transform: translateX(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.stepKeyword {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 24px;
+  font-weight: 900;
+  color: #c9a227;
+  letter-spacing: 0.05em;
+}
+
+.stepDivider {
+  width: 32px;
+  height: 2px;
+  background: #c9a227;
+  margin: 8px 0;
 }
 
 .stepTitle {
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text-primary);
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #0f0f0f;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.roleTag {
+  display: inline-block;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
 }
 
 .stepAction {
-  font-size: var(--font-size-xs);
-  color: var(--color-text-tertiary);
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 13px;
+  color: #6b6b6b;
 }
 
-.stepRole {
-  font-size: var(--font-size-xs);
-  color: var(--color-accent-primary);
-  background: rgba(139, 92, 246, 0.1);
-  padding: 2px 8px;
-  border-radius: var(--radius-sm);
+.connector {
+  text-align: center;
+  padding: 8px 0;
 }
 
 .arrow {
-  color: var(--color-text-tertiary);
+  font-size: 12px;
+  color: #c9a227;
+}
+
+.footer {
+  margin-top: 48px;
+  text-align: center;
+}
+
+.decorLine {
+  width: 80px;
+  height: 2px;
+  background: #c9a227;
+  margin: 0 auto 16px;
 }
 
 .hint {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 13px;
+  color: #6b6b6b;
+  margin: 0;
 }
 
-@media (max-width: 768px) {
-  .flowContainer {
-    flex-direction: column;
+@media (max-width: 600px) {
+  .slide {
+    padding: 32px 16px;
   }
   
-  .flowItem {
-    flex-direction: column;
+  .title {
+    font-size: 24px;
   }
   
-  .arrow {
-    transform: rotate(90deg);
+  .timeline {
+    padding-left: 60px;
+  }
+  
+  .timelineLine {
+    left: 16px;
+  }
+  
+  .stepNumber {
+    left: -60px;
+    width: 32px;
+    height: 32px;
+  }
+  
+  .numberText {
+    font-size: 14px;
+  }
+  
+  .stepKeyword {
+    font-size: 18px;
   }
 }

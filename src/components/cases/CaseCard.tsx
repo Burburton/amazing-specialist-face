@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import Icon from '../common/Icon';
 import styles from './CaseCard.module.css';
 
 interface CaseSkill {
@@ -22,72 +21,86 @@ interface Case {
 
 interface CaseCardProps {
   case: Case;
+  index: number;
 }
 
 const CATEGORY_LABELS: Record<string, string> = {
-  auth: '用户认证',
-  data: '数据处理',
-  api: 'API开发',
-  optimization: '性能优化',
+  auth: 'AUTHENTICATION',
+  data: 'DATA PROCESSING',
+  api: 'API DEVELOPMENT',
+  optimization: 'OPTIMIZATION',
 };
 
 const ROLE_COLORS: Record<string, string> = {
-  architect: 'var(--color-role-architect-400)',
-  developer: 'var(--color-role-developer-400)',
-  tester: 'var(--color-role-tester-400)',
-  reviewer: 'var(--color-role-reviewer-400)',
-  docs: 'var(--color-role-docs-400)',
-  security: 'var(--color-role-security-400)',
+  architect: '#2563eb',
+  developer: '#059669',
+  tester: '#7c3aed',
+  reviewer: '#dc2626',
+  docs: '#0891b2',
+  security: '#ea580c',
 };
 
-export default function CaseCard({ case: caseItem }: CaseCardProps) {
+export default function CaseCard({ case: caseItem, index }: CaseCardProps) {
+  const number = String(index + 1).padStart(2, '0');
+  
   return (
     <article className={styles.card}>
-      <header className={styles.cardHeader}>
-        <span className={styles.categoryBadge}>
-          {CATEGORY_LABELS[caseItem.category] || caseItem.category}
-        </span>
-        <h2 className={styles.cardTitle}>{caseItem.title}</h2>
-        <p className={styles.cardDescription}>{caseItem.description}</p>
-      </header>
-
-      <div className={styles.flowSection}>
-        <h3 className={styles.flowTitle}>开发流程</h3>
-        <div className={styles.flowGrid}>
-          {caseItem.skills.map((skill, index) => (
-            <div key={skill.step} className={styles.flowRow}>
-              <Link
-                to={`/skills/${encodeURIComponent(skill.skillId)}`}
-                className={styles.skillCard}
-              >
-                <span className={styles.stepNumber}>{skill.step}</span>
-                <span className={styles.skillName}>{skill.skillName}</span>
-                <span 
-                  className={styles.roleBadge}
-                  style={{ backgroundColor: ROLE_COLORS[skill.role] || 'var(--color-accent-primary)' }}
-                >
-                  {skill.role}
-                </span>
-                <span className={styles.skillAction}>{skill.action}</span>
-              </Link>
-              {index < caseItem.skills.length - 1 && index % 3 !== 2 && (
-                <span className={styles.arrow}><Icon name="arrow-right" size={16} /></span>
-              )}
-            </div>
-          ))}
-        </div>
+      <div className={styles.numberSection}>
+        <span className={styles.number}>{number}</span>
       </div>
-
-      <footer className={styles.cardFooter}>
-        <div className={styles.stat}>
-          <span className={styles.statIcon}>⏱️</span>
-          <span className={styles.statLabel}>预计: {caseItem.estimatedTime}</span>
+      
+      <div className={styles.contentSection}>
+        <header className={styles.header}>
+          <span className={styles.category}>
+            {CATEGORY_LABELS[caseItem.category] || caseItem.category.toUpperCase()}
+          </span>
+          <h2 className={styles.title}>{caseItem.title.toUpperCase()}</h2>
+        </header>
+        
+        <p className={styles.description}>"{caseItem.description}"</p>
+        
+        <div className={styles.flowSection}>
+          <h3 className={styles.flowLabel}>WORKFLOW</h3>
+          <div className={styles.flowGrid}>
+            {caseItem.skills.map((skill, idx) => (
+              <div key={skill.step} className={styles.flowRow}>
+                <Link
+                  to={`/skills/${encodeURIComponent(skill.skillId)}`}
+                  className={styles.stepCard}
+                >
+                  <span className={styles.stepNumber}>{String(skill.step).padStart(2, '0')}</span>
+                  <span className={styles.stepName}>{skill.skillName}</span>
+                  <span 
+                    className={styles.roleTag}
+                    style={{ backgroundColor: ROLE_COLORS[skill.role] || '#6b7280' }}
+                  >
+                    {skill.role}
+                  </span>
+                  <span className={styles.stepAction}>{skill.action}</span>
+                </Link>
+                {idx < caseItem.skills.length - 1 && idx % 2 === 0 && idx !== caseItem.skills.length - 2 && (
+                  <span className={styles.connector}>→</span>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
-        <div className={styles.stat}>
-          <span className={styles.statIcon}>💰</span>
-          <span className={styles.statLabel}>节省: {caseItem.timeSaved}</span>
-        </div>
-      </footer>
+        
+        <footer className={styles.footer}>
+          <div className={styles.stat}>
+            <span className={styles.statLabel}>TIME</span>
+            <span className={styles.statValue}>{caseItem.estimatedTime}</span>
+          </div>
+          <div className={styles.stat}>
+            <span className={styles.statLabel}>SAVED</span>
+            <span className={styles.statValue}>{caseItem.timeSaved}</span>
+          </div>
+          <div className={styles.stat}>
+            <span className={styles.statLabel}>SKILLS</span>
+            <span className={styles.statValue}>{caseItem.skills.length}</span>
+          </div>
+        </footer>
+      </div>
     </article>
   );
 }
