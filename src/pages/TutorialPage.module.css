@@ -1,0 +1,25 @@
+.slideContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.slideContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.slideContainer {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slideContainer {
+    scroll-behavior: auto;
+  }
+}

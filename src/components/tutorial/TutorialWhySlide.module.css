@@ -1,0 +1,117 @@
+.slide {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+  padding: var(--spacing-8);
+  background: var(--color-bg-primary);
+}
+
+.content {
+  max-width: 1000px;
+  text-align: center;
+}
+
+.title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-8);
+}
+
+.comparisonContainer {
+  display: flex;
+  align-items: stretch;
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-8);
+}
+
+.comparisonColumn {
+  flex: 1;
+}
+
+.columnTitle {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-4);
+  padding: var(--spacing-3);
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-lg);
+}
+
+.withTitle {
+  color: var(--color-success);
+  background: rgba(34, 197, 94, 0.1);
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.item {
+  padding: var(--spacing-3) var(--spacing-4);
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-primary);
+}
+
+.withItem {
+  background: rgba(34, 197, 94, 0.05);
+  border-color: rgba(34, 197, 94, 0.2);
+}
+
+.itemText {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  font-size: var(--font-size-2xl);
+  color: var(--color-text-tertiary);
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-8);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.statValue {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-accent-primary);
+}
+
+.statLabel {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 768px) {
+  .comparisonContainer {
+    flex-direction: column;
+  }
+  
+  .arrow {
+    transform: rotate(90deg);
+    justify-content: center;
+  }
+  
+  .stats {
+    flex-direction: column;
+    gap: var(--spacing-4);
+  }
+}

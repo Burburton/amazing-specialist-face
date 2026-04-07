@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import {
   HomePage,
+  TutorialPage,
   SkillsPage,
   RolesPage,
   ContractsPage,
@@ -38,6 +39,7 @@ function App() {
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<HomePage />} />
+            <Route path="/tutorial" element={<TutorialPage />} />
             <Route path="/skills" element={<SkillsPage />} />
             <Route path="/skills/:id" element={<SkillDetailPage />} />
             <Route path="/roles" element={<RolesPage />} />
