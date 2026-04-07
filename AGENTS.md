@@ -265,6 +265,91 @@ task(
 )
 ```
 
+### Editorial Design Standard（杂志编辑风格设计标准）
+
+**规则**：本项目所有前端界面必须遵循 **Editorial/Magazine + Japanese Minimal** 设计风格。
+
+#### 设计风格概述
+
+| 特征 | 要求 |
+|------|------|
+| **字号层级** | 大胆的字号层级（72px+ hero 标题） |
+| **颜色方案** | 金色强调色 (#c9a227)，避免紫色渐变 |
+| **布局风格** | 不对称布局、装饰线、大编号 |
+| **叙事方式** | 时间线叙事（垂直或横向流程） |
+| **留白原则** | 极致的留白，避免拥挤 |
+
+#### 调色板（强制使用）
+
+```css
+/* Primary */
+--editorial-ink: #0f0f0f;      /* 主墨色 */
+--editorial-gold: #c9a227;     /* 金色强调 */
+
+/* Neutrals */
+--editorial-cream: #faf9f6;    /* 米白背景 */
+--editorial-paper: #f5f4f0;    /* 纸色 */
+--editorial-stone: #e8e6e1;    /* 石灰 */
+
+/* Text */
+--editorial-text: #1a1a1a;     /* 正文 */
+--editorial-muted: #6b6b6b;    /* 淡化 */
+```
+
+#### 字体规范（强制使用）
+
+| 用途 | 字体 | 尺寸范围 |
+|------|------|---------|
+| **Display 标题** | Playfair Display, serif | 72px - 120px |
+| **正文** | Source Sans 3, sans-serif | 16px - 18px |
+| **代码/ID** | JetBrains Mono, monospace | 13px - 14px |
+
+字体加载（已在 `index.html` 配置）：
+```html
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+```
+
+#### 设计元素清单
+
+所有新界面必须包含以下元素（至少 3 项）：
+
+1. **大编号** - 01, 02, 03... 使用金色或墨色，72px+
+2. **装饰线** - 金色横线或双线分隔
+3. **英文标签** - 大写英文标签（如 DESIGN, CODE, TEST）
+4. **引用块** - 金色左边框的 quote block
+5. **时间线** - 垂直或横向流程图，带连接箭头
+6. **统计装饰** - TIME, SAVED, SKILLS 等统计标签
+
+#### 参考实现
+
+- `src/pages/CasesPage.tsx` - Hero section + Case list
+- `src/components/cases/CaseCard.tsx` - 左侧编号 + WORKFLOW 流程
+- `src/components/tutorial/TutorialExampleSlide.tsx` - 垂直时间线
+
+#### 设计评审检查项
+
+新界面设计必须通过以下检查：
+
+- [ ] 使用 Playfair Display 作为 Display 字体
+- [ ] 使用 Source Sans 3 作为 Body 字体
+- [ ] 金色 (#c9a227) 作为唯一强调色
+- [ ] 无紫色渐变背景
+- [ ] 包含大编号（01-XX）
+- [ ] 包含装饰线元素
+- [ ] 英文标签全大写
+- [ ] 留白充足（padding ≥ 32px）
+
+#### 违规处理
+
+- 使用紫色渐变背景 → **major** finding
+- 未使用规定字体 → **major** finding
+- 缺少设计元素（编号、装饰线）→ **minor** finding
+- 留白不足 → **minor** finding
+
+#### 详细设计规范
+
+详见 `docs/editorial-design-standard.md` 和 `specs/015-editorial-redesign/design.md`。
+
 ## OpenCode Platform Adaptation（OpenCode 平台适配）
 
 ### Background
