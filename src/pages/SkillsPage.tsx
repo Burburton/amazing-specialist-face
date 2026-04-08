@@ -3,30 +3,17 @@ import { useSearchParams } from 'react-router-dom';
 import styles from './SkillsPage.module.css';
 import skillsData from '../data/skills.json';
 import SkillCard from '../components/cards/SkillCard';
-import SkillDependencyDiagram from '../components/diagrams/SkillDependencyDiagram';
-import PageHeader from '../components/shared/PageHeader';
 
 const ROLES = ['all', 'common', 'architect', 'developer', 'tester', 'reviewer', 'docs', 'security'];
 const ROLE_LABELS: Record<string, string> = {
-  all: '全部',
-  common: '通用',
-  architect: '架构师',
-  developer: '开发者',
-  tester: '测试员',
-  reviewer: '审查员',
-  docs: '文档员',
-  security: '安全员',
-};
-
-const ROLE_COLORS_400: Record<string, string> = {
-  all: 'var(--color-primary)',
-  common: 'var(--color-role-common-400)',
-  architect: 'var(--color-role-architect-400)',
-  developer: 'var(--color-role-developer-400)',
-  tester: 'var(--color-role-tester-400)',
-  reviewer: 'var(--color-role-reviewer-400)',
-  docs: 'var(--color-role-docs-400)',
-  security: 'var(--color-role-security-400)',
+  all: 'ALL',
+  common: 'COMMON',
+  architect: 'ARCHITECT',
+  developer: 'DEVELOPER',
+  tester: 'TESTER',
+  reviewer: 'REVIEWER',
+  docs: 'DOCS',
+  security: 'SECURITY',
 };
 
 export default function SkillsPage() {
@@ -64,21 +51,41 @@ export default function SkillsPage() {
     m4: filteredSkills.filter(s => s.category === 'M4').length,
   };
 
+  let globalIndex = 0;
+
   return (
     <div className={styles.page}>
-      <PageHeader 
-        title="技能库" 
-        subtitle={`${skillsData.skills.length} 个技能 · ${skillsData.skills.filter(s => s.category === 'MVP').length} MVP 核心 · ${skillsData.skills.filter(s => s.category === 'M4').length} M4 扩展`} 
-      />
-      
+      <div className={styles.header}>
+        <div className={styles.headerContent}>
+          <div className={styles.titleSection}>
+            <h1 className={styles.englishTitle}>SKILLS</h1>
+            <div className={styles.decorativeLine} aria-hidden="true" />
+            <p className={styles.chineseTitle}>技能库</p>
+          </div>
+          <div className={styles.statsSection}>
+            <div className={styles.statItem}>
+              <span className={styles.statValue}>{skillsData.skills.length}</span>
+              <span className={styles.statLabel}>TOTAL</span>
+            </div>
+            <div className={styles.statItem}>
+              <span className={styles.statValue}>{stats.mvp}</span>
+              <span className={styles.statLabel}>MVP</span>
+            </div>
+            <div className={styles.statItem}>
+              <span className={styles.statValue}>{stats.m4}</span>
+              <span className={styles.statLabel}>M4</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <section className={styles.filterSection}>
         <div className={styles.tabBar}>
           {ROLES.map(role => (
             <button
               key={role}
-              className={selectedRole === role ? styles.tabButton + ' ' + styles.active : styles.tabButton}
+              className={selectedRole === role ? `${styles.tabButton} ${styles.active}` : styles.tabButton}
               onClick={() => setSelectedRole(role)}
-              style={selectedRole === role ? { backgroundColor: ROLE_COLORS_400[role] } : {}}
             >
               {ROLE_LABELS[role]}
             </button>
@@ -113,35 +120,24 @@ export default function SkillsPage() {
         </div>
       </section>
 
-      <section className={styles.statsSection}>
-        <div className={styles.statItem}>
-          <span className={styles.statValue}>{stats.total}</span>
-          <span className={styles.statLabel}>当前显示</span>
-        </div>
-        <div className={styles.statItem}>
-          <span className={styles.statValue}>{stats.mvp}</span>
-          <span className={styles.statLabel}>MVP</span>
-        </div>
-        <div className={styles.statItem}>
-          <span className={styles.statValue}>{stats.m4}</span>
-          <span className={styles.statLabel}>M4</span>
-        </div>
-      </section>
-
-      <section className={styles.diagramSection}>
-        <SkillDependencyDiagram skills={skillsData.skills} />
-      </section>
-
       <section className={styles.gridSection}>
         {Object.entries(groupedSkills).map(([role, skills]) => (
           <div key={role} className={styles.roleGroup}>
-            <h3 className={styles.roleGroupTitle} style={{ borderColor: ROLE_COLORS_400[role] }}>
-              {ROLE_LABELS[role]} ({skills.length})
+            <h3 className={styles.roleGroupTitle}>
+              {ROLE_LABELS[role] || role.toUpperCase()} ({skills.length})
             </h3>
             <div className={styles.skills}>
-              {skills.map(skill => (
-                <SkillCard key={skill.id} skill={skill} href={`/skills/${encodeURIComponent(skill.id)}`} />
-              ))}
+              {skills.map(skill => {
+                const currentIndex = globalIndex++;
+                return (
+                  <SkillCard 
+                    key={skill.id} 
+                    skill={skill} 
+                    index={currentIndex}
+                    href={`/skills/${encodeURIComponent(skill.id)}`} 
+                  />
+                );
+              })}
             </div>
           </div>
         ))}
