@@ -1,125 +1,170 @@
+/* RolesPage - Editorial/Magazine Style */
+
 .page {
-  min-height: 100%;
-  width: 100%;
+  min-height: 100vh;
+  background: var(--editorial-cream, #faf9f6);
 }
 
-.overviewSection {
-  padding: var(--space-8) var(--space-4);
+[data-theme="dark"] .page {
+  background: var(--editorial-ink, #0f0f0f);
 }
 
-.roleGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: var(--space-4);
-  max-width: var(--container-xl);
+.header {
+  padding: 64px 32px 48px;
+  border-bottom: 2px solid var(--editorial-stone, #e8e6e1);
+}
+
+[data-theme="dark"] .header {
+  border-color: var(--editorial-stone, #2a2a2a);
+}
+
+.headerContent {
+  max-width: 1200px;
   margin: 0 auto;
-}
-
-.roleCard {
-  display: flex;
-  flex-direction: column;
-  padding: var(--space-4);
-  background: var(--color-surface);
-  border: 2px solid var(--color-border);
-  border-radius: var(--radius-xl);
-  text-decoration: none;
-  transition: transform var(--duration-normal) var(--ease-spring),
-              box-shadow var(--duration-normal) var(--ease-default);
-}
-
-.roleCard:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-}
-
-.roleIcon {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-lg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--text-2xl);
-  margin-bottom: var(--space-3);
-}
-
-.roleName {
-  font-family: var(--font-display);
-  font-size: var(--text-xl);
-  font-weight: var(--font-semibold);
-  color: var(--color-text-primary);
-  margin: 0 0 var(--space-2);
-}
-
-.roleMission {
-  font-size: var(--text-sm);
-  color: var(--color-text-secondary);
-  line-height: var(--leading-relaxed);
-  flex: 1;
-  margin-bottom: var(--space-3);
-}
-
-.roleStats {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
+  gap: 48px;
+}
+
+.titleSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.englishTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 96px;
+  font-weight: 900;
+  color: var(--editorial-ink, #0f0f0f);
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  margin: 0;
+  line-height: 0.9;
+}
+
+[data-theme="dark"] .englishTitle {
+  color: var(--editorial-cream, #faf9f6);
+}
+
+.decorativeLine {
+  width: 150px;
+  height: 3px;
+  background: var(--editorial-gold, #c9a227);
+  margin: 16px 0;
+}
+
+.chineseTitle {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--editorial-muted, #6b6b6b);
+  margin: 0;
+}
+
+.statsSection {
+  display: flex;
+  gap: 48px;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 4px;
 }
 
-.skillCount {
-  font-size: var(--text-sm);
-  color: var(--color-text-muted);
-  background: var(--color-surface-elevated);
-  padding: var(--space-1) var(--space-2);
-  border-radius: var(--radius-sm);
+.statValue {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--editorial-gold, #c9a227);
+  line-height: 1;
 }
 
-.viewLink {
-  font-family: var(--font-mono);
-  font-size: var(--text-sm);
-  color: var(--color-primary);
+.statLabel {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--editorial-muted, #6b6b6b);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.gridSection {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 32px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
 }
 
 .collaborationSection {
-  padding: var(--space-8) var(--space-4);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px 64px;
 }
 
 .sectionTitle {
-  font-family: var(--font-display);
-  font-size: var(--text-xl);
-  font-weight: var(--font-semibold);
-  color: var(--color-text-primary);
-  margin: 0 0 var(--space-4);
-  text-align: center;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--editorial-muted, #6b6b6b);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin: 0 0 8px 0;
 }
 
-.detailsSection {
-  padding: var(--space-8) var(--space-4);
-  max-width: var(--container-xl);
-  margin: 0 auto;
-}
-
-.sectionDesc {
-  font-family: var(--font-mono);
-  font-size: var(--text-sm);
-  color: var(--color-text-muted);
-  text-align: center;
-  margin: 0 0 var(--space-6);
-}
-
-.roleCards {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
+.sectionLine {
+  width: 80px;
+  height: 2px;
+  background: var(--editorial-gold, #c9a227);
+  margin-bottom: 24px;
 }
 
 @media (max-width: 768px) {
-  .overviewSection,
-  .collaborationSection,
-  .detailsSection {
-    padding: 0 var(--space-2) var(--space-4);
+  .headerContent {
+    flex-direction: column;
+    gap: 32px;
   }
 
-  .roleGrid {
+  .englishTitle {
+    font-size: 64px;
+  }
+
+  .statsSection {
+    gap: 32px;
+  }
+
+  .statValue {
+    font-size: 36px;
+  }
+
+  .gridSection {
     grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 48px 24px 32px;
+  }
+
+  .englishTitle {
+    font-size: 48px;
+  }
+
+  .decorativeLine {
+    width: 100px;
+  }
+
+  .statValue {
+    font-size: 28px;
+  }
+
+  .gridSection {
+    padding: 32px 24px;
   }
 }
