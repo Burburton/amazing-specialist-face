@@ -78,6 +78,8 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
     groupedResults.contracts.length +
     groupedResults.commands.length;
 
+  let groupNumber = 1;
+
   return (
     <div
       className={styles.overlay}
@@ -127,7 +129,11 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
           {groupedResults.skills.length > 0 && (
             <div className={styles.resultGroup}>
-              <h3 className={styles.groupTitle}>Skills ({groupedResults.skills.length})</h3>
+              <div className={styles.groupHeader}>
+                <span className={styles.groupNumber}>{String(groupNumber++).padStart(2, '0')}</span>
+                <h3 className={styles.groupTitle}>Skills</h3>
+                <span className={styles.groupCount}>{groupedResults.skills.length}</span>
+              </div>
               {groupedResults.skills.map((result) => (
                 <SearchResultItem key={result.id} result={result} onSelect={handleSelect} />
               ))}
@@ -136,7 +142,11 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
           {groupedResults.roles.length > 0 && (
             <div className={styles.resultGroup}>
-              <h3 className={styles.groupTitle}>Roles ({groupedResults.roles.length})</h3>
+              <div className={styles.groupHeader}>
+                <span className={styles.groupNumber}>{String(groupNumber++).padStart(2, '0')}</span>
+                <h3 className={styles.groupTitle}>Roles</h3>
+                <span className={styles.groupCount}>{groupedResults.roles.length}</span>
+              </div>
               {groupedResults.roles.map((result) => (
                 <SearchResultItem key={result.id} result={result} onSelect={handleSelect} />
               ))}
@@ -145,7 +155,11 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
           {groupedResults.contracts.length > 0 && (
             <div className={styles.resultGroup}>
-              <h3 className={styles.groupTitle}>Contracts ({groupedResults.contracts.length})</h3>
+              <div className={styles.groupHeader}>
+                <span className={styles.groupNumber}>{String(groupNumber++).padStart(2, '0')}</span>
+                <h3 className={styles.groupTitle}>Contracts</h3>
+                <span className={styles.groupCount}>{groupedResults.contracts.length}</span>
+              </div>
               {groupedResults.contracts.map((result) => (
                 <SearchResultItem key={result.id} result={result} onSelect={handleSelect} />
               ))}
@@ -154,7 +168,11 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
           {groupedResults.commands.length > 0 && (
             <div className={styles.resultGroup}>
-              <h3 className={styles.groupTitle}>Commands ({groupedResults.commands.length})</h3>
+              <div className={styles.groupHeader}>
+                <span className={styles.groupNumber}>{String(groupNumber++).padStart(2, '0')}</span>
+                <h3 className={styles.groupTitle}>Commands</h3>
+                <span className={styles.groupCount}>{groupedResults.commands.length}</span>
+              </div>
               {groupedResults.commands.map((result) => (
                 <SearchResultItem key={result.id} result={result} onSelect={handleSelect} />
               ))}

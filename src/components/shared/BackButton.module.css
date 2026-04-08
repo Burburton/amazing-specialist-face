@@ -1,30 +1,58 @@
+/* BackButton - Editorial/Magazine Style */
+
 .backButton {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-2) var(--space-3);
-  color: var(--color-text-muted);
-  font-family: var(--font-mono);
-  font-size: var(--text-sm);
+  gap: 12px;
+  padding: 12px 0;
+  color: var(--editorial-muted, #6b6b6b);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   text-decoration: none;
-  border-radius: var(--radius-md);
-  transition: color var(--duration-fast), background var(--duration-fast);
-  margin-bottom: var(--space-6);
+  transition: color 0.2s ease;
+  margin-bottom: 32px;
+}
+
+[data-theme="dark"] .backButton {
+  color: #9a9a9a;
 }
 
 .backButton:hover {
-  color: var(--color-text-primary);
-  background: var(--color-surface-elevated);
+  color: var(--editorial-gold, #c9a227);
 }
 
 .backButton:focus-visible {
-  outline: var(--ring-focus);
+  outline: none;
+  color: var(--editorial-gold, #c9a227);
 }
 
 .arrow {
-  font-size: var(--text-base);
+  font-size: 16px;
+  transition: transform 0.2s ease;
+}
+
+.backButton:hover .arrow {
+  transform: translateX(-4px);
 }
 
 .label {
-  font-weight: var(--font-medium);
+  position: relative;
+}
+
+.label::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--editorial-gold, #c9a227);
+  transition: width 0.2s ease;
+}
+
+.backButton:hover .label::after {
+  width: 100%;
 }

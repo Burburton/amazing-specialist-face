@@ -1,0 +1,124 @@
+/* NotFoundPage - Editorial/Magazine Style */
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--editorial-cream, #faf9f6);
+  padding: 48px 32px;
+  text-align: center;
+}
+
+[data-theme="dark"] .page {
+  background: var(--editorial-ink, #0f0f0f);
+}
+
+.errorCode {
+  font-family: 'Playfair Display', serif;
+  font-size: 180px;
+  font-weight: 900;
+  color: var(--editorial-gold, #c9a227);
+  line-height: 1;
+  margin: 0;
+}
+
+.label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--editorial-muted, #6b6b6b);
+  margin: 24px 0 8px;
+}
+
+[data-theme="dark"] .label {
+  color: #9a9a9a;
+}
+
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--editorial-ink, #0f0f0f);
+  margin: 0 0 16px;
+}
+
+[data-theme="dark"] .title {
+  color: var(--editorial-cream, #faf9f6);
+}
+
+.description {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 18px;
+  color: var(--editorial-muted, #6b6b6b);
+  margin: 0 0 48px;
+  max-width: 400px;
+}
+
+[data-theme="dark"] .description {
+  color: #9a9a9a;
+}
+
+.decorativeLine {
+  width: 120px;
+  height: 3px;
+  background: var(--editorial-gold, #c9a227);
+  margin: 0 auto 48px;
+}
+
+.homeLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 32px;
+  background: var(--editorial-ink, #0f0f0f);
+  color: var(--editorial-cream, #faf9f6);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+[data-theme="dark"] .homeLink {
+  background: var(--editorial-cream, #faf9f6);
+  color: var(--editorial-ink, #0f0f0f);
+}
+
+.homeLink:hover {
+  background: var(--editorial-gold, #c9a227);
+  color: var(--editorial-ink, #0f0f0f);
+}
+
+.homeLink:focus-visible {
+  outline: none;
+  background: var(--editorial-gold, #c9a227);
+  color: var(--editorial-ink, #0f0f0f);
+}
+
+.arrow {
+  transition: transform 0.2s ease;
+}
+
+.homeLink:hover .arrow {
+  transform: translateX(-4px);
+}
+
+@media (max-width: 768px) {
+  .errorCode {
+    font-size: 120px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+}

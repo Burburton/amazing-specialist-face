@@ -68,9 +68,10 @@ export default function SkillDependencyDiagram({ skills }: SkillDependencyDiagra
       </div>
 
       <div className={styles.roleGrid}>
-        {ROLE_ORDER.filter(role => skillsByRole[role]?.length > 0).map(role => (
+        {ROLE_ORDER.filter(role => skillsByRole[role]?.length > 0).map((role, idx) => (
           <div key={role} className={styles.roleColumn}>
             <div className={styles.roleHeader}>
+              <span className={styles.roleNumber}>{String(idx + 1).padStart(2, '0')}</span>
               <span 
                 className={styles.roleDot}
                 style={{ backgroundColor: ROLE_COLORS_400[role] }}

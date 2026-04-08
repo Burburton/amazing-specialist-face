@@ -89,21 +89,17 @@ export default function RoleCollaborationDiagram({ contracts }: RoleCollaboratio
 
   return (
     <div className={styles.diagram}>
-      <h3 className={styles.title}>角色协作关系</h3>
+      <h3 className={styles.diagramTitle}>角色协作关系</h3>
+      <p className={styles.diagramSubtitle}>ROLE COLLABORATION</p>
       
       <div className={styles.roleCards}>
-        {ROLE_ORDER.map(role => (
+        {ROLE_ORDER.map((role, idx) => (
           <div
             key={role}
             className={styles.roleCard}
             style={{ borderColor: ROLE_COLORS[role] }}
           >
-            <div
-              className={styles.roleIcon}
-              style={{ backgroundColor: ROLE_COLORS[role] }}
-            >
-              {role.charAt(0).toUpperCase()}
-            </div>
+            <span className={styles.roleNumber}>{String(idx + 1).padStart(2, '0')}</span>
             <div className={styles.roleName}>{ROLE_LABELS[role]}</div>
             <div className={styles.roleStats}>
               <span className={styles.statProduces}>

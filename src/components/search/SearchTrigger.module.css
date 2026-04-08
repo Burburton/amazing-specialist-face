@@ -1,42 +1,67 @@
+/* SearchTrigger - Editorial/Magazine Style */
+
 .trigger {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-2) var(--space-3);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  gap: 10px;
+  padding: 10px 16px;
+  background: transparent;
+  border: 2px solid var(--editorial-stone, #e8e6e1);
   cursor: pointer;
-  transition: background var(--duration-fast), border-color var(--duration-fast);
+  transition: all 0.2s ease;
+}
+
+[data-theme="dark"] .trigger {
+  border-color: #444;
 }
 
 .trigger:hover {
-  background: var(--color-surface-elevated);
-  border-color: var(--color-text-muted);
+  border-color: var(--editorial-gold, #c9a227);
 }
 
-.icon {
-  color: var(--color-text-muted);
-  font-size: 1rem;
+.trigger:focus-visible {
+  outline: none;
+  border-color: var(--editorial-gold, #c9a227);
 }
 
 .text {
-  color: var(--color-text-secondary);
-  font-size: 0.875rem;
-  font-family: var(--font-body);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--editorial-muted, #6b6b6b);
+}
+
+[data-theme="dark"] .text {
+  color: #9a9a9a;
 }
 
 .shortcut {
-  color: var(--color-text-muted);
-  font-size: 0.75rem;
-  font-family: var(--font-mono);
-  background: var(--color-background);
-  padding: var(--space-1) var(--space-2);
-  border-radius: var(--radius-sm);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--editorial-muted, #6b6b6b);
+  padding: 4px 8px;
+  background: var(--editorial-paper, #f5f4f0);
+}
+
+[data-theme="dark"] .shortcut {
+  color: #9a9a9a;
+  background: #333;
 }
 
 @media (max-width: 640px) {
   .text {
     display: none;
+  }
+
+  .shortcut {
+    display: none;
+  }
+
+  .trigger {
+    padding: 8px 12px;
   }
 }
