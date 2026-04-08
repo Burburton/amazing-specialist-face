@@ -1,79 +1,76 @@
+/* TutorialExampleSlide - Editorial/Magazine Style */
+
 .slide {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  scroll-snap-align: start;
-  padding: 48px 32px;
-  background: #faf9f6;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .content {
-  max-width: 600px;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 
 .header {
   text-align: center;
-  margin-bottom: 32px;
 }
 
 .label {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.3em;
-  color: #c9a227;
-  margin: 0 0 16px 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-}
-
-.label::before,
-.label::after {
-  content: '━';
-  margin: 0 16px;
-  color: #c9a227;
+  color: var(--editorial-gold, #c9a227);
+  margin: 0 0 8px;
 }
 
 .titleGroup {
-  border-bottom: 3px double #c9a227;
-  padding-bottom: 16px;
-  display: inline-block;
+  margin-bottom: 8px;
 }
 
 .title {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 32px;
-  font-weight: 700;
-  color: #0f0f0f;
-  margin: 0 0 4px 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--editorial-ink, #0f0f0f);
+  margin: 0 0 8px;
+}
+
+[data-theme="dark"] .title {
+  color: var(--editorial-cream, #faf9f6);
 }
 
 .subtitle {
   font-family: 'Source Sans 3', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 0.1em;
-  color: #6b6b6b;
+  font-size: 16px;
+  color: var(--editorial-muted, #6b6b6b);
   margin: 0;
-  text-transform: uppercase;
+}
+
+[data-theme="dark"] .subtitle {
+  color: #9a9a9a;
 }
 
 .quote {
   font-family: 'Source Sans 3', sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   font-style: italic;
-  color: #4a4a4a;
-  text-align: center;
-  margin: 0 0 48px 0;
-  padding: 16px 24px;
-  border-left: 4px solid #c9a227;
-  background: white;
+  color: var(--editorial-text, #1a1a1a);
+  border-left: 4px solid var(--editorial-gold, #c9a227);
+  padding-left: 24px;
+  margin: 0;
+}
+
+[data-theme="dark"] .quote {
+  color: var(--editorial-cream, #faf9f6);
 }
 
 .timeline {
   position: relative;
-  padding-left: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .timelineLine {
@@ -82,153 +79,161 @@
   top: 0;
   bottom: 0;
   width: 2px;
-  background: #e0ddd5;
+  background: var(--editorial-stone, #e8e6e1);
+}
+
+[data-theme="dark"] .timelineLine {
+  background: #444;
 }
 
 .stepItem {
-  position: relative;
-  margin-bottom: 16px;
-}
-
-.stepItem:last-child {
-  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .stepNumber {
-  position: absolute;
-  left: -80px;
-  top: 0;
   width: 48px;
   height: 48px;
-  background: #0f0f0f;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: var(--editorial-gold, #c9a227);
+  position: relative;
+  z-index: 1;
 }
 
 .numberText {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Playfair Display', serif;
   font-size: 20px;
   font-weight: 900;
-  color: #c9a227;
+  color: #0f0f0f;
 }
 
 .stepCard {
-  display: block;
-  padding: 20px 24px;
-  background: white;
-  border: 1px solid #e0ddd5;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 24px;
+  background: var(--editorial-cream, #faf9f6);
+  border: 2px solid var(--editorial-stone, #e8e6e1);
   text-decoration: none;
   transition: all 0.2s ease;
+  margin-left: 48px;
+}
+
+[data-theme="dark"] .stepCard {
+  background: #1a1a1a;
+  border-color: #333;
 }
 
 .stepCard:hover {
-  border-color: #c9a227;
-  transform: translateX(8px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-color: var(--editorial-gold, #c9a227);
 }
 
 .stepKeyword {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 24px;
-  font-weight: 900;
-  color: #c9a227;
-  letter-spacing: 0.05em;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--editorial-ink, #0f0f0f);
+  min-width: 80px;
+}
+
+[data-theme="dark"] .stepKeyword {
+  color: var(--editorial-cream, #faf9f6);
 }
 
 .stepDivider {
-  width: 32px;
-  height: 2px;
-  background: #c9a227;
-  margin: 8px 0;
+  width: 2px;
+  height: 24px;
+  background: var(--editorial-stone, #e8e6e1);
+}
+
+[data-theme="dark"] .stepDivider {
+  background: #444;
 }
 
 .stepTitle {
   font-family: 'Source Sans 3', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  color: #0f0f0f;
-  text-transform: uppercase;
-  margin-bottom: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--editorial-text, #1a1a1a);
+  flex: 1;
+}
+
+[data-theme="dark"] .stepTitle {
+  color: var(--editorial-cream, #faf9f6);
 }
 
 .roleTag {
-  display: inline-block;
-  font-family: 'Source Sans 3', sans-serif;
-  font-size: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
   font-weight: 600;
-  color: white;
-  padding: 2px 8px;
-  border-radius: 2px;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 8px;
+  color: #0f0f0f;
+  padding: 4px 10px;
 }
 
 .stepAction {
   font-family: 'Source Sans 3', sans-serif;
   font-size: 13px;
-  color: #6b6b6b;
+  color: var(--editorial-muted, #6b6b6b);
+}
+
+[data-theme="dark"] .stepAction {
+  color: #9a9a9a;
 }
 
 .connector {
-  text-align: center;
-  padding: 8px 0;
+  display: flex;
+  justify-content: center;
+  margin-left: 48px;
 }
 
 .arrow {
-  font-size: 12px;
-  color: #c9a227;
+  color: var(--editorial-gold, #c9a227);
+  font-size: 14px;
 }
 
 .footer {
-  margin-top: 48px;
   text-align: center;
+  padding-top: 24px;
 }
 
 .decorLine {
   width: 80px;
   height: 2px;
-  background: #c9a227;
+  background: var(--editorial-gold, #c9a227);
   margin: 0 auto 16px;
 }
 
 .hint {
   font-family: 'Source Sans 3', sans-serif;
-  font-size: 13px;
-  color: #6b6b6b;
+  font-size: 14px;
+  color: var(--editorial-muted, #6b6b6b);
   margin: 0;
 }
 
-@media (max-width: 600px) {
-  .slide {
-    padding: 32px 16px;
-  }
-  
+[data-theme="dark"] .hint {
+  color: #9a9a9a;
+}
+
+@media (max-width: 768px) {
   .title {
-    font-size: 24px;
+    font-size: 28px;
   }
-  
-  .timeline {
-    padding-left: 60px;
+
+  .stepCard {
+    flex-wrap: wrap;
+    padding: 12px 16px;
+    gap: 12px;
   }
-  
-  .timelineLine {
-    left: 16px;
+
+  .stepDivider {
+    display: none;
   }
-  
-  .stepNumber {
-    left: -60px;
-    width: 32px;
-    height: 32px;
-  }
-  
-  .numberText {
-    font-size: 14px;
-  }
-  
+
   .stepKeyword {
-    font-size: 18px;
+    min-width: auto;
   }
 }
