@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Icon from '../common/Icon';
 import styles from './TutorialTrySlide.module.css';
 
 const FEATURE_CATEGORIES = [
@@ -29,51 +28,51 @@ export default function TutorialTrySlide() {
 
   return (
     <section className={styles.slide} aria-label="动手试试">
-      <div className={styles.content}>
+      <div className={styles.header}>
         <h2 className={styles.title}>现在就试试！</h2>
-        
-        <div className={styles.selectorContainer}>
-          <p className={styles.selectorLabel}>想开发什么功能？</p>
-          
-          <div className={styles.featureGrid}>
-            {FEATURE_CATEGORIES.map((feature) => (
-              <button
-                key={feature.id}
-                className={`${styles.featureBtn} ${selectedFeature === feature.id ? styles.selected : ''}`}
-                onClick={() => setSelectedFeature(feature.id)}
+        <div className={styles.decorativeLine} aria-hidden="true" />
+        <p className={styles.subtitle}>Try it now!</p>
+      </div>
+      
+      <p className={styles.question}>想开发什么功能？</p>
+      
+      <div className={styles.featureGrid}>
+        {FEATURE_CATEGORIES.map((feature, index) => (
+          <button
+            key={feature.id}
+            className={`${styles.featureBtn} ${selectedFeature === feature.id ? styles.selected : ''}`}
+            onClick={() => setSelectedFeature(feature.id)}
+          >
+            <span className={styles.featureNumber}>{String(index + 1).padStart(2, '0')}</span>
+            <span className={styles.featureLabel}>{feature.label}</span>
+          </button>
+        ))}
+      </div>
+      
+      {selectedCategory && (
+        <div className={styles.recommendedSkills}>
+          <p className={styles.recommendedLabel}>
+            "{selectedCategory.label}" 推荐技能：
+          </p>
+          <div className={styles.skillsList}>
+            {selectedCategory.skills.map((skillId) => (
+              <Link
+                key={skillId}
+                to={`/skills/${encodeURIComponent(skillId)}`}
+                className={styles.skillLink}
               >
-                {feature.label}
-              </button>
+                {SKILL_NAMES[skillId] || skillId}
+              </Link>
             ))}
           </div>
-          
-          {selectedCategory && (
-            <div className={styles.recommendedSkills}>
-              <p className={styles.recommendedLabel}>
-                "{selectedCategory.label}" 推荐技能：
-              </p>
-              <div className={styles.skillsList}>
-                {selectedCategory.skills.map((skillId) => (
-                  <Link
-                    key={skillId}
-                    to={`/skills/${encodeURIComponent(skillId)}`}
-                    className={styles.skillLink}
-                  >
-                    <Icon name="skills" size={16} />
-                    <span>{SKILL_NAMES[skillId] || skillId}</span>
-                  </Link>
-                ))}
-              </div>
-              <Link 
-                to={`/skills/${encodeURIComponent(selectedCategory.skills[0])}`}
-                className={styles.startBtn}
-              >
-                开始体验 <Icon name="arrow-right" size={16} />
-              </Link>
-            </div>
-          )}
+          <Link 
+            to={`/skills/${encodeURIComponent(selectedCategory.skills[0])}`}
+            className={styles.startBtn}
+          >
+            开始体验 →
+          </Link>
         </div>
-      </div>
+      )}
     </section>
   );
 }
