@@ -1,143 +1,183 @@
+/* CapabilitiesSlide - Editorial/Magazine Style */
+
 .slide {
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: var(--space-8) var(--space-4);
-  background: var(--color-background);
+  padding: 64px 32px;
+  position: relative;
+  background: var(--editorial-paper, #f5f4f0);
   scroll-snap-align: start;
   scroll-snap-stop: always;
+  overflow: hidden;
 }
 
-.heroStat {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin-bottom: var(--space-8);
+[data-theme="dark"] .slide {
+  background: var(--editorial-ink, #0f0f0f);
 }
 
-.heroValue {
-  font-family: var(--font-display);
-  font-size: 8rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.numberBadge {
+  position: absolute;
+  top: 64px;
+  left: 64px;
+  font-family: 'Playfair Display', serif;
+  font-size: 72px;
+  font-weight: 900;
+  color: var(--editorial-gold, #c9a227);
   line-height: 1;
 }
 
-.heroLabel {
-  font-family: var(--font-sans);
-  font-size: 1.5rem;
-  color: var(--color-text-secondary);
-  margin-top: var(--space-2);
-}
-
-.heroDesc {
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
-  color: var(--color-text-muted);
-  margin-top: var(--space-1);
-}
-
-.subStats {
-  display: flex;
-  justify-content: center;
-  gap: var(--space-8);
-  margin-bottom: var(--space-8);
-}
-
-.subStat {
+.header {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  margin-bottom: 48px;
 }
 
-.subValue {
-  font-family: var(--font-display);
-  font-size: 2.5rem;
-  font-weight: 600;
-  color: var(--color-text-primary);
+.englishTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 72px;
+  font-weight: 900;
+  color: var(--editorial-ink, #0f0f0f);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px 0;
 }
 
-.subLabel {
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  color: var(--color-text-muted);
-  margin-top: var(--space-1);
+[data-theme="dark"] .englishTitle {
+  color: var(--editorial-cream, #faf9f6);
+}
+
+.decorativeLine {
+  width: 200px;
+  height: 3px;
+  background: var(--editorial-gold, #c9a227);
+  border-top: 3px double var(--editorial-gold, #c9a227);
+  background: transparent;
+  margin-bottom: 16px;
+}
+
+.chineseTitle {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--editorial-muted, #6b6b6b);
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  max-width: 800px;
+  width: 100%;
+  margin-bottom: 48px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 32px;
+  background: var(--editorial-cream, #faf9f6);
+  border: 1px solid var(--editorial-stone, #e8e6e1);
+  text-align: center;
+}
+
+[data-theme="dark"] .card {
+  background: var(--editorial-paper, #1a1a1a);
+  border-color: var(--editorial-stone, #2a2a2a);
+}
+
+.card:hover {
+  border-color: var(--editorial-gold, #c9a227);
+}
+
+.cardNumber {
+  font-family: 'Playfair Display', serif;
+  font-size: 64px;
+  font-weight: 900;
+  color: var(--editorial-gold, #c9a227);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.cardLabel {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--editorial-text, #1a1a1a);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+[data-theme="dark"] .cardLabel {
+  color: var(--editorial-cream, #faf9f6);
+}
+
+.cardLine {
+  width: 60px;
+  height: 2px;
+  background: var(--editorial-gold, #c9a227);
+  margin: 16px 0;
+}
+
+.cardDesc {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--editorial-muted, #6b6b6b);
+  margin: 0;
 }
 
 .cta {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  background: var(--color-primary);
-  color: white;
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 500;
+  gap: 12px;
+  background: var(--editorial-ink, #0f0f0f);
+  color: var(--editorial-cream, #faf9f6);
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
   padding: 16px 48px;
-  border-radius: var(--radius-lg);
   text-decoration: none;
   cursor: pointer;
-  transition: 
-    transform var(--duration-normal) var(--ease-spring),
-    box-shadow var(--duration-normal) var(--ease-spring);
+  transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .cta {
+  background: var(--editorial-gold, #c9a227);
+  color: var(--editorial-ink, #0f0f0f);
 }
 
 .cta:hover {
   transform: translateY(-2px);
-  box-shadow: var(--glow-primary);
+  box-shadow: 0 4px 20px rgba(201, 162, 39, 0.3);
 }
 
-.cta:focus-visible {
-  outline: none;
-  box-shadow: var(--ring-focus);
+.ctaText {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 @media (max-width: 768px) {
-  .heroValue {
-    font-size: 5rem;
-  }
-
-  .heroLabel {
-    font-size: 1.25rem;
-  }
-
-  .subStats {
-    gap: var(--space-4);
-  }
-
-  .subValue {
-    font-size: 2rem;
-  }
-
-  .subLabel {
-    font-size: 0.875rem;
-  }
+  .numberBadge { top: 32px; left: 32px; font-size: 48px; }
+  .englishTitle { font-size: 48px; }
+  .decorativeLine { width: 150px; }
+  .chineseTitle { font-size: 20px; }
+  .grid { gap: 24px; }
+  .card { padding: 32px 24px; }
+  .cardNumber { font-size: 48px; }
 }
 
 @media (max-width: 480px) {
-  .heroValue {
-    font-size: 4rem;
-  }
-
-  .subStats {
-    flex-direction: column;
-    gap: var(--space-3);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .cta {
-    transition: none;
-  }
-
-  .cta:hover {
-    transform: none;
-  }
+  .numberBadge { top: 24px; left: 24px; font-size: 36px; }
+  .englishTitle { font-size: 36px; }
+  .grid { grid-template-columns: 1fr; gap: 16px; }
+  .card { padding: 24px 16px; }
+  .cardNumber { font-size: 36px; }
+  .cardLabel { font-size: 14px; }
 }

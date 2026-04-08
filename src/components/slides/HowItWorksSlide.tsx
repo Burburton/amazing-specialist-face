@@ -2,42 +2,64 @@ import { Link } from 'react-router-dom';
 import styles from './HowItWorksSlide.module.css';
 import Icon from '../common/Icon';
 
-const FLOW_STEPS = [
-  { id: 'spec', title: 'Spec', subtitle: '需求定义', role: 'architect' },
-  { id: 'plan', title: 'Plan', subtitle: '方案设计', role: 'architect' },
-  { id: 'implement', title: 'Implement', subtitle: '代码实现', role: 'developer' },
-  { id: 'test', title: 'Test', subtitle: '验证测试', role: 'tester' },
-  { id: 'review', title: 'Review', subtitle: '审查反馈', role: 'reviewer' },
-  { id: 'deploy', title: 'Deploy', subtitle: '部署上线', role: 'developer' },
+const WORKFLOW_STEPS = [
+  { number: '01', label: 'DESIGN', name: '需求设计', role: 'architect' },
+  { number: '02', label: 'CODE', name: '代码实现', role: 'developer' },
+  { number: '03', label: 'TEST', name: '测试验证', role: 'tester' },
+  { number: '04', label: 'REVIEW', name: '代码审查', role: 'reviewer' },
+  { number: '05', label: 'SECURE', name: '安全审计', role: 'security' },
+  { number: '06', label: 'DOCS', name: '文档编写', role: 'docs' },
 ];
 
 export default function HowItWorksSlide() {
   return (
     <section className={styles.slide} aria-label="它怎么工作">
-      <h2 className={styles.title}>它怎么工作</h2>
+      <div className={styles.numberBadge}>03</div>
 
-      <div className={styles.flowContainer}>
-        <div className={styles.flowSteps}>
-          {FLOW_STEPS.map((step, index) => (
-            <div key={step.id} className={styles.stepWrapper}>
-              <div className={styles.stepCard} tabIndex={0}>
-                <span className={styles.stepTitle}>{step.title}</span>
-                <span className={styles.stepSubtitle}>{step.subtitle}</span>
+      <div className={styles.header}>
+        <div className={styles.titleRow}>
+          <span className={styles.titleLine}>HOW IT</span>
+          <span className={styles.titleLine}>WORKS</span>
+        </div>
+        <div className={styles.decorativeLine} aria-hidden="true" />
+        <p className={styles.chineseTitle}>工作流程</p>
+      </div>
+
+      <div className={styles.workflow}>
+        <div className={styles.workflowRow}>
+          {WORKFLOW_STEPS.slice(0, 3).map((step, index) => (
+            <div key={step.number} className={styles.stepWrapper}>
+              <div className={styles.stepCard}>
+                <span className={styles.stepNumber}>{step.number}</span>
+                <span className={styles.stepLabel}>{step.label}</span>
+                <span className={styles.stepName}>{step.name}</span>
               </div>
-              {index < FLOW_STEPS.length - 1 && (
-                <span className={styles.arrow} aria-hidden="true"><Icon name="arrow-right" size={20} /></span>
-              )}
+              {index < 2 && <span className={styles.arrow}>→</span>}
+            </div>
+          ))}
+        </div>
+
+        <div className={styles.connector} aria-hidden="true">
+          <div className={styles.connectorLine} />
+        </div>
+
+        <div className={styles.workflowRow}>
+          {WORKFLOW_STEPS.slice(3, 6).map((step, index) => (
+            <div key={step.number} className={styles.stepWrapper}>
+              <div className={styles.stepCard}>
+                <span className={styles.stepNumber}>{step.number}</span>
+                <span className={styles.stepLabel}>{step.label}</span>
+                <span className={styles.stepName}>{step.name}</span>
+              </div>
+              {index < 2 && <span className={styles.arrow}>→</span>}
             </div>
           ))}
         </div>
       </div>
 
-      <p className={styles.description}>
-        从需求定义到部署上线，完整的软件研发闭环
-      </p>
-
       <Link to="/skills" className={styles.cta}>
-        浏览技能库 <Icon name="arrow-right" size={16} />
+        <span className={styles.ctaText}>浏览技能库</span>
+        <Icon name="arrow-right" size={16} />
       </Link>
     </section>
   );
