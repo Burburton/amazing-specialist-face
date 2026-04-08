@@ -1,119 +1,261 @@
+/* CommandsPage - Editorial/Magazine Style */
+
 .page {
   min-height: 100%;
   width: 100%;
+  background: var(--editorial-cream, #faf9f6);
+  padding: 0;
+}
+
+[data-theme="dark"] .page {
+  background: var(--editorial-ink, #0f0f0f);
+}
+
+.heroSection {
+  padding: 80px 32px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.heroLabel {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--editorial-muted, #6b6b6b);
+  margin-bottom: 16px;
+}
+
+[data-theme="dark"] .heroLabel {
+  color: #9a9a9a;
+}
+
+.heroTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 72px;
+  font-weight: 900;
+  color: var(--editorial-ink, #0f0f0f);
+  margin: 0 0 24px;
+  line-height: 1;
+}
+
+[data-theme="dark"] .heroTitle {
+  color: var(--editorial-cream, #faf9f6);
+}
+
+.heroSubtitle {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 18px;
+  color: var(--editorial-muted, #6b6b6b);
+  margin: 0;
+}
+
+[data-theme="dark"] .heroSubtitle {
+  color: #9a9a9a;
+}
+
+.heroDecorativeLine {
+  width: 150px;
+  height: 3px;
+  background: var(--editorial-gold, #c9a227);
+  margin: 32px auto 0;
 }
 
 .workflowSection {
-  padding: var(--space-8) var(--space-4);
+  padding: 48px 32px;
+  background: var(--editorial-paper, #f5f4f0);
 }
 
-.sectionTitle {
-  font-family: var(--font-display);
-  font-size: var(--text-xl);
-  font-weight: var(--font-semibold);
-  color: var(--color-text-primary);
-  margin: 0 0 var(--space-4);
-  text-align: center;
+[data-theme="dark"] .workflowSection {
+  background: #1a1a1a;
 }
 
-.sectionDesc {
-  font-family: var(--font-mono);
-  font-size: var(--text-sm);
-  color: var(--color-text-muted);
-  text-align: center;
-  margin: 0 0 var(--space-4);
-  max-width: var(--container-xl);
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.workflowSteps {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-2);
-  flex-wrap: wrap;
-  padding: var(--space-4);
-  max-width: var(--container-xl);
+.workflowContent {
+  max-width: 1000px;
   margin: 0 auto;
+}
+
+.workflowTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--editorial-ink, #0f0f0f);
+  margin: 0 0 8px;
+  text-align: center;
+}
+
+[data-theme="dark"] .workflowTitle {
+  color: var(--editorial-cream, #faf9f6);
+}
+
+.workflowSubtitle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--editorial-muted, #6b6b6b);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 48px;
+  text-align: center;
+}
+
+[data-theme="dark"] .workflowSubtitle {
+  color: #9a9a9a;
+}
+
+.workflowTimeline {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
 }
 
 .workflowStep {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: var(--space-3);
+  gap: 16px;
+  position: relative;
 }
 
 .stepNumber {
-  width: 32px;
-  height: 32px;
-  border-radius: var(--radius-full);
-  background: var(--color-primary);
-  color: var(--color-text-inverse);
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--editorial-gold, #c9a227);
+  width: 64px;
+  height: 64px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: var(--font-bold);
-  flex-shrink: 0;
+  background: var(--editorial-cream, #faf9f6);
+  border: 2px solid var(--editorial-gold, #c9a227);
+}
+
+[data-theme="dark"] .stepNumber {
+  background: #222;
+}
+
+.stepConnector {
+  position: absolute;
+  top: 32px;
+  left: calc(100% + 16px);
+  width: 16px;
+  height: 2px;
+  background: var(--editorial-gold, #c9a227);
 }
 
 .stepContent {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+  text-align: center;
 }
 
 .stepCommand {
-  font-size: var(--text-sm);
-  color: var(--color-primary);
-  font-family: var(--font-mono);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--editorial-ink, #0f0f0f);
+  margin-bottom: 4px;
+}
+
+[data-theme="dark"] .stepCommand {
+  color: var(--editorial-cream, #faf9f6);
 }
 
 .stepLabel {
-  font-size: var(--text-xs);
-  color: var(--color-text-muted);
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 13px;
+  color: var(--editorial-muted, #6b6b6b);
 }
 
-.stepArrow {
-  color: var(--color-text-muted);
-  font-size: var(--text-lg);
-  margin: 0 var(--space-1);
+[data-theme="dark"] .stepLabel {
+  color: #9a9a9a;
 }
 
 .gridSection {
-  padding: var(--space-8) var(--space-4);
+  padding: 60px 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.sectionNumber {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--editorial-gold, #c9a227);
+}
+
+.sectionLabel {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--editorial-muted, #6b6b6b);
+}
+
+[data-theme="dark"] .sectionLabel {
+  color: #9a9a9a;
+}
+
+.sectionTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--editorial-ink, #0f0f0f);
+  margin: 0;
+}
+
+[data-theme="dark"] .sectionTitle {
+  color: var(--editorial-cream, #faf9f6);
 }
 
 .commandsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: var(--space-4);
-  max-width: var(--container-xl);
-  margin: 0 auto;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 24px;
 }
 
 @media (max-width: 768px) {
+  .heroSection {
+    padding: 48px 20px 36px;
+  }
+
+  .heroTitle {
+    font-size: 48px;
+  }
+
   .workflowSection,
   .gridSection {
-    padding: 0 var(--space-2) var(--space-4);
+    padding: 32px 20px;
   }
 
-  .workflowSteps {
+  .workflowTimeline {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    gap: 24px;
   }
 
-  .workflowStep {
-    width: 100%;
-  }
-
-  .stepArrow {
-    transform: rotate(90deg);
-    align-self: center;
-    margin: var(--space-1) 0;
+  .stepConnector {
+    display: none;
   }
 
   .commandsGrid {
     grid-template-columns: 1fr;
+  }
+
+  .sectionNumber {
+    font-size: 36px;
+  }
+
+  .sectionTitle {
+    font-size: 22px;
   }
 }

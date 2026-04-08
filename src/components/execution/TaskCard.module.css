@@ -1,57 +1,84 @@
-.taskCard {
-  background: var(--color-surface);
-  border-radius: var(--radius-lg);
-  padding: var(--space-4);
-  border: 1px solid var(--color-border);
-  transition: transform var(--duration-fast), border-color var(--duration-fast);
+/* TaskCard - Editorial/Magazine Style */
+
+.card {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  background: var(--editorial-cream, #faf9f6);
+  border: 2px solid var(--editorial-stone, #e8e6e1);
+  transition: all 0.2s ease;
   cursor: default;
 }
 
-.taskCard[role="button"] {
+[data-theme="dark"] .card {
+  background: #1a1a1a;
+  border-color: #333;
+}
+
+.card[role="button"] {
   cursor: pointer;
 }
 
-.taskCard[role="button"]:hover {
-  transform: translateY(-4px);
-  border-color: var(--color-primary);
+.card[role="button"]:hover {
+  border-color: var(--editorial-gold, #c9a227);
+  transform: translateY(-2px);
 }
 
-.taskCard[role="button"]:focus {
+.card[role="button"]:focus {
   outline: none;
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px var(--color-primary-subtle);
+  border-color: var(--editorial-gold, #c9a227);
 }
 
-.header {
+.numberSection {
+  flex-shrink: 0;
+  width: 48px;
+}
+
+.numberBadge {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--editorial-gold, #c9a227);
+  line-height: 1;
+}
+
+.statusBadge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--editorial-muted, #6b6b6b);
+  margin-top: 8px;
+}
+
+[data-theme="dark"] .statusBadge {
+  color: #9a9a9a;
+}
+
+.contentSection {
+  flex: 1;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: var(--space-2);
+  flex-direction: column;
+  gap: 12px;
 }
 
 .taskId {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: var(--font-medium);
-  color: var(--color-text-muted);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--editorial-muted, #6b6b6b);
 }
 
-.status {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  font-weight: var(--font-medium);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: var(--space-1) var(--space-2);
-  border-radius: var(--radius-sm);
+[data-theme="dark"] .taskId {
+  color: #9a9a9a;
 }
 
 .title {
-  font-family: var(--font-display);
-  font-size: 1.125rem;
-  font-weight: var(--font-semibold);
-  color: var(--color-text-primary);
-  margin: 0 0 var(--space-3);
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--editorial-ink, #0f0f0f);
+  margin: 0;
   line-height: 1.3;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -59,114 +86,142 @@
   overflow: hidden;
 }
 
+[data-theme="dark"] .title {
+  color: var(--editorial-cream, #faf9f6);
+}
+
+.decorativeLine {
+  width: 40px;
+  height: 2px;
+  background: var(--editorial-gold, #c9a227);
+}
+
 .metadata {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-3);
-  margin-bottom: var(--space-3);
+  gap: 16px;
 }
 
 .metaItem {
   display: flex;
   align-items: center;
-  gap: var(--space-1);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
+  gap: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
 }
 
 .metaLabel {
-  color: var(--color-text-muted);
+  color: var(--editorial-muted, #6b6b6b);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+[data-theme="dark"] .metaLabel {
+  color: #9a9a9a;
 }
 
 .metaValue {
-  color: var(--color-text-secondary);
-  font-weight: var(--font-medium);
+  color: var(--editorial-text, #1a1a1a);
+  font-weight: 600;
+}
+
+[data-theme="dark"] .metaValue {
+  color: var(--editorial-cream, #faf9f6);
 }
 
 .footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: var(--space-2);
-  border-top: 1px solid var(--color-border);
+  padding-top: 12px;
+  border-top: 1px solid var(--editorial-stone, #e8e6e1);
+}
+
+[data-theme="dark"] .footer {
+  border-color: #333;
 }
 
 .updated {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  color: var(--color-text-muted);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--editorial-muted, #6b6b6b);
+}
+
+[data-theme="dark"] .updated {
+  color: #9a9a9a;
 }
 
 .issueLink {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--color-primary);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--editorial-gold, #c9a227);
   text-decoration: none;
-  font-weight: var(--font-medium);
-  transition: color var(--duration-fast);
+  font-weight: 600;
+  transition: color 0.2s ease;
 }
 
 .issueLink:hover {
-  color: var(--color-primary-hover);
+  color: var(--editorial-ink, #0f0f0f);
 }
 
-.pending {
-  border-left: 3px solid #9CA3AF;
+[data-theme="dark"] .issueLink:hover {
+  color: var(--editorial-cream, #faf9f6);
 }
 
-.pending .status {
-  background: rgba(156, 163, 175, 0.15);
-  color: #9CA3AF;
+.pending .statusBadge {
+  color: #6b6b6b;
 }
 
-.in-progress {
-  border-left: 3px solid var(--color-role-developer-400);
+.in-progress .statusBadge {
+  color: #2563eb;
 }
 
-.in-progress .status {
-  background: rgba(59, 130, 246, 0.15);
-  color: var(--color-role-developer-400);
+.success .statusBadge {
+  color: #16a34a;
 }
 
-.success {
-  border-left: 3px solid var(--color-role-tester-400);
+.failed .statusBadge {
+  color: #dc2626;
 }
 
-.success .status {
-  background: rgba(16, 185, 129, 0.15);
-  color: var(--color-role-tester-400);
-}
-
-.failed {
-  border-left: 3px solid var(--color-role-security-400);
-}
-
-.failed .status {
-  background: rgba(239, 68, 68, 0.15);
-  color: var(--color-role-security-400);
-}
-
-.blocked {
-  border-left: 3px solid var(--color-role-reviewer-400);
-}
-
-.blocked .status {
-  background: rgba(245, 158, 11, 0.15);
-  color: var(--color-role-reviewer-400);
+.blocked .statusBadge {
+  color: var(--editorial-gold, #c9a227);
 }
 
 .risk-low {
-  color: var(--color-role-tester-400);
+  color: #16a34a;
 }
 
 .risk-medium {
-  color: var(--color-role-developer-400);
+  color: #2563eb;
 }
 
 .risk-high {
-  color: var(--color-role-reviewer-400);
+  color: var(--editorial-gold, #c9a227);
 }
 
 .risk-critical {
-  color: var(--color-role-security-400);
+  color: #dc2626;
+}
+
+@media (max-width: 480px) {
+  .card {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .numberSection {
+    width: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .numberBadge {
+    font-size: 28px;
+  }
+
+  .statusBadge {
+    margin-top: 0;
+  }
 }

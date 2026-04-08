@@ -1,0 +1,627 @@
+- generic [ref=e10]:
+  - link "Skip to main content" [ref=e11] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e12]:
+    - link "OpenCode home" [ref=e13] [cursor=pointer]:
+      - /url: "#/"
+      - text: OpenCode
+    - navigation "Main navigation" [ref=e14]:
+      - button "关于" [ref=e15] [cursor=pointer]
+      - button "流程" [ref=e16] [cursor=pointer]
+      - button "团队" [ref=e17] [cursor=pointer]
+      - link "技能" [active] [ref=e18] [cursor=pointer]:
+        - /url: "#/skills"
+    - button "Open search" [ref=e19] [cursor=pointer]:
+      - img [ref=e20]
+      - generic [ref=e23]: 搜索
+      - generic [ref=e24]: Ctrl+K
+    - 'button "Current theme: Dark. Click to change theme." [ref=e26] [cursor=pointer]':
+      - img [ref=e27]
+    - link "GitHub" [ref=e29] [cursor=pointer]:
+      - /url: https://github.com/Burburton/amazing-specialists
+      - img [ref=e30]
+      - generic [ref=e32]: GitHub
+  - main [ref=e33]:
+    - generic [ref=e212]:
+      - generic [ref=e213]:
+        - heading "技能库" [level=1] [ref=e214]
+        - paragraph [ref=e215]: 40 个技能 · 24 MVP 核心 · 16 M4 扩展
+      - generic [ref=e216]:
+        - generic [ref=e217]:
+          - button "全部" [ref=e218] [cursor=pointer]
+          - button "通用" [ref=e219] [cursor=pointer]
+          - button "架构师" [ref=e220] [cursor=pointer]
+          - button "开发者" [ref=e221] [cursor=pointer]
+          - button "测试员" [ref=e222] [cursor=pointer]
+          - button "审查员" [ref=e223] [cursor=pointer]
+          - button "文档员" [ref=e224] [cursor=pointer]
+          - button "安全员" [ref=e225] [cursor=pointer]
+        - generic [ref=e226]:
+          - textbox "搜索技能..." [ref=e228]
+          - combobox [ref=e229] [cursor=pointer]:
+            - option "全部类别" [selected]
+            - option "MVP 核心"
+            - option "M4 扩展"
+      - generic [ref=e230]:
+        - generic [ref=e231]:
+          - generic [ref=e232]: "40"
+          - generic [ref=e233]: 当前显示
+        - generic [ref=e234]:
+          - generic [ref=e235]: "24"
+          - generic [ref=e236]: MVP
+        - generic [ref=e237]:
+          - generic [ref=e238]: "16"
+          - generic [ref=e239]: M4
+      - generic [ref=e241]:
+        - generic [ref=e242]:
+          - generic [ref=e243]:
+            - generic [ref=e244]: "40"
+            - generic [ref=e245]: Total Skills
+          - generic [ref=e246]:
+            - generic [ref=e247]:
+              - generic [ref=e248]: "24"
+              - generic [ref=e249]: MVP
+            - generic [ref=e250]:
+              - generic [ref=e251]: "16"
+              - generic [ref=e252]: M4
+            - generic [ref=e253]:
+              - generic [ref=e254]: "6"
+              - generic [ref=e255]: Roles
+        - generic [ref=e256]:
+          - generic [ref=e257]:
+            - generic [ref=e258]:
+              - generic [ref=e260]: 架构师
+              - generic [ref=e261]: "5"
+            - generic [ref=e262]:
+              - link "interface-contract-design M4" [ref=e263] [cursor=pointer]:
+                - /url: "#/skills/architect%2Finterface-contract-design"
+                - generic [ref=e264]: interface-contract-design
+                - generic [ref=e265]: M4
+              - link "migration-planning M4" [ref=e266] [cursor=pointer]:
+                - /url: "#/skills/architect%2Fmigration-planning"
+                - generic [ref=e267]: migration-planning
+                - generic [ref=e268]: M4
+              - link "module-boundary-design MVP" [ref=e269] [cursor=pointer]:
+                - /url: "#/skills/architect%2Fmodule-boundary-design"
+                - generic [ref=e270]: module-boundary-design
+                - generic [ref=e271]: MVP
+              - link "requirement-to-design MVP" [ref=e272] [cursor=pointer]:
+                - /url: "#/skills/architect%2Frequirement-to-design"
+                - generic [ref=e273]: requirement-to-design
+                - generic [ref=e274]: MVP
+              - link "tradeoff-analysis MVP" [ref=e275] [cursor=pointer]:
+                - /url: "#/skills/architect%2Ftradeoff-analysis"
+                - generic [ref=e276]: tradeoff-analysis
+                - generic [ref=e277]: MVP
+          - generic [ref=e278]:
+            - generic [ref=e279]:
+              - generic [ref=e281]: 开发者
+              - generic [ref=e282]: "5"
+            - generic [ref=e283]:
+              - link "bugfix-workflow MVP" [ref=e284] [cursor=pointer]:
+                - /url: "#/skills/developer%2Fbugfix-workflow"
+                - generic [ref=e285]: bugfix-workflow
+                - generic [ref=e286]: MVP
+              - link "code-change-selfcheck MVP" [ref=e287] [cursor=pointer]:
+                - /url: "#/skills/developer%2Fcode-change-selfcheck"
+                - generic [ref=e288]: code-change-selfcheck
+                - generic [ref=e289]: MVP
+              - link "dependency-minimization M4" [ref=e290] [cursor=pointer]:
+                - /url: "#/skills/developer%2Fdependency-minimization"
+                - generic [ref=e291]: dependency-minimization
+                - generic [ref=e292]: M4
+              - link "feature-implementation MVP" [ref=e293] [cursor=pointer]:
+                - /url: "#/skills/developer%2Ffeature-implementation"
+                - generic [ref=e294]: feature-implementation
+                - generic [ref=e295]: MVP
+              - link "refactor-safely M4" [ref=e296] [cursor=pointer]:
+                - /url: "#/skills/developer%2Frefactor-safely"
+                - generic [ref=e297]: refactor-safely
+                - generic [ref=e298]: M4
+          - generic [ref=e299]:
+            - generic [ref=e300]:
+              - generic [ref=e302]: 测试员
+              - generic [ref=e303]: "9"
+            - generic [ref=e304]:
+              - link "benchmark-analysis M4" [ref=e305] [cursor=pointer]:
+                - /url: "#/skills/tester%2Fbenchmark-analysis"
+                - generic [ref=e306]: benchmark-analysis
+                - generic [ref=e307]: M4
+              - link "edge-case-matrix MVP" [ref=e308] [cursor=pointer]:
+                - /url: "#/skills/tester%2Fedge-case-matrix"
+                - generic [ref=e309]: edge-case-matrix
+                - generic [ref=e310]: MVP
+              - link "flaky-test-diagnosis M4" [ref=e311] [cursor=pointer]:
+                - /url: "#/skills/tester%2Fflaky-test-diagnosis"
+                - generic [ref=e312]: flaky-test-diagnosis
+                - generic [ref=e313]: M4
+              - link "integration-test-design M4" [ref=e314] [cursor=pointer]:
+                - /url: "#/skills/tester%2Fintegration-test-design"
+                - generic [ref=e315]: integration-test-design
+                - generic [ref=e316]: M4
+              - link "load-test-orchestration M4" [ref=e317] [cursor=pointer]:
+                - /url: "#/skills/tester%2Fload-test-orchestration"
+                - generic [ref=e318]: load-test-orchestration
+                - generic [ref=e319]: M4
+              - link "+4 more" [ref=e320] [cursor=pointer]:
+                - /url: "#/skills?role=tester"
+          - generic [ref=e321]:
+            - generic [ref=e322]:
+              - generic [ref=e324]: 审查员
+              - generic [ref=e325]: "5"
+            - generic [ref=e326]:
+              - link "code-review-checklist MVP" [ref=e327] [cursor=pointer]:
+                - /url: "#/skills/reviewer%2Fcode-review-checklist"
+                - generic [ref=e328]: code-review-checklist
+                - generic [ref=e329]: MVP
+              - link "maintainability-review M4" [ref=e330] [cursor=pointer]:
+                - /url: "#/skills/reviewer%2Fmaintainability-review"
+                - generic [ref=e331]: maintainability-review
+                - generic [ref=e332]: M4
+              - link "reject-with-actionable-feedback MVP" [ref=e333] [cursor=pointer]:
+                - /url: "#/skills/reviewer%2Freject-with-actionable-feedback"
+                - generic [ref=e334]: reject-with-actionable-feedback
+                - generic [ref=e335]: MVP
+              - link "risk-review M4" [ref=e336] [cursor=pointer]:
+                - /url: "#/skills/reviewer%2Frisk-review"
+                - generic [ref=e337]: risk-review
+                - generic [ref=e338]: M4
+              - link "spec-implementation-diff MVP" [ref=e339] [cursor=pointer]:
+                - /url: "#/skills/reviewer%2Fspec-implementation-diff"
+                - generic [ref=e340]: spec-implementation-diff
+                - generic [ref=e341]: MVP
+          - generic [ref=e342]:
+            - generic [ref=e343]:
+              - generic [ref=e345]: 文档员
+              - generic [ref=e346]: "5"
+            - generic [ref=e347]:
+              - link "architecture-doc-sync M4" [ref=e348] [cursor=pointer]:
+                - /url: "#/skills/docs%2Farchitecture-doc-sync"
+                - generic [ref=e349]: architecture-doc-sync
+                - generic [ref=e350]: M4
+              - link "changelog-writing MVP" [ref=e351] [cursor=pointer]:
+                - /url: "#/skills/docs%2Fchangelog-writing"
+                - generic [ref=e352]: changelog-writing
+                - generic [ref=e353]: MVP
+              - link "issue-status-sync MVP" [ref=e354] [cursor=pointer]:
+                - /url: "#/skills/docs%2Fissue-status-sync"
+                - generic [ref=e355]: issue-status-sync
+                - generic [ref=e356]: MVP
+              - link "readme-sync MVP" [ref=e357] [cursor=pointer]:
+                - /url: "#/skills/docs%2Freadme-sync"
+                - generic [ref=e358]: readme-sync
+                - generic [ref=e359]: MVP
+              - link "user-guide-update M4" [ref=e360] [cursor=pointer]:
+                - /url: "#/skills/docs%2Fuser-guide-update"
+                - generic [ref=e361]: user-guide-update
+                - generic [ref=e362]: M4
+          - generic [ref=e363]:
+            - generic [ref=e364]:
+              - generic [ref=e366]: 安全员
+              - generic [ref=e367]: "4"
+            - generic [ref=e368]:
+              - link "auth-and-permission-review MVP" [ref=e369] [cursor=pointer]:
+                - /url: "#/skills/security%2Fauth-and-permission-review"
+                - generic [ref=e370]: auth-and-permission-review
+                - generic [ref=e371]: MVP
+              - link "dependency-risk-review M4" [ref=e372] [cursor=pointer]:
+                - /url: "#/skills/security%2Fdependency-risk-review"
+                - generic [ref=e373]: dependency-risk-review
+                - generic [ref=e374]: M4
+              - link "input-validation-review MVP" [ref=e375] [cursor=pointer]:
+                - /url: "#/skills/security%2Finput-validation-review"
+                - generic [ref=e376]: input-validation-review
+                - generic [ref=e377]: MVP
+              - link "secret-handling-review M4" [ref=e378] [cursor=pointer]:
+                - /url: "#/skills/security%2Fsecret-handling-review"
+                - generic [ref=e379]: secret-handling-review
+                - generic [ref=e380]: M4
+          - generic [ref=e381]:
+            - generic [ref=e382]:
+              - generic [ref=e384]: 通用
+              - generic [ref=e385]: "7"
+            - generic [ref=e386]:
+              - link "artifact-reading MVP" [ref=e387] [cursor=pointer]:
+                - /url: "#/skills/common%2Fartifact-reading"
+                - generic [ref=e388]: artifact-reading
+                - generic [ref=e389]: MVP
+              - link "context-summarization MVP" [ref=e390] [cursor=pointer]:
+                - /url: "#/skills/common%2Fcontext-summarization"
+                - generic [ref=e391]: context-summarization
+                - generic [ref=e392]: MVP
+              - link "error-reporter MVP" [ref=e393] [cursor=pointer]:
+                - /url: "#/skills/common%2Ferror-reporter"
+                - generic [ref=e394]: error-reporter
+                - generic [ref=e395]: MVP
+              - link "execution-reporting MVP" [ref=e396] [cursor=pointer]:
+                - /url: "#/skills/common%2Fexecution-reporting"
+                - generic [ref=e397]: execution-reporting
+                - generic [ref=e398]: MVP
+              - link "failure-analysis MVP" [ref=e399] [cursor=pointer]:
+                - /url: "#/skills/common%2Ffailure-analysis"
+                - generic [ref=e400]: failure-analysis
+                - generic [ref=e401]: MVP
+              - link "+2 more" [ref=e402] [cursor=pointer]:
+                - /url: "#/skills?role=common"
+      - generic [ref=e403]:
+        - generic [ref=e404]:
+          - heading "架构师 (5)" [level=3] [ref=e405]
+          - generic [ref=e406]:
+            - link "interface-contract-design" [ref=e407] [cursor=pointer]:
+              - /url: "#/skills/architect%2Finterface-contract-design"
+              - generic [ref=e408]:
+                - heading "interface-contract-design" [level=3] [ref=e409]
+                - generic [ref=e410]: M4
+              - paragraph [ref=e411]: Design API and module interface contracts that ensure upstream-downstream alignment, prevent integration issues, and enable independent development.
+              - generic [ref=e412]:
+                - generic [ref=e413]: architect
+                - generic [ref=e414]: architect/interface-contract-design
+            - link "migration-planning" [ref=e415] [cursor=pointer]:
+              - /url: "#/skills/architect%2Fmigration-planning"
+              - generic [ref=e416]:
+                - heading "migration-planning" [level=3] [ref=e417]
+                - generic [ref=e418]: M4
+              - paragraph [ref=e419]: Plan data and system migration strategies that minimize risk, ensure data integrity, and provide clear rollback paths.
+              - generic [ref=e420]:
+                - generic [ref=e421]: architect
+                - generic [ref=e422]: architect/migration-planning
+            - link "module-boundary-design" [ref=e423] [cursor=pointer]:
+              - /url: "#/skills/architect%2Fmodule-boundary-design"
+              - generic [ref=e424]:
+                - heading "module-boundary-design" [level=3] [ref=e425]
+                - generic [ref=e426]: MVP
+              - paragraph [ref=e427]: Define module boundaries, responsibility divisions, dependencies, and integration seams to ensure high cohesion and low coupling.
+              - generic [ref=e428]:
+                - generic [ref=e429]: architect
+                - generic [ref=e430]: architect/module-boundary-design
+            - link "requirement-to-design" [ref=e431] [cursor=pointer]:
+              - /url: "#/skills/architect%2Frequirement-to-design"
+              - generic [ref=e432]:
+                - heading "requirement-to-design" [level=3] [ref=e433]
+                - generic [ref=e434]: MVP
+              - paragraph [ref=e435]: Transform feature specifications into structured technical design notes that define module boundaries, interface contracts, implementation roadmaps, and enable downstream roles (developer, tester, reviewer, docs, security) to execute their work.
+              - generic [ref=e436]:
+                - generic [ref=e437]: architect
+                - generic [ref=e438]: architect/requirement-to-design
+            - link "tradeoff-analysis" [ref=e439] [cursor=pointer]:
+              - /url: "#/skills/architect%2Ftradeoff-analysis"
+              - generic [ref=e440]:
+                - heading "tradeoff-analysis" [level=3] [ref=e441]
+                - generic [ref=e442]: MVP
+              - paragraph [ref=e443]: Provide explicit trade-off analysis for key architecture decisions, including alternative evaluations, rationale, and revisit conditions.
+              - generic [ref=e444]:
+                - generic [ref=e445]: architect
+                - generic [ref=e446]: architect/tradeoff-analysis
+        - generic [ref=e447]:
+          - heading "通用 (7)" [level=3] [ref=e448]
+          - generic [ref=e449]:
+            - link "artifact-reading" [ref=e450] [cursor=pointer]:
+              - /url: "#/skills/common%2Fartifact-reading"
+              - generic [ref=e451]:
+                - heading "artifact-reading" [level=3] [ref=e452]
+                - generic [ref=e453]: MVP
+              - paragraph [ref=e454]: 统一读取 spec、design note、test report、review report 等工件，提取关键字段与约束，生成结构化摘要供当前角色使用。
+              - generic [ref=e455]:
+                - generic [ref=e456]: common
+                - generic [ref=e457]: common/artifact-reading
+            - link "context-summarization" [ref=e458] [cursor=pointer]:
+              - /url: "#/skills/common%2Fcontext-summarization"
+              - generic [ref=e459]:
+                - heading "context-summarization" [level=3] [ref=e460]
+                - generic [ref=e461]: MVP
+              - paragraph [ref=e462]: 把大量项目上下文裁剪成当前角色执行当前 task 需要的最小上下文，防止上下文膨胀导致质量下降。
+              - generic [ref=e463]:
+                - generic [ref=e464]: common
+                - generic [ref=e465]: common/context-summarization
+            - link "error-reporter" [ref=e466] [cursor=pointer]:
+              - /url: "#/skills/common%2Ferror-reporter"
+              - generic [ref=e467]:
+                - heading "error-reporter" [level=3] [ref=e468]
+                - generic [ref=e469]: MVP
+              - paragraph [ref=e470]: "将角色执行中的错误信息转化为标准 `error-report` artifact，确保管理层能稳定消费执行层错误信息，做出准确的流程决策。"
+              - generic [ref=e471]:
+                - generic [ref=e472]: common
+                - generic [ref=e473]: common/error-reporter
+            - link "execution-reporting" [ref=e474] [cursor=pointer]:
+              - /url: "#/skills/common%2Fexecution-reporting"
+              - generic [ref=e475]:
+                - heading "execution-reporting" [level=3] [ref=e476]
+                - generic [ref=e477]: MVP
+              - paragraph [ref=e478]: 要求所有角色以统一格式输出 execution result 和 artifact summary，确保 OpenClaw 管理层能稳定 intake，不同角色的输出不会风格漂移。
+              - generic [ref=e479]:
+                - generic [ref=e480]: common
+                - generic [ref=e481]: common/execution-reporting
+            - link "failure-analysis" [ref=e482] [cursor=pointer]:
+              - /url: "#/skills/common%2Ffailure-analysis"
+              - generic [ref=e483]:
+                - heading "failure-analysis" [level=3] [ref=e484]
+                - generic [ref=e485]: MVP
+              - paragraph [ref=e486]: 从 test fail、review reject、verification fail、logs 中提炼根因，区分可重试、需返工、需重规划、需升级，是返工闭环质量的核心保障。
+              - generic [ref=e487]:
+                - generic [ref=e488]: common
+                - generic [ref=e489]: common/failure-analysis
+            - link "github-issue-reporter" [ref=e490] [cursor=pointer]:
+              - /url: "#/skills/common%2Fgithub-issue-reporter"
+              - generic [ref=e491]:
+                - heading "github-issue-reporter" [level=3] [ref=e492]
+                - generic [ref=e493]: MVP
+              - paragraph [ref=e494]: "将 `error-report` artifact 发布到 GitHub Issue，使用户能直观看到错误详情、严重程度和处理建议，无需翻阅文件系统中的 artifact 文件。"
+              - generic [ref=e495]:
+                - generic [ref=e496]: common
+                - generic [ref=e497]: common/github-issue-reporter
+            - link "retry-strategy" [ref=e498] [cursor=pointer]:
+              - /url: "#/skills/common%2Fretry-strategy"
+              - generic [ref=e499]:
+                - heading "retry-strategy" [level=3] [ref=e500]
+                - generic [ref=e501]: MVP
+              - paragraph [ref=e502]: 根据失败类型选择最小修复路径，避免粗暴重复尝试，提高返工效率和收敛速度。
+              - generic [ref=e503]:
+                - generic [ref=e504]: common
+                - generic [ref=e505]: common/retry-strategy
+        - generic [ref=e506]:
+          - heading "开发者 (5)" [level=3] [ref=e507]
+          - generic [ref=e508]:
+            - link "bugfix-workflow" [ref=e509] [cursor=pointer]:
+              - /url: "#/skills/developer%2Fbugfix-workflow"
+              - generic [ref=e510]:
+                - heading "bugfix-workflow" [level=3] [ref=e511]
+                - generic [ref=e512]: MVP
+              - paragraph [ref=e513]: 指导 developer 对 bug 修复形成闭环：理解问题、定位范围、最小修复、验证闭环。
+              - generic [ref=e514]:
+                - generic [ref=e515]: developer
+                - generic [ref=e516]: developer/bugfix-workflow
+            - link "code-change-selfcheck" [ref=e517] [cursor=pointer]:
+              - /url: "#/skills/developer%2Fcode-change-selfcheck"
+              - generic [ref=e518]:
+                - heading "code-change-selfcheck" [level=3] [ref=e519]
+                - generic [ref=e520]: MVP
+              - paragraph [ref=e521]: 要求 developer 在交付前完成最小自检，确保改动符合目标、遵守约束、不引入风险。
+              - generic [ref=e522]:
+                - generic [ref=e523]: developer
+                - generic [ref=e524]: developer/code-change-selfcheck
+            - link "dependency-minimization" [ref=e525] [cursor=pointer]:
+              - /url: "#/skills/developer%2Fdependency-minimization"
+              - generic [ref=e526]:
+                - heading "dependency-minimization" [level=3] [ref=e527]
+                - generic [ref=e528]: M4
+              - paragraph [ref=e529]: 指导 developer 分析和优化项目依赖，减少依赖数量和体积，提升构建速度和安全性。
+              - generic [ref=e530]:
+                - generic [ref=e531]: developer
+                - generic [ref=e532]: developer/dependency-minimization
+            - link "feature-implementation" [ref=e533] [cursor=pointer]:
+              - /url: "#/skills/developer%2Ffeature-implementation"
+              - generic [ref=e534]:
+                - heading "feature-implementation" [level=3] [ref=e535]
+                - generic [ref=e536]: MVP
+              - paragraph [ref=e537]: 指导 developer 按 task 描述和 design note 完成代码实现，输出可交付的代码变更和实现总结。
+              - generic [ref=e538]:
+                - generic [ref=e539]: developer
+                - generic [ref=e540]: developer/feature-implementation
+            - link "refactor-safely" [ref=e541] [cursor=pointer]:
+              - /url: "#/skills/developer%2Frefactor-safely"
+              - generic [ref=e542]:
+                - heading "refactor-safely" [level=3] [ref=e543]
+                - generic [ref=e544]: M4
+              - paragraph [ref=e545]: 指导 developer 安全地重构代码，在不改变外部行为的前提下改善代码结构、可读性和可维护性。
+              - generic [ref=e546]:
+                - generic [ref=e547]: developer
+                - generic [ref=e548]: developer/refactor-safely
+        - generic [ref=e549]:
+          - heading "文档员 (5)" [level=3] [ref=e550]
+          - generic [ref=e551]:
+            - link "architecture-doc-sync" [ref=e552] [cursor=pointer]:
+              - /url: "#/skills/docs%2Farchitecture-doc-sync"
+              - generic [ref=e553]:
+                - heading "architecture-doc-sync" [level=3] [ref=e554]
+                - generic [ref=e555]: M4
+              - paragraph [ref=e556]: 保证架构文档与当前实现一致，确保设计决策、模块边界、依赖关系等架构信息准确反映实际代码状态。
+              - generic [ref=e557]:
+                - generic [ref=e558]: docs
+                - generic [ref=e559]: docs/architecture-doc-sync
+            - link "changelog-writing" [ref=e560] [cursor=pointer]:
+              - /url: "#/skills/docs%2Fchangelog-writing"
+              - generic [ref=e561]:
+                - heading "changelog-writing" [level=3] [ref=e562]
+                - generic [ref=e563]: MVP
+              - paragraph [ref=e564]: 按结构化方式记录项目变更，让用户和开发者了解版本更新内容。
+              - generic [ref=e565]:
+                - generic [ref=e566]: docs
+                - generic [ref=e567]: docs/changelog-writing
+            - link "issue-status-sync" [ref=e568] [cursor=pointer]:
+              - /url: "#/skills/docs%2Fissue-status-sync"
+              - generic [ref=e569]:
+                - heading "issue-status-sync" [level=3] [ref=e570]
+                - generic [ref=e571]: MVP
+              - paragraph [ref=e572]: 同步任务执行状态到 GitHub Issue，发布进度评论，**不关闭 Issue**（等待管理层验收）。
+              - generic [ref=e573]:
+                - generic [ref=e574]: docs
+                - generic [ref=e575]: docs/issue-status-sync
+            - link "readme-sync" [ref=e576] [cursor=pointer]:
+              - /url: "#/skills/docs%2Freadme-sync"
+              - generic [ref=e577]:
+                - heading "readme-sync" [level=3] [ref=e578]
+                - generic [ref=e579]: MVP
+              - paragraph [ref=e580]: 保证 README 与当前实现一致，让用户和开发者能获取最新的项目信息。
+              - generic [ref=e581]:
+                - generic [ref=e582]: docs
+                - generic [ref=e583]: docs/readme-sync
+            - link "user-guide-update" [ref=e584] [cursor=pointer]:
+              - /url: "#/skills/docs%2Fuser-guide-update"
+              - generic [ref=e585]:
+                - heading "user-guide-update" [level=3] [ref=e586]
+                - generic [ref=e587]: M4
+              - paragraph [ref=e588]: 保证用户指南与当前实现一致，确保用户能获取最新的功能使用说明、API 文档和操作指南。
+              - generic [ref=e589]:
+                - generic [ref=e590]: docs
+                - generic [ref=e591]: docs/user-guide-update
+        - generic [ref=e592]:
+          - heading "审查员 (5)" [level=3] [ref=e593]
+          - generic [ref=e594]:
+            - link "code-review-checklist" [ref=e595] [cursor=pointer]:
+              - /url: "#/skills/reviewer%2Fcode-review-checklist"
+              - generic [ref=e596]:
+                - heading "code-review-checklist" [level=3] [ref=e597]
+                - generic [ref=e598]: MVP
+              - paragraph [ref=e599]: 为 reviewer 提供系统化的代码审查框架，确保审查覆盖目标对齐、范围控制、边界条件、风险识别、可维护性等关键维度。
+              - generic [ref=e600]:
+                - generic [ref=e601]: reviewer
+                - generic [ref=e602]: reviewer/code-review-checklist
+            - link "maintainability-review" [ref=e603] [cursor=pointer]:
+              - /url: "#/skills/reviewer%2Fmaintainability-review"
+              - generic [ref=e604]:
+                - heading "maintainability-review" [level=3] [ref=e605]
+                - generic [ref=e606]: M4
+              - paragraph [ref=e607]: 为 reviewer 提供系统化的代码可维护性评估框架，专注于识别影响长期维护效率的问题。
+              - generic [ref=e608]:
+                - generic [ref=e609]: reviewer
+                - generic [ref=e610]: reviewer/maintainability-review
+            - link "reject-with-actionable-feedback" [ref=e611] [cursor=pointer]:
+              - /url: "#/skills/reviewer%2Freject-with-actionable-feedback"
+              - generic [ref=e612]:
+                - heading "reject-with-actionable-feedback" [level=3] [ref=e613]
+                - generic [ref=e614]: MVP
+              - paragraph [ref=e615]: 保证 reviewer 在拒绝时给出可执行的修改建议，包括 must-fix、non-blocking、residual risks，让 developer 知道具体怎么改。
+              - generic [ref=e616]:
+                - generic [ref=e617]: reviewer
+                - generic [ref=e618]: reviewer/reject-with-actionable-feedback
+            - link "risk-review" [ref=e619] [cursor=pointer]:
+              - /url: "#/skills/reviewer%2Frisk-review"
+              - generic [ref=e620]:
+                - heading "risk-review" [level=3] [ref=e621]
+                - generic [ref=e622]: M4
+              - paragraph [ref=e623]: 为 reviewer 提供系统化的技术风险评估框架，专注于识别可能导致系统故障、性能下降、数据丢失或安全问题的关键风险点。
+              - generic [ref=e624]:
+                - generic [ref=e625]: reviewer
+                - generic [ref=e626]: reviewer/risk-review
+            - link "spec-implementation-diff" [ref=e627] [cursor=pointer]:
+              - /url: "#/skills/reviewer%2Fspec-implementation-diff"
+              - generic [ref=e628]:
+                - heading "spec-implementation-diff" [level=3] [ref=e629]
+                - generic [ref=e630]: MVP
+              - paragraph [ref=e631]: 检查 spec / design 与 implementation 是否一致，识别偏离和遗漏，确保实现符合原始需求。
+              - generic [ref=e632]:
+                - generic [ref=e633]: reviewer
+                - generic [ref=e634]: reviewer/spec-implementation-diff
+        - generic [ref=e635]:
+          - heading "安全员 (4)" [level=3] [ref=e636]
+          - generic [ref=e637]:
+            - link "auth-and-permission-review" [ref=e638] [cursor=pointer]:
+              - /url: "#/skills/security%2Fauth-and-permission-review"
+              - generic [ref=e639]:
+                - heading "auth-and-permission-review" [level=3] [ref=e640]
+                - generic [ref=e641]: MVP
+              - paragraph [ref=e642]: 检查认证、授权、权限边界逻辑，确保身份验证和访问控制的安全性。
+              - generic [ref=e643]:
+                - generic [ref=e644]: security
+                - generic [ref=e645]: security/auth-and-permission-review
+            - link "dependency-risk-review" [ref=e646] [cursor=pointer]:
+              - /url: "#/skills/security%2Fdependency-risk-review"
+              - generic [ref=e647]:
+                - heading "dependency-risk-review" [level=3] [ref=e648]
+                - generic [ref=e649]: M4
+              - paragraph [ref=e650]: 审查依赖安全风险，识别已知漏洞、维护状态问题、许可证合规问题。
+              - generic [ref=e651]:
+                - generic [ref=e652]: security
+                - generic [ref=e653]: security/dependency-risk-review
+            - link "input-validation-review" [ref=e654] [cursor=pointer]:
+              - /url: "#/skills/security%2Finput-validation-review"
+              - generic [ref=e655]:
+                - heading "input-validation-review" [level=3] [ref=e656]
+                - generic [ref=e657]: MVP
+              - paragraph [ref=e658]: 检查输入验证逻辑，识别注入攻击、XSS、路径遍历等安全漏洞。
+              - generic [ref=e659]:
+                - generic [ref=e660]: security
+                - generic [ref=e661]: security/input-validation-review
+            - link "secret-handling-review" [ref=e662] [cursor=pointer]:
+              - /url: "#/skills/security%2Fsecret-handling-review"
+              - generic [ref=e663]:
+                - heading "secret-handling-review" [level=3] [ref=e664]
+                - generic [ref=e665]: M4
+              - paragraph [ref=e666]: 审查密钥和敏感信息处理，确保密钥管理符合安全最佳实践。
+              - generic [ref=e667]:
+                - generic [ref=e668]: security
+                - generic [ref=e669]: security/secret-handling-review
+        - generic [ref=e670]:
+          - heading "测试员 (9)" [level=3] [ref=e671]
+          - generic [ref=e672]:
+            - link "benchmark-analysis" [ref=e673] [cursor=pointer]:
+              - /url: "#/skills/tester%2Fbenchmark-analysis"
+              - generic [ref=e674]:
+                - heading "benchmark-analysis" [level=3] [ref=e675]
+                - generic [ref=e676]: M4
+              - paragraph [ref=e677]: 建立性能基线并进行对比分析，识别性能变化和优化效果。
+              - generic [ref=e678]:
+                - generic [ref=e679]: tester
+                - generic [ref=e680]: tester/benchmark-analysis
+            - link "edge-case-matrix" [ref=e681] [cursor=pointer]:
+              - /url: "#/skills/tester%2Fedge-case-matrix"
+              - generic [ref=e682]:
+                - heading "edge-case-matrix" [level=3] [ref=e683]
+                - generic [ref=e684]: MVP
+              - paragraph [ref=e685]: 生成边界条件矩阵，确保测试不只看 happy path，覆盖各种边界和异常情况。
+              - generic [ref=e686]:
+                - generic [ref=e687]: tester
+                - generic [ref=e688]: tester/edge-case-matrix
+            - link "flaky-test-diagnosis" [ref=e689] [cursor=pointer]:
+              - /url: "#/skills/tester%2Fflaky-test-diagnosis"
+              - generic [ref=e690]:
+                - heading "flaky-test-diagnosis" [level=3] [ref=e691]
+                - generic [ref=e692]: M4
+              - paragraph [ref=e693]: 指导 tester 诊断和修复不稳定测试（flaky tests），确保测试可重复执行，提高 CI/CD 可信度。
+              - generic [ref=e694]:
+                - generic [ref=e695]: tester
+                - generic [ref=e696]: tester/flaky-test-diagnosis
+            - link "integration-test-design" [ref=e697] [cursor=pointer]:
+              - /url: "#/skills/tester%2Fintegration-test-design"
+              - generic [ref=e698]:
+                - heading "integration-test-design" [level=3] [ref=e699]
+                - generic [ref=e700]: M4
+              - paragraph [ref=e701]: 指导 tester 设计集成测试，验证模块间交互、API 端到端流程、数据库集成等跨组件行为。
+              - generic [ref=e702]:
+                - generic [ref=e703]: tester
+                - generic [ref=e704]: tester/integration-test-design
+            - link "load-test-orchestration" [ref=e705] [cursor=pointer]:
+              - /url: "#/skills/tester%2Fload-test-orchestration"
+              - generic [ref=e706]:
+                - heading "load-test-orchestration" [level=3] [ref=e707]
+                - generic [ref=e708]: M4
+              - paragraph [ref=e709]: 编排负载测试，生成并发请求，监控系统资源，识别系统瓶颈。
+              - generic [ref=e710]:
+                - generic [ref=e711]: tester
+                - generic [ref=e712]: tester/load-test-orchestration
+            - link "performance-regression-analysis" [ref=e713] [cursor=pointer]:
+              - /url: "#/skills/tester%2Fperformance-regression-analysis"
+              - generic [ref=e714]:
+                - heading "performance-regression-analysis" [level=3] [ref=e715]
+                - generic [ref=e716]: M4
+              - paragraph [ref=e717]: 检测性能回归，分析根本原因，提供修复建议。
+              - generic [ref=e718]:
+                - generic [ref=e719]: tester
+                - generic [ref=e720]: tester/performance-regression-analysis
+            - link "performance-test-design" [ref=e721] [cursor=pointer]:
+              - /url: "#/skills/tester%2Fperformance-test-design"
+              - generic [ref=e722]:
+                - heading "performance-test-design" [level=3] [ref=e723]
+                - generic [ref=e724]: M4
+              - paragraph [ref=e725]: 设计性能测试方案，定义性能指标和测试场景，确保系统满足性能需求。
+              - generic [ref=e726]:
+                - generic [ref=e727]: tester
+                - generic [ref=e728]: tester/performance-test-design
+            - link "regression-analysis" [ref=e729] [cursor=pointer]:
+              - /url: "#/skills/tester%2Fregression-analysis"
+              - generic [ref=e730]:
+                - heading "regression-analysis" [level=3] [ref=e731]
+                - generic [ref=e732]: MVP
+              - paragraph [ref=e733]: 分析改动后哪些路径需要回归测试，哪些问题可能复发，确保变更不会破坏现有功能。
+              - generic [ref=e734]:
+                - generic [ref=e735]: tester
+                - generic [ref=e736]: tester/regression-analysis
+            - link "unit-test-design" [ref=e737] [cursor=pointer]:
+              - /url: "#/skills/tester%2Funit-test-design"
+              - generic [ref=e738]:
+                - heading "unit-test-design" [level=3] [ref=e739]
+                - generic [ref=e740]: MVP
+              - paragraph [ref=e741]: 指导 tester 设计单元测试，覆盖关键路径、正常路径、失败路径，确保代码行为符合预期。
+              - generic [ref=e742]:
+                - generic [ref=e743]: tester
+                - generic [ref=e744]: tester/unit-test-design

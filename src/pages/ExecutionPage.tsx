@@ -33,103 +33,101 @@ function ExecutionPage() {
     });
   }, [filter]);
 
-  const scrollToTasks = () => {
-    const tasksSection = document.querySelector('[data-tasks-section]');
-    tasksSection?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
-    <div className={styles.container} data-execution-container>
-      <section className={styles.overviewSection}>
-        <div className={styles.overviewContent}>
-          <h1 className={styles.pageTitle}>Execution</h1>
-          <p className={styles.subtitle}>Real-time Task Monitor</p>
+    <div className={styles.page}>
+      <section className={styles.heroSection}>
+        <p className={styles.heroLabel}>EXECUTION</p>
+        <h1 className={styles.heroTitle}>Execution</h1>
+        <p className={styles.heroSubtitle}>Real-time Task Monitor</p>
+        <div className={styles.heroDecorativeLine} />
+      </section>
+
+      <section className={styles.statsSection}>
+        <div className={styles.statsContent}>
+          <p className={styles.statsLabel}>STATISTICS OVERVIEW</p>
           <StatsOverview stats={stats} />
-          <button className={styles.scrollHint} onClick={scrollToTasks} type="button">
-            View Tasks ↓
-          </button>
         </div>
       </section>
 
-      <section className={styles.tasksSection} data-tasks-section>
-        <div className={styles.sectionContent}>
-          <div className={styles.sectionHeader}>
+      <section className={styles.tasksSection}>
+        <div className={styles.sectionHeader}>
+          <span className={styles.sectionNumber}>01</span>
+          <div>
+            <p className={styles.sectionLabel}>TASKS</p>
             <h2 className={styles.sectionTitle}>Tasks</h2>
-            <span className={styles.taskCount}>{filteredTasks.length}</span>
           </div>
+        </div>
 
-          <div className={styles.filterBar}>
-            <select
-              value={filter.status || ''}
-              onChange={(e) => setFilter({ ...filter, status: e.target.value as TaskFilter['status'] || undefined })}
-              className={styles.filterSelect}
-            >
-              <option value="">All Status</option>
-              <option value="pending">Pending</option>
-              <option value="in-progress">In Progress</option>
-              <option value="success">Success</option>
-              <option value="failed">Failed</option>
-              <option value="blocked">Blocked</option>
-            </select>
-            <input
-              type="text"
-              placeholder="Search tasks..."
-              value={filter.search || ''}
-              onChange={(e) => setFilter({ ...filter, search: e.target.value })}
-              className={styles.searchInput}
+        <div className={styles.filterBar}>
+          <select
+            value={filter.status || ''}
+            onChange={(e) => setFilter({ ...filter, status: e.target.value as TaskFilter['status'] || undefined })}
+            className={styles.filterSelect}
+          >
+            <option value="">All Status</option>
+            <option value="pending">Pending</option>
+            <option value="in-progress">In Progress</option>
+            <option value="success">Success</option>
+            <option value="failed">Failed</option>
+            <option value="blocked">Blocked</option>
+          </select>
+          <input
+            type="text"
+            placeholder="Search tasks..."
+            value={filter.search || ''}
+            onChange={(e) => setFilter({ ...filter, search: e.target.value })}
+            className={styles.searchInput}
+          />
+        </div>
+
+        <div className={styles.taskGrid}>
+          {filteredTasks.map((task, idx) => (
+            <TaskCard
+              key={task.id}
+              task={task}
+              index={idx}
+              onClick={() => setSelectedTask(selectedTask?.id === task.id ? null : task)}
             />
-          </div>
-
-          <div className={styles.taskGrid}>
-            {filteredTasks.map((task) => (
-              <TaskCard
-                key={task.id}
-                task={task}
-                onClick={() => setSelectedTask(selectedTask?.id === task.id ? null : task)}
-              />
-            ))}
-          </div>
+          ))}
         </div>
       </section>
 
       {selectedTask && (
         <section className={styles.detailSection}>
-          <div className={styles.sectionContent}>
-            <div className={styles.detailHeader}>
-              <h2 className={styles.sectionTitle}>
-                {selectedTask.task_id}: {selectedTask.title}
-              </h2>
-              <button
-                className={styles.closeButton}
-                onClick={() => setSelectedTask(null)}
-                type="button"
-                aria-label="Close"
-              >
-                ×
-              </button>
-            </div>
-
-            {selectedTask.phases.length > 0 && (
-              <div className={styles.detailBlock}>
-                <h3 className={styles.detailLabel}>Execution Timeline</h3>
-                <Timeline phases={selectedTask.phases} currentPhase="developer" />
-              </div>
-            )}
-
-            {selectedTask.dispatch_payload && (
-              <div className={styles.detailBlock}>
-                <h3 className={styles.detailLabel}>Dispatch Payload</h3>
-                <PayloadViewer payload={selectedTask.dispatch_payload} />
-              </div>
-            )}
-
-            {selectedTask.logs.length > 0 && (
-              <div className={styles.detailBlock}>
-                <h3 className={styles.detailLabel}>Execution Logs</h3>
-                <LogViewer logs={selectedTask.logs} />
-              </div>
-            )}
+          <div className={styles.detailHeader}>
+            <h2 className={styles.detailTitle}>
+              {selectedTask.task_id}: {selectedTask.title}
+            </h2>
+            <button
+              className={styles.closeButton}
+              onClick={() => setSelectedTask(null)}
+              type="button"
+              aria-label="Close"
+            >
+              ×
+            </button>
           </div>
+
+          {selectedTask.phases.length > 0 && (
+            <div className={styles.detailBlock}>
+              <p className={styles.detailLabel}>EXECUTION TIMELINE</p>
+              <Timeline phases={selectedTask.phases} currentPhase="developer" />
+            </div>
+          )}
+
+          {selectedTask.dispatch_payload && (
+            <div className={styles.detailBlock}>
+              <p className={styles.detailLabel}>DISPATCH PAYLOAD</p>
+              <PayloadViewer payload={selectedTask.dispatch_payload} />
+            </div>
+          )}
+
+          {selectedTask.logs.length > 0 && (
+            <div className={styles.detailBlock}>
+              <p className={styles.detailLabel}>EXECUTION LOGS</p>
+              <LogViewer logs={selectedTask.logs} />
+            </div>
+          )}
         </section>
       )}
     </div>

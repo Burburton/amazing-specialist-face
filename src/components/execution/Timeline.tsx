@@ -34,6 +34,7 @@ function Timeline({ phases, currentPhase }: TimelineProps) {
           const phase = phaseMap.get(role);
           const isCurrent = currentPhase === role;
           const status = phase?.status || 'pending';
+          const number = String(index + 1).padStart(2, '0');
 
           return (
             <div
@@ -45,6 +46,7 @@ function Timeline({ phases, currentPhase }: TimelineProps) {
                 {index < ROLE_ORDER.length - 1 && <div className={styles.phaseConnector} />}
               </div>
               <div className={styles.phaseContent}>
+                <span className={styles.phaseNumber}>{number}</span>
                 <span className={styles.phaseLabel}>{ROLE_LABELS[role]}</span>
                 {phase?.duration && (
                   <span className={styles.phaseDuration}>{formatDuration(phase.duration)}</span>

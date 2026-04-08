@@ -1,0 +1,140 @@
+- generic [ref=e10]:
+  - link "Skip to main content" [ref=e11] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e12]:
+    - link "OpenCode home" [ref=e13] [cursor=pointer]:
+      - /url: "#/"
+      - text: OpenCode
+    - navigation "Main navigation" [ref=e14]:
+      - button "关于" [ref=e15] [cursor=pointer]
+      - button "流程" [ref=e16] [cursor=pointer]
+      - button "团队" [ref=e17] [cursor=pointer]
+      - link "技能" [ref=e18] [cursor=pointer]:
+        - /url: "#/skills"
+    - button "Open search" [ref=e19] [cursor=pointer]:
+      - img [ref=e20]
+      - generic [ref=e23]: 搜索
+      - generic [ref=e24]: Ctrl+K
+    - 'button "Current theme: Dark. Click to change theme." [ref=e26] [cursor=pointer]':
+      - img [ref=e27]
+    - link "GitHub" [ref=e29] [cursor=pointer]:
+      - /url: https://github.com/Burburton/amazing-specialists
+      - img [ref=e30]
+      - generic [ref=e32]: GitHub
+  - main [ref=e33]:
+    - generic [ref=e746]:
+      - link "返回技能库" [ref=e747] [cursor=pointer]:
+        - /url: "#/skills"
+        - img [ref=e749]
+        - generic [ref=e751]: 返回技能库
+      - generic [ref=e752]:
+        - generic [ref=e753]: architect/requirement-to-design
+        - heading "requirement-to-design" [level=1] [ref=e754]
+        - generic [ref=e755]:
+          - generic [ref=e756]: 架构师
+          - generic [ref=e757]: MVP
+      - generic [ref=e758]:
+        - heading "描述" [level=2] [ref=e759]
+        - paragraph [ref=e760]: Transform feature specifications into structured technical design notes that define module boundaries, interface contracts, implementation roadmaps, and enable downstream roles (developer, tester, reviewer, docs, security) to execute their work.
+      - generic [ref=e761]:
+        - heading "文件路径" [level=2] [ref=e762]
+        - code [ref=e763]: .opencode/skills/architect/requirement-to-design/SKILL.md
+      - generic [ref=e764]:
+        - heading "Try It" [level=2] [ref=e765]
+        - paragraph [ref=e766]: Interactive Demo
+        - generic [ref=e767]:
+          - generic [ref=e768]:
+            - heading "📥 Input Parameters" [level=3] [ref=e769]:
+              - generic [ref=e770]: 📥
+              - text: Input Parameters
+            - generic [ref=e771]:
+              - generic [ref=e772]:
+                - generic [ref=e773]: Feature 名称
+                - paragraph [ref=e774]: 要设计的功能名称
+                - textbox "Feature 名称" [ref=e775]:
+                  - /placeholder: "例如: user-authentication"
+                  - text: user-authentication
+              - generic [ref=e776]:
+                - generic [ref=e777]: 需求描述
+                - paragraph [ref=e778]: 功能需求的具体描述
+                - textbox "需求描述" [ref=e779]:
+                  - /placeholder: 描述功能需求...
+                  - text: 实现用户登录、注册、登出功能，支持邮箱和手机号登录，需要记住登录状态
+              - generic [ref=e780]:
+                - generic [ref=e781]: 约束条件
+                - paragraph [ref=e782]: 技术约束、业务约束
+                - textbox "约束条件" [ref=e783]:
+                  - /placeholder: 列出约束条件...
+                  - text: "- 必须支持 OAuth2.0 - 密码需要加密存储 (bcrypt) - 支持多端登录 - 登录状态有效期 7 天"
+            - button "Reset to Defaults" [ref=e784] [cursor=pointer]
+          - generic [ref=e785]:
+            - heading "📤 Expected Output" [level=3] [ref=e786]:
+              - generic [ref=e787]: 📤
+              - text: Expected Output
+            - generic [ref=e789]:
+              - generic [ref=e790]:
+                - generic [ref=e791]: 设计文档
+                - button "Copy to clipboard" [ref=e792] [cursor=pointer]: Copy
+              - paragraph [ref=e793]: 技术设计文档，包含模块边界、接口契约、实施路线
+              - generic [ref=e795]: "# Design Note: user-authentication ## 概述 实现用户认证系统，支持多种登录方式和安全的会话管理。 ## 模块边界 ### AuthModule - **职责**: 处理所有认证相关逻辑 - **输入**: 用户凭证 (email/phone + password, OAuth token) - **输出**: JWT token, 用户信息 - **依赖**: UserModule, CryptoService ### UserModule - **职责**: 用户信息管理 - **输入**: 用户注册信息, 更新请求 - **输出**: 用户实体 - **依赖**: DatabaseService ## 接口契约 ### POST /api/auth/register ```json { \"email\": \"string\", \"password\": \"string\", \"phone\": \"string?\" } ``` ### POST /api/auth/login ```json { \"identity\": \"email|phone\", \"credential\": \"string\", \"password\": \"string\" } ``` ### POST /api/auth/logout - Headers: Authorization: Bearer <token> - 返回: 204 No Content ## 实施路线 1. **Phase 1**: 核心认证逻辑 (2天) - 实现 email/password 登录 - JWT token 生成与验证 2. **Phase 2**: OAuth 集成 (1天) - Google OAuth - GitHub OAuth 3. **Phase 3**: 安全加固 (1天) - Rate limiting - 密码重置流程 4. **Phase 4**: 测试与文档 (1天) ## 风险识别 | 风险 | 级别 | 缓解措施 | |------|------|----------| | OAuth provider 宕机 | 中 | 实现降级到 email/password | | JWT 密钥泄露 | 高 | 密钥轮换机制, 环境变量管理 | | 暴力破解 | 中 | Rate limiting + CAPTCHA |"
+        - generic [ref=e796]:
+          - heading "⚡ Context" [level=3] [ref=e797]:
+            - generic [ref=e798]: ⚡
+            - text: Context
+          - generic [ref=e799]:
+            - generic [ref=e800]:
+              - generic [ref=e801]: Trigger
+              - generic [ref=e802]: 新功能需要技术方案设计时，包括：新 feature 开发、大规模重构、API 设计、系统迁移
+            - generic [ref=e803]:
+              - generic [ref=e804]: Typical Duration
+              - generic [ref=e805]: 30-60 分钟
+            - generic [ref=e806]:
+              - generic [ref=e807]: Dependencies
+              - generic [ref=e808]: module-boundary-design, interface-contract-design, tradeoff-analysis
+          - generic [ref=e809]:
+            - text: Role Responsibilities
+            - list [ref=e810]:
+              - listitem [ref=e811]: 将需求转化为可执行的技术方案
+              - listitem [ref=e812]: 定义模块边界和职责划分
+              - listitem [ref=e813]: 设计接口契约 (API / data contract)
+              - listitem [ref=e814]: 识别技术风险和依赖关系
+              - listitem [ref=e815]: 制定分阶段实施路线
+      - generic [ref=e816]:
+        - heading "相关技能" [level=2] [ref=e817]
+        - generic [ref=e818]:
+          - link "interface-contract-design" [ref=e819] [cursor=pointer]:
+            - /url: "#/skills/architect%2Finterface-contract-design"
+            - generic [ref=e820]:
+              - heading "interface-contract-design" [level=3] [ref=e821]
+              - generic [ref=e822]: M4
+            - paragraph [ref=e823]: Design API and module interface contracts that ensure upstream-downstream alignment, prevent integration issues, and enable independent development.
+            - generic [ref=e824]:
+              - generic [ref=e825]: architect
+              - generic [ref=e826]: architect/interface-contract-design
+          - link "migration-planning" [ref=e827] [cursor=pointer]:
+            - /url: "#/skills/architect%2Fmigration-planning"
+            - generic [ref=e828]:
+              - heading "migration-planning" [level=3] [ref=e829]
+              - generic [ref=e830]: M4
+            - paragraph [ref=e831]: Plan data and system migration strategies that minimize risk, ensure data integrity, and provide clear rollback paths.
+            - generic [ref=e832]:
+              - generic [ref=e833]: architect
+              - generic [ref=e834]: architect/migration-planning
+          - link "module-boundary-design" [ref=e835] [cursor=pointer]:
+            - /url: "#/skills/architect%2Fmodule-boundary-design"
+            - generic [ref=e836]:
+              - heading "module-boundary-design" [level=3] [ref=e837]
+              - generic [ref=e838]: MVP
+            - paragraph [ref=e839]: Define module boundaries, responsibility divisions, dependencies, and integration seams to ensure high cohesion and low coupling.
+            - generic [ref=e840]:
+              - generic [ref=e841]: architect
+              - generic [ref=e842]: architect/module-boundary-design
+          - link "tradeoff-analysis" [ref=e843] [cursor=pointer]:
+            - /url: "#/skills/architect%2Ftradeoff-analysis"
+            - generic [ref=e844]:
+              - heading "tradeoff-analysis" [level=3] [ref=e845]
+              - generic [ref=e846]: MVP
+            - paragraph [ref=e847]: Provide explicit trade-off analysis for key architecture decisions, including alternative evaluations, rationale, and revisit conditions.
+            - generic [ref=e848]:
+              - generic [ref=e849]: architect
+              - generic [ref=e850]: architect/tradeoff-analysis

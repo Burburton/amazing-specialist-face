@@ -17,6 +17,8 @@ function PayloadViewer({ payload }: PayloadViewerProps) {
     { key: 'risk_level', label: 'Risk Level' },
   ];
 
+  let sectionNum = 1;
+
   return (
     <div className={styles.payloadViewer}>
       <div className={styles.header}>
@@ -49,13 +51,19 @@ function PayloadViewer({ payload }: PayloadViewerProps) {
           </div>
 
           <div className={styles.section}>
-            <h4 className={styles.sectionTitle}>Goal</h4>
+            <div className={styles.sectionHeader}>
+              <span className={styles.sectionNumber}>{String(sectionNum++).padStart(2, '0')}</span>
+              <h4 className={styles.sectionTitle}>Goal</h4>
+            </div>
             <p className={styles.goal}>{payload.goal}</p>
           </div>
 
           {payload.constraints.length > 0 && (
             <div className={styles.section}>
-              <h4 className={styles.sectionTitle}>Constraints</h4>
+              <div className={styles.sectionHeader}>
+                <span className={styles.sectionNumber}>{String(sectionNum++).padStart(2, '0')}</span>
+                <h4 className={styles.sectionTitle}>Constraints</h4>
+              </div>
               <ul className={styles.list}>
                 {payload.constraints.map((c, i) => (
                   <li key={i}>{c}</li>
@@ -66,7 +74,10 @@ function PayloadViewer({ payload }: PayloadViewerProps) {
 
           {payload.expected_outputs.length > 0 && (
             <div className={styles.section}>
-              <h4 className={styles.sectionTitle}>Expected Outputs</h4>
+              <div className={styles.sectionHeader}>
+                <span className={styles.sectionNumber}>{String(sectionNum++).padStart(2, '0')}</span>
+                <h4 className={styles.sectionTitle}>Expected Outputs</h4>
+              </div>
               <ul className={styles.list}>
                 {payload.expected_outputs.map((o, i) => (
                   <li key={i}>{o}</li>

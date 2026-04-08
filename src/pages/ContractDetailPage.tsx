@@ -3,20 +3,7 @@ import BackButton from '../components/shared/BackButton';
 import contractsData from '../data/contracts.json';
 import styles from './ContractDetailPage.module.css';
 
-const ROLE_COLORS: Record<string, string> = {
-  architect: '#8b5cf6',
-  developer: '#3b82f6',
-  tester: '#22c55e',
-  reviewer: '#f59e0b',
-  docs: '#06b6d4',
-  security: '#ef4444',
-  management: '#64748b',
-  acceptance: '#94a3b8',
-  release: '#78716c',
-  OpenClaw: '#a8a29e',
-};
-
-const ROLE_LABELS: Record<string, string> = {
+const ROLE_LABELS_CN: Record<string, string> = {
   architect: '架构师',
   developer: '开发者',
   tester: '测试员',
@@ -37,7 +24,9 @@ export default function ContractDetailPage() {
     return <Navigate to="/contracts" replace />;
   }
 
-  const producerColor = ROLE_COLORS[contract.producer_role] || '#71717a';
+  const contractsInRole = contractsData.contracts.filter(c => c.producer_role === contract.producer_role);
+  const cardIndex = contractsInRole.findIndex(c => c.contract_id === id);
+  const cardNumber = String(cardIndex + 1).padStart(2, '0');
 
   return (
     <div className={styles.page}>
@@ -45,30 +34,39 @@ export default function ContractDetailPage() {
         <BackButton to="/contracts" label="返回契约" />
 
         <section className={styles.headerSection}>
-          <span className={styles.contractId}>{contract.contract_id}</span>
-          <h1 className={styles.title}>{contract.contract_name}</h1>
+          <div className={styles.headerTop}>
+            <span className={styles.numberBadge}>{cardNumber}</span>
+            <div className={styles.headerContent}>
+              <code className={styles.contractId}>{contract.contract_id}</code>
+              <h1 className={styles.title}>{contract.contract_name}</h1>
+            </div>
+          </div>
+          <div className={styles.decorativeLine} />
         </section>
 
         <section className={styles.contentSection}>
+          <p className={styles.sectionLabel}>DESCRIPTION</p>
           <h2 className={styles.sectionTitle}>描述</h2>
           <p className={styles.description}>{contract.description}</p>
         </section>
 
         <section className={styles.contentSection}>
-          <h2 className={styles.sectionTitle}>Producer</h2>
-          <div className={styles.roleBadge} style={{ backgroundColor: producerColor }}>
-            {ROLE_LABELS[contract.producer_role] || contract.producer_role}
-          </div>
-        </section>
-
-        <section className={styles.contentSection}>
-          <h2 className={styles.sectionTitle}>Consumers</h2>
-          <div className={styles.consumersList}>
-            {contract.consumer_roles.map((role, idx) => (
-              <span key={idx} className={styles.consumerBadge}>
-                {ROLE_LABELS[role] || role}
-              </span>
-            ))}
+          <p className={styles.sectionLabel}>FLOW</p>
+          <h2 className={styles.sectionTitle}>交付流向</h2>
+          <div className={styles.flowSection}>
+            <span className={styles.flowLabel}>PRODUCER</span>
+            <span className={styles.producerBadge}>
+              {ROLE_LABELS_CN[contract.producer_role] || contract.producer_role}
+            </span>
+            <span className={styles.flowArrow}>→</span>
+            <span className={styles.flowLabel}>CONSUMERS</span>
+            <div className={styles.consumersList}>
+              {contract.consumer_roles.map((role, idx) => (
+                <span key={idx} className={styles.consumerBadge}>
+                  {ROLE_LABELS_CN[role] || role}
+                </span>
+              ))}
+            </div>
           </div>
         </section>
       </div>

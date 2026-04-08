@@ -1,95 +1,155 @@
-.commandCard {
-  background: var(--color-bg-primary);
-  border: 2px solid;
-  border-radius: var(--radius-lg);
-  padding: var(--space-lg);
-  transition: box-shadow var(--transition-normal);
-}
+/* CommandCard - Editorial/Magazine Style */
 
-.commandCard:hover {
-  box-shadow: var(--shadow-md);
-}
-
-.commandHeader {
+.card {
   display: flex;
-  align-items: center;
-  gap: var(--space-md);
-  margin-bottom: var(--space-md);
+  gap: 24px;
+  padding: 24px;
+  background: var(--editorial-cream, #faf9f6);
+  border: 2px solid var(--editorial-stone, #e8e6e1);
+  transition: all 0.2s ease;
 }
 
-.commandNumber {
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-full);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-text-inverse);
+[data-theme="dark"] .card {
+  background: #1a1a1a;
+  border-color: #333;
+}
+
+.card:hover {
+  border-color: var(--editorial-gold, #c9a227);
+  transform: translateY(-2px);
+}
+
+.numberSection {
   flex-shrink: 0;
+  width: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.numberBadge {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--editorial-gold, #c9a227);
+  line-height: 1;
+}
+
+.stepLabel {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--editorial-muted, #6b6b6b);
+  text-align: center;
+}
+
+[data-theme="dark"] .stepLabel {
+  color: #9a9a9a;
+}
+
+.contentSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .commandName {
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text-primary);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--editorial-ink, #0f0f0f);
   margin: 0;
-  font-family: monospace;
+}
+
+[data-theme="dark"] .commandName {
+  color: var(--editorial-cream, #faf9f6);
+}
+
+.decorativeLine {
+  width: 60px;
+  height: 2px;
+  background: var(--editorial-gold, #c9a227);
 }
 
 .commandDescription {
-  font-size: var(--font-size-base);
-  color: var(--color-text-secondary);
-  line-height: var(--line-height-relaxed);
-  margin-bottom: var(--space-md);
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 14px;
+  color: var(--editorial-muted, #6b6b6b);
+  line-height: 1.6;
+  margin: 0;
 }
 
-.commandMeta {
+[data-theme="dark"] .commandDescription {
+  color: #9a9a9a;
+}
+
+.ioSection {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
+  gap: 24px;
+  margin-top: 8px;
 }
 
-.metaSection {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
+.ioBlock {
+  flex: 1;
 }
 
-.metaLabel {
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text-tertiary);
+.ioLabel {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  color: var(--editorial-muted, #6b6b6b);
+  margin-bottom: 8px;
 }
 
-.metaList {
+[data-theme="dark"] .ioLabel {
+  color: #9a9a9a;
+}
+
+.ioList {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-xs);
+  gap: 6px;
 }
 
-.metaItem {
-  display: inline-flex;
+.ioItem {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--editorial-text, #1a1a1a);
+  background: var(--editorial-paper, #f5f4f0);
+  padding: 4px 10px;
 }
 
-.code {
-  font-size: var(--font-size-sm);
-  background: var(--color-bg-tertiary);
-  padding: 2px 8px;
-  border-radius: var(--radius-sm);
-  color: var(--color-text-primary);
-  font-family: monospace;
+[data-theme="dark"] .ioItem {
+  color: var(--editorial-cream, #faf9f6);
+  background: #333;
 }
 
 @media (max-width: 480px) {
-  .commandHeader {
+  .card {
     flex-direction: column;
-    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .numberSection {
+    width: auto;
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .numberBadge {
+    font-size: 36px;
+  }
+
+  .ioSection {
+    flex-direction: column;
+    gap: 16px;
   }
 }

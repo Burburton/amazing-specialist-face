@@ -1,9 +1,15 @@
+/* Timeline - Editorial/Magazine Style */
+
 .timeline {
-  padding: var(--space-lg);
-  background: var(--color-bg-secondary);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--color-border-light);
+  padding: 24px;
+  background: var(--editorial-cream, #faf9f6);
+  border: 2px solid var(--editorial-stone, #e8e6e1);
   overflow-x: auto;
+}
+
+[data-theme="dark"] .timeline {
+  background: #1a1a1a;
+  border-color: #333;
 }
 
 .timelineTrack {
@@ -30,10 +36,15 @@
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: var(--color-border-light);
-  border: 2px solid var(--color-bg-primary);
+  background: var(--editorial-stone, #e8e6e1);
+  border: 2px solid var(--editorial-cream, #faf9f6);
   z-index: 1;
   transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+[data-theme="dark"] .phaseDot {
+  border-color: #1a1a1a;
+  background: #333;
 }
 
 .phaseConnector {
@@ -43,62 +54,101 @@
   transform: translateY(-50%);
   width: 84px;
   height: 2px;
-  background: var(--color-border-light);
+  background: var(--editorial-stone, #e8e6e1);
+}
+
+[data-theme="dark"] .phaseConnector {
+  background: #333;
 }
 
 .phaseContent {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: var(--space-sm);
+  margin-top: 12px;
   text-align: center;
 }
 
+.phaseNumber {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--editorial-muted, #6b6b6b);
+  margin-bottom: 4px;
+}
+
+[data-theme="dark"] .phaseNumber {
+  color: #9a9a9a;
+}
+
 .phaseLabel {
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-secondary);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--editorial-muted, #6b6b6b);
+}
+
+[data-theme="dark"] .phaseLabel {
+  color: #9a9a9a;
 }
 
 .phaseDuration {
-  font-size: var(--font-size-xs);
-  color: var(--color-text-tertiary);
-  margin-top: 2px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--editorial-muted, #6b6b6b);
+  margin-top: 4px;
+}
+
+[data-theme="dark"] .phaseDuration {
+  color: #9a9a9a;
 }
 
 .pending .phaseDot {
-  background: #9CA3AF;
+  background: var(--editorial-stone, #e8e6e1);
+}
+
+[data-theme="dark"] .pending .phaseDot {
+  background: #333;
 }
 
 .in-progress .phaseDot {
-  background: #3B82F6;
+  background: #2563eb;
   animation: pulse 2s infinite;
 }
 
 .success .phaseDot {
-  background: #10B981;
+  background: #16a34a;
 }
 
 .success .phaseConnector {
-  background: linear-gradient(to right, #10B981 0%, var(--color-border-light) 100%);
+  background: linear-gradient(to right, #16a34a 0%, var(--editorial-stone, #e8e6e1) 100%);
+}
+
+[data-theme="dark"] .success .phaseConnector {
+  background: linear-gradient(to right, #16a34a 0%, #333 100%);
 }
 
 .failed .phaseDot {
-  background: #EF4444;
+  background: #dc2626;
 }
 
 .blocked .phaseDot {
-  background: #F59E0B;
+  background: var(--editorial-gold, #c9a227);
 }
 
 .current .phaseDot {
   transform: scale(1.25);
-  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
 }
 
 .current .phaseLabel {
-  color: var(--color-primary);
-  font-weight: var(--font-weight-semibold);
+  color: var(--editorial-gold, #c9a227);
+  font-weight: 700;
+}
+
+.current .phaseNumber {
+  color: var(--editorial-gold, #c9a227);
 }
 
 @keyframes pulse {

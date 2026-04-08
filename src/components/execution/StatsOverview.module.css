@@ -1,3 +1,5 @@
+/* StatsOverview - Editorial/Magazine Style */
+
 .statsOverview {
   width: 100%;
 }
@@ -5,8 +7,8 @@
 .mainStats {
   display: flex;
   justify-content: center;
-  gap: var(--space-8);
-  margin-bottom: var(--space-8);
+  gap: 48px;
+  margin-bottom: 32px;
 }
 
 .mainStat {
@@ -14,70 +16,92 @@
 }
 
 .mainValue {
-  font-family: var(--font-display);
-  font-size: clamp(3rem, 8vw, 5rem);
-  font-weight: var(--font-bold);
-  color: var(--color-text-primary);
+  font-family: 'Playfair Display', serif;
+  font-size: 64px;
+  font-weight: 900;
+  color: var(--editorial-ink, #0f0f0f);
   line-height: 1;
 }
 
+[data-theme="dark"] .mainValue {
+  color: var(--editorial-cream, #faf9f6);
+}
+
 .mainLabel {
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
-  color: var(--color-text-muted);
-  text-transform: uppercase;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 600;
   letter-spacing: 0.1em;
-  margin-top: var(--space-2);
+  text-transform: uppercase;
+  color: var(--editorial-muted, #6b6b6b);
+  margin-top: 8px;
+}
+
+[data-theme="dark"] .mainLabel {
+  color: #9a9a9a;
 }
 
 .statusStats {
   display: flex;
   justify-content: center;
-  gap: var(--space-4);
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .statusStat {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-2) var(--space-4);
-  background: var(--color-surface-elevated);
-  border-radius: var(--radius-full);
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--editorial-cream, #faf9f6);
+  border: 2px solid var(--editorial-stone, #e8e6e1);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+}
+
+[data-theme="dark"] .statusStat {
+  background: #222;
+  border-color: #333;
 }
 
 .statusValue {
-  font-weight: var(--font-bold);
+  font-weight: 700;
 }
 
 .statusLabel {
-  color: var(--color-text-muted);
+  color: var(--editorial-muted, #6b6b6b);
+}
+
+[data-theme="dark"] .statusLabel {
+  color: #9a9a9a;
 }
 
 .pending {
-  color: #9CA3AF;
+  color: #6b6b6b;
+}
+
+[data-theme="dark"] .pending {
+  color: #9a9a9a;
 }
 
 .failed {
-  color: #EF4444;
+  color: #dc2626;
 }
 
 .blocked {
-  color: #F59E0B;
+  color: var(--editorial-gold, #c9a227);
 }
 
 @media (max-width: 640px) {
   .mainStats {
-    gap: var(--space-4);
+    gap: 24px;
   }
 
   .mainValue {
-    font-size: 2.5rem;
+    font-size: 48px;
   }
 
   .statusStats {
-    flex-wrap: wrap;
-    gap: var(--space-2);
+    gap: 8px;
   }
 }
