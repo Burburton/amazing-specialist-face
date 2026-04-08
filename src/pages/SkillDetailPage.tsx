@@ -6,24 +6,14 @@ import { useSkillDemo } from '../hooks/useSkillDemo';
 import skillsData from '../data/skills.json';
 import styles from './SkillDetailPage.module.css';
 
-const ROLE_COLORS_400: Record<string, string> = {
-  architect: 'var(--color-role-architect-400)',
-  developer: 'var(--color-role-developer-400)',
-  tester: 'var(--color-role-tester-400)',
-  reviewer: 'var(--color-role-reviewer-400)',
-  docs: 'var(--color-role-docs-400)',
-  security: 'var(--color-role-security-400)',
-  common: 'var(--color-role-common-400)',
-};
-
 const ROLE_LABELS: Record<string, string> = {
-  architect: '架构师',
-  developer: '开发者',
-  tester: '测试员',
-  reviewer: '审查员',
-  docs: '文档员',
-  security: '安全员',
-  common: '通用',
+  architect: 'ARCHITECT',
+  developer: 'DEVELOPER',
+  tester: 'TESTER',
+  reviewer: 'REVIEWER',
+  docs: 'DOCS',
+  security: 'SECURITY',
+  common: 'COMMON',
 };
 
 export default function SkillDetailPage() {
@@ -32,14 +22,17 @@ export default function SkillDetailPage() {
   const skill = skillsData.skills.find(s => s.id === decodedId);
   const { demo, loading } = useSkillDemo(decodedId);
 
+  const skillIndex = skillsData.skills.findIndex(s => s.id === decodedId);
+  const number = skillIndex >= 0 ? String(skillIndex + 1).padStart(2, '0') : '00';
+  const label = skill?.name.split(' ').slice(0, 2).join(' ').toUpperCase() || '';
+
   if (!skill) {
     return <Navigate to="/skills" replace />;
   }
 
-  const roleColor = ROLE_COLORS_400[skill.role] || 'var(--color-role-common-400)';
   const relatedSkills = skillsData.skills.filter(
     s => s.role === skill.role && s.id !== skill.id
-  ).slice(0, 6);
+  ).slice(0, 4);
 
   return (
     <div className={styles.page}>
@@ -47,41 +40,48 @@ export default function SkillDetailPage() {
         <BackButton to="/skills" label="返回技能库" />
 
         <section className={styles.headerSection}>
-          <span className={styles.skillId}>{skill.id}</span>
-          <h1 className={styles.title}>{skill.name}</h1>
-          <div className={styles.meta}>
-            <span 
-              className={styles.roleBadge}
-              style={{ backgroundColor: roleColor }}
-            >
-              {ROLE_LABELS[skill.role]}
-            </span>
-            <span className={`${styles.categoryBadge} ${skill.category === 'MVP' ? styles.mvp : styles.m4}`}>
-              {skill.category}
-            </span>
+          <div className={styles.numberBadge}>{number}</div>
+          
+          <div className={styles.titleBlock}>
+            <span className={styles.label}>{label}</span>
+            <div className={styles.decorativeLine} aria-hidden="true" />
+            <h1 className={styles.title}>{skill.name}</h1>
+          </div>
+
+          <div className={styles.metaRow}>
+            <span className={styles.role}>{ROLE_LABELS[skill.role] || skill.role.toUpperCase()}</span>
+            <span className={styles.divider}>·</span>
+            <span className={styles.category}>{skill.category}</span>
+          </div>
+
+          <p className={styles.quote}>{skill.description}</p>
+
+          <div className={styles.pathBlock}>
+            <span className={styles.pathLabel}>PATH</span>
+            <code className={styles.path}>{skill.path}</code>
           </div>
         </section>
 
-        <section className={styles.contentSection}>
-          <h2 className={styles.sectionTitle}>描述</h2>
-          <p className={styles.description}>{skill.description}</p>
-        </section>
-
-        <section className={styles.contentSection}>
-          <h2 className={styles.sectionTitle}>文件路径</h2>
-          <code className={styles.path}>{skill.path}</code>
-        </section>
-
         {!loading && demo && (
-          <SkillDemoPanel demo={demo} />
+          <section className={styles.demoSection}>
+            <h2 className={styles.sectionTitle}>TRY IT</h2>
+            <div className={styles.sectionLine} aria-hidden="true" />
+            <SkillDemoPanel demo={demo} />
+          </section>
         )}
 
         {relatedSkills.length > 0 && (
           <section className={styles.relatedSection}>
-            <h2 className={styles.sectionTitle}>相关技能</h2>
+            <h2 className={styles.sectionTitle}>RELATED SKILLS</h2>
+            <div className={styles.sectionLine} aria-hidden="true" />
             <div className={styles.relatedGrid}>
-              {relatedSkills.map(s => (
-                <SkillCard key={s.id} skill={s} href={`/skills/${encodeURIComponent(s.id)}`} />
+              {relatedSkills.map((s) => (
+                <SkillCard 
+                  key={s.id} 
+                  skill={s} 
+                  index={skillsData.skills.findIndex(sk => sk.id === s.id)}
+                  href={`/skills/${encodeURIComponent(s.id)}`} 
+                />
               ))}
             </div>
           </section>
