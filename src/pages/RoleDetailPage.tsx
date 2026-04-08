@@ -5,42 +5,25 @@ import rolesData from '../data/roles.json';
 import skillsData from '../data/skills.json';
 import styles from './RoleDetailPage.module.css';
 
-const ROLE_COLORS: Record<string, string> = {
-  architect: '#8b5cf6',
-  developer: '#3b82f6',
-  tester: '#22c55e',
-  reviewer: '#f59e0b',
-  docs: '#06b6d4',
-  security: '#ef4444',
-};
-
 const ROLE_LABELS: Record<string, string> = {
-  architect: '架构师',
-  developer: '开发者',
-  tester: '测试员',
-  reviewer: '审查员',
-  docs: '文档员',
-  security: '安全员',
-};
-
-const ROLE_EMOJIS: Record<string, string> = {
-  architect: '🏛️',
-  developer: '💻',
-  tester: '🔍',
-  reviewer: '✅',
-  docs: '📝',
-  security: '🔐',
+  architect: 'ARCHITECT',
+  developer: 'DEVELOPER',
+  tester: 'TESTER',
+  reviewer: 'REVIEWER',
+  docs: 'DOCS',
+  security: 'SECURITY',
 };
 
 export default function RoleDetailPage() {
   const { name } = useParams();
   const role = rolesData.roles.find(r => r.name === name);
+  const roleIndex = rolesData.roles.findIndex(r => r.name === name);
+  const number = roleIndex >= 0 ? String(roleIndex + 1).padStart(2, '0') : '00';
 
   if (!role) {
     return <Navigate to="/roles" replace />;
   }
 
-  const roleColor = ROLE_COLORS[role.name] || '#71717a';
   const roleSkills = skillsData.skills.filter(s => s.role === role.name);
 
   return (
@@ -49,53 +32,75 @@ export default function RoleDetailPage() {
         <BackButton to="/roles" label="返回角色" />
 
         <section className={styles.headerSection}>
-          <div className={styles.roleIcon} style={{ backgroundColor: roleColor }}>
-            {ROLE_EMOJIS[role.name] || role.name.charAt(0).toUpperCase()}
+          <div className={styles.numberBadge}>{number}</div>
+          
+          <div className={styles.titleBlock}>
+            <span className={styles.label}>{ROLE_LABELS[role.name] || role.name.toUpperCase()}</span>
+            <div className={styles.decorativeLine} aria-hidden="true" />
+            <h1 className={styles.title}>{role.name}</h1>
           </div>
-          <h1 className={styles.title}>{ROLE_LABELS[role.name]}</h1>
-          <p className={styles.roleId}>{role.name}</p>
+
+          <p className={styles.quote}>{role.mission}</p>
+
+          <div className={styles.statsRow}>
+            <div className={styles.statItem}>
+              <span className={styles.statValue}>{roleSkills.length}</span>
+              <span className={styles.statLabel}>SKILLS</span>
+            </div>
+          </div>
         </section>
 
         <section className={styles.contentSection}>
-          <h2 className={styles.sectionTitle}>Mission</h2>
-          <p className={styles.description}>{role.mission}</p>
-        </section>
-
-        <section className={styles.contentSection}>
-          <h2 className={styles.sectionTitle}>In Scope</h2>
+          <h2 className={styles.sectionTitle}>IN SCOPE</h2>
+          <div className={styles.sectionLine} aria-hidden="true" />
           <ul className={styles.list}>
             {role.inScope.map((item, idx) => (
-              <li key={idx} className={styles.inScopeItem}>{item}</li>
+              <li key={idx} className={styles.listItem}>
+                <span className={styles.itemNumber}>{String(idx + 1).padStart(2, '0')}</span>
+                <span className={styles.itemText}>{item}</span>
+              </li>
             ))}
           </ul>
         </section>
 
         <section className={styles.contentSection}>
-          <h2 className={styles.sectionTitle}>Out of Scope</h2>
+          <h2 className={styles.sectionTitle}>OUT OF SCOPE</h2>
+          <div className={styles.sectionLine} aria-hidden="true" />
           <ul className={styles.list}>
             {role.outOfScope.map((item, idx) => (
-              <li key={idx} className={styles.outScopeItem}>{item}</li>
+              <li key={idx} className={styles.listItem}>
+                <span className={styles.itemNumber}>{String(idx + 1).padStart(2, '0')}</span>
+                <span className={styles.itemText}>{item}</span>
+              </li>
             ))}
           </ul>
         </section>
 
         <section className={styles.contentSection}>
-          <h2 className={styles.sectionTitle}>Trigger Conditions</h2>
+          <h2 className={styles.sectionTitle}>TRIGGER CONDITIONS</h2>
+          <div className={styles.sectionLine} aria-hidden="true" />
           <ul className={styles.list}>
             {role.triggerConditions.map((item, idx) => (
-              <li key={idx} className={styles.triggerItem}>{item}</li>
+              <li key={idx} className={styles.listItem}>
+                <span className={styles.itemNumber}>{String(idx + 1).padStart(2, '0')}</span>
+                <span className={styles.itemText}>{item}</span>
+              </li>
             ))}
           </ul>
         </section>
 
         {roleSkills.length > 0 && (
           <section className={styles.skillsSection}>
-            <h2 className={styles.sectionTitle}>
-              技能 ({roleSkills.length})
-            </h2>
+            <h2 className={styles.sectionTitle}>SKILLS ({roleSkills.length})</h2>
+            <div className={styles.sectionLine} aria-hidden="true" />
             <div className={styles.skillsGrid}>
-              {roleSkills.map(s => (
-                <SkillCard key={s.id} skill={s} href={`/skills/${s.id}`} />
+              {roleSkills.map((s) => (
+                <SkillCard 
+                  key={s.id} 
+                  skill={s} 
+                  index={skillsData.skills.findIndex(sk => sk.id === s.id)}
+                  href={`/skills/${s.id}`} 
+                />
               ))}
             </div>
           </section>
